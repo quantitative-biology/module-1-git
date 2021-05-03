@@ -16,5 +16,11 @@ knitr-cache
 .RData
 .RHistory
 
-from-TTT/*
+
 myNotes.*
+
+git-intro/git-course-intro-17.tex
+git-motivation/figures/*
+git-motivation/git-for-Rworkshop.tex
+git-motivation/NGbeforeCmerges.png
+git-intro/build-pdf.bat
