@@ -22,7 +22,7 @@
   \bi
     \item Scientists are working far more collaboratively than in the past
     \item This involves both sharing code and writing up results
-    \item There is also a push towards open science -- including your code as
+    \item There is a push towards open science -- including your code as
       part of a scientific paper
     \item We have called this a TTT approach:
       \bi
@@ -43,8 +43,9 @@
     \item {\red Git} allows you to continually save the latest versions
        of your files (e.g. computer code) as you work on them (`version control').
     \item It also allows you to go back to {\red any previous version} of your files.
-    \item {\red GitHub} is a website that hosts a copy of the code and enables
-       users to easily collaborate.
+    \item {\red GitHub} is a website that hosts a `repository' of the code and enables
+      users to easily collaborate.
+    \item Your repositories can be either public or private.
      \item We use these to:
        \bi
          \item collaborate on writing code and producing documents
@@ -55,9 +56,36 @@
   \ei
 }
 
-\frame{\frametitle{Examples of what we can avoid}
+\frame{\frametitle{Example application -- Pacific Hake stock assessment}
   \bi
-    \item Stock assessments, for example, can be extremely complex with Bayesian output (recent Pacific Ocean Perch assessment had $>200$ figures in just one Appendix).
+    \item Collaboration between four US and Canadian scientists.
+    \item Annual stock assessment of Pacific Hake -- fit a complex population
+      model to data to make projections about future health of stock under
+      different levels of catch.
+    \item Used to manage the stock (important ecological species and
+      \$100~million export value in Canada).
+    \item Very short turnaround between getting final data and submitting assessment.
+    \item Short turnaround between review meeting and publishing assessment (two days).
+    \item 2015 and before -- lots of editing and amalgamating Word files late at night.
+  \ei
+}
+
+\frame{\frametitle{Example application -- Pacific Hake stock assessment}
+  \bi
+    \item After running models we can now automatically generate full document, including all numbers, figures and tables (via knitr and latex, all shared on \gh).
+
+    \item Was a lot of work in 2016 to set up, but 2017 was way less stressful and resulted in more polished document.
+    \item Praise on Twitter from one of the reviewers!
+  \ei
+  \includegraphics[
+     width=\textwidth,
+     height=0.50\textheight,
+     keepaspectratio]
+     {figures/trevorTweet}
+}
+
+\frame{\frametitle{Example application -- Pacific Hake stock assessment}
+  \bi
     \item How to share code and make sure we are working on the same version?
     \item Emailing versions of files back and forth is:
     \bi
@@ -65,7 +93,7 @@
       \item prone to errors,
       \item painful.
     \ei
-    \item With complex code we need to have {\red identical} folder structures on each other's computers.
+    \item With such complex code we need to have {\red identical} folder structures on each other's computers.
   \ei
 }
 
@@ -219,45 +247,20 @@
 
 
 
-\frame{\frametitle{I wanted to check if I'd changed anything in the last month}
+% \frame{\frametitle{I wanted to check if I'd changed anything in the last month}
 
-  \includegraphics[
-     width=\textwidth,
-     height=0.80\textheight,
-     keepaspectratio]
-     {figures/history}
+%   \includegraphics[
+%      width=\textwidth,
+%      height=0.80\textheight,
+%      keepaspectratio]
+%      {figures/history}
 
-  I hadn't thought of that before [on \gh: Code -- $<$click file$>$ -- History].
-}
+%   I hadn't thought of that before [on \gh: Code -- $<$click file$>$ -- History].
+% }
 
 
-\frame{\frametitle{Pacific Hake assessment}
 
-  \bi
-    \item Collaboration between four/five US and Canadian scientists.
-    \item Annual assessment.
-    \item Full Bayesian statistical catch-at-age model (complex output).
-    \item Short turnaround between getting final data and submitting assessment.
-    \item Short turnaround between review meeting and publishing assessment (two days).
-    \item 2015 and before -- lots of editing and amalgamating Word files late at night.
-  \ei
-}
-
-\frame{\frametitle{Pacific Hake assessment}
-  \bi
-    \item After running models we can now automatically generate full document, including all numbers, figures and tables (via knitr and latex, all shared on \gh).
-
-    \item Was a lot of work in 2016 to set up, but 2017 was way less stressful and resulted in more polished document.
-    \item Praise on Twitter from one of the reviewers!
-  \ei
-  \includegraphics[
-     width=\textwidth,
-     height=0.50\textheight,
-     keepaspectratio]
-     {figures/trevorTweet}
-}
-
-\frame{\frametitle{Groundfish data synopsis}
+\frame{\frametitle{Groundfish data synopsis -- **move to Rmarkdown talk}
   \bi
   \item ``A reproducible data synopsis for over 100 species of British Columbia
     groundfish'' (Anderson, Keppel \& Edwards, submitted)
@@ -297,13 +300,15 @@
 
 \frame{\frametitle{Can properly keep track of (and discuss) issues}
 
-Rather than lots of emails that get forgotten, the to-do list actually gets completed.
+Rather than lots of emails that get forgotten, the to-do list actually gets completed:
+
+~\\
 
   \includegraphics[
      width=\textwidth,
-     height=0.80\textheight,
+     height=0.70\textheight,
      keepaspectratio]
-     {figures/hakeIssues}
+     {figures/hakeIssues21}
 }
 
 \frame{\frametitle{Can properly keep track of (and discuss) issues}
@@ -319,27 +324,47 @@ And you don't have to follow up with co-authors (who do have it under control):
 }
 
 
-\frame{\frametitle{Feedback from 2017 course}
+% \frame{\frametitle{Feedback from 2017 course}
 
-% Hey, you two!
+% % Hey, you two!
 
-Wanted to send you a belated thank-you and update that using git
+% Wanted to send you a belated thank-you and update that using git
 
-\bi
-\item is now permanently part of my workflow
+% \bi
+% \item is now permanently part of my workflow
 
-\item has vastly improved the organization \& communication for a few collaborative
-projects I'm working on (making full use of ``issues'' and ``projects''
-features).
-\ei
+% \item has vastly improved the organization \& communication for a few collaborative
+% projects I'm working on (making full use of ``issues'' and ``projects''
+% features).
+% \ei
 
-It's also had a ripple effect on the Pacific salmon world, since my excitement over the git course was the proverbial straw that got Gottfried Pestal going full tilt into git \& now it looks like all of his projects and associated DFO staff are there, too. And I just saw first signs that some of the Pacific Salmon Commission staff are starting to use it too.
+% It's also had a ripple effect on the Pacific salmon world, since my excitement over the git course was the proverbial straw that got Gottfried Pestal going full tilt into git \& now it looks like all of his projects and associated DFO staff are there, too. And I just saw first signs that some of the Pacific Salmon Commission staff are starting to use it too.
 
-Now we (Gottfried \& I) are venturing into the world of {\tt .Rmd}, {\tt
-  Pandoc}, etc. and I'm going back to your course materials to get myself re-oriented.
+% Now we (Gottfried \& I) are venturing into the world of {\tt .Rmd}, {\tt
+%   Pandoc}, etc. and I'm going back to your course materials to get myself re-oriented.
 
-Thanks again!
+% Thanks again!
+% }
+
+\section{Why this course?}
+
+\frame{\frametitle{Why this course?}
+  \bi
+    \item The Git and \gh\ online world can be very computer science-y.
+    \item Target audience here:
+      \bi
+         \item graduate level biology students
+         \item biology faculty
+         \item government scientists
+         \item in fact anyone wanting to learn these tools
+      \ei
+    \item This is extended from part of a Fisheries and Oceans Canada workshop by Chris
+      Grandin and myself.
+    \item It was well-received and Git and \gh\ are widely used in our
+      organisation.
+  \ei
 }
+
 
 \section{Summary}
 
@@ -348,11 +373,14 @@ Thanks again!
   \bi
     \item Ideal for sharing of code.
     \item `Repositories' can be public or private.
-    \item Caveat -- cannot (properly) collaborate on Word files. We will concentrate at first on just sharing code.
-    \item We will use RMarkdown (easy) to generate a .pdf that complies with the
-      CSAS style rules. Can also use to generate Word files. So you don't have
-      to know \LaTeX.
-    \item Hake, data synopsis and other examples show how far you can get.
+    \item Caveat -- cannot (properly) collaborate on Word files. We will
+      concentrate at first on just sharing code (text files).
+    \item It doesn't matter what language your code is in (R, Matlab, Python, C,
+      ...), as we will just be sharing text files.
+%    \item We will use RMarkdown (easy) to generate a .pdf that complies with the
+%      CSAS style rules. Can also use to generate Word files. So you don't have
+%      to know \LaTeX.
+%    \item Hake, data synopsis and other examples show how far you can get.
     \item There \emph{is} a learning curve, but once you use \gh\ you only really need a few main commands.
   \ei
 }
