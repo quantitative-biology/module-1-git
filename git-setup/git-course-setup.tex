@@ -33,8 +33,18 @@
   This module is for any operating system: Windows, MacOS, Linux or Unix.
 
   ~\\
+}
 
+\frame{\frametitle{While testing...}
 
+Luwen -- I think you said you already have Git set up on your computer. If so
+then don't worry about redoing anything you already have. And please let me know
+of any tips you might have if you remember how you installed it before.
+
+~\\
+
+Luwen and Matthew -- please keep notes of any steps that aren't clear. I can't
+test the installation, so any feedback is welcome.
 }
 
 \frame{\frametitle{What you will end up having installed}
@@ -45,7 +55,7 @@
   \item A \gh\ account
   \item Git on your computer
   \item Diffmerge or something similar for comparing changes to files
-  \item Markdown Pad 2 or Chrome extenstion or something similar for viewing Markdown
+  \item Markdown Pad 2 or Chrome extension or something similar for viewing Markdown
     files
 %  \item R -- presumably a version not \emph{too} old (though it's hard for us to specify
 %    exactly what version). Also a few R packages are given here
@@ -67,30 +77,95 @@
   \ei
 }
 
-% As such we will use a simple command shell (to type in commands)
-%  rather than a GUI.
+
 
 \frame{\frametitle{Install the Git application on your machine}
-  \bi
-    \item Windows:\\
-      \url{https://github-windows.s3.amazonaws.com/GitHubSetup.exe}\\
-      Note that some people have had issues trying to install on a DFO computer
-      without having admin privileges. If so, you may have to use a different
-      computer. It can also time out during installation due to a slow network
-      connection, so you may have to do this stage at home.
-    \item MAC:\\
-      Type \emph{git} on the command line. You will either see that it
-      is installed, or if you have OSX 10.9 or higher it will prompt you to
-      install it. If your OSX is less than 10.9, or for any other reason, you
-      can install git from here:\\
-      \url{https://git-scm.com/download/mac}
-    \item Linux:\\
-      You'll need the same tools. Sorry, we don't have a machine to test things
-      on, but if you're using Linux you presumably know how to install programs.
-  \ei
+See \url{https://git-scm.com/downloads} for downloading instructions for Windows, MAC and
+Linux/Unix.
+}
+
+
+\frame{\frametitle{Git shell}
+For this course we will use a simple git shell to type commands (rather than a
+point-and-click Graphical User Interface). This is for several reasons:
+\bn
+\item Commands are the same across operating systems.
+\item It is easier to demonstrate (and remember) a few simple commands, rather than
+  follow a cursor moving across a screen.
+\item Learning the text commands will give you a good understanding of how Git
+  and GitHub work.
+\item It is easier to Google for help when you get stuck or want to learn about
+  more advanced options.
+\en
+
+There are many Graphical User Interfaces that are available, as described at
+\url{https://git-scm.com/downloads/guis}. I have just started using magit
+which works in the text editor emacs (which for years I have used for pretty
+much everything, such as editing files, running R, etc.). But I would not have
+been able to learn magit without first knowing the Git commands from using the
+shell.
+}
+
+\frame{\frametitle{STOP!!}
+
+Luwen and Matthew -- please let me know how it went so far. We
+should probably have a meeting and you share your screens so I can see what you have.
+
+~\\
+
+We'll need to work out if you automatically have a Git shell installed -- a
+shell is just a command-line where you type commands.
+
+~\\
+
+The installation advice is hard to test as I did my Git installation once about
+three years ago, and I think there's a different approach now.
+
+~\\
+
+You can skip the remaining slides for now -- except please just do ``Install the difftool''.
+
+}
+
+\frame{\frametitle{Powershell and posh-git}
+
+  Download a Powershell and then posh-git following the instructions at:
+
+  \url{https://github.com/dahlbyk/posh-git}.
+
+
+The next slides are from our course about three years ago (and were for
+Windows). So they may be out of date (though first one is recent tips from a colleague).
+
+[Maybe we should see https://upg-dh.newtfire.org/explainGitShell.html]
+
+}
+
+
+\frame{\frametitle{Tips from Chris in 2021 but don't think we need it all now}
+
+Not sure we need this.... And I think this is just for Windows:
+
+Install scm-git (you need this version because it has the new Windows credential
+manager): https://git-scm.com/
+
+Then make sure c:/Program Files/Git/cmd is the first place Git is found on your
+PATH. That's where git-scm installs it. This is just opening a command window
+and typing where git and making sure that folder is first.
+
+Then change something in a file in a test repo,  and commit. Then try to push. You will get a Github for Windows dialog box that asks for your token. Leave that dialog open and
+Create a new token on GitHub using these instructions:
+https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token
+
+Copy the token (it's some long alphanumeric string, then click Update token if updating or `create token` if creating a new one then finish saving the token so it is live.
+Now, paste the token in the GitHub for Windows dialog for logging in and that
+should be the end of it.
 }
 
 \frame{\frametitle{Configure the Git application}
+
+
+
   \bi
     \item Windows:
       \bn
@@ -127,7 +202,7 @@
   for consistency we will use Diffmerge.\\
   \bigskip
 
-  For both Windows and MAC, Install Diffmerge:\\
+  Install Diffmerge:\\
   \bigskip
   \url{https://sourcegear.com/diffmerge/downloads.php}\\
   \bigskip
