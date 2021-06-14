@@ -4,7 +4,7 @@
 \usepackage{../git-course}
 
 \title[git-course]{An Introduction to \gh\ and \gs}
-\author{Chris Grandin \& Andrew Edwards}
+\author{Andrew Edwards}
 \date{\today}
 
 \begin{document}
@@ -19,11 +19,11 @@
 
 \frame{\frametitle{Basics}
   \bigskip
-  We will go through the next 7-8 slides, demonstrating the basic commands.\\
+  I will go through the next 7-8(TODO) slides, demonstrating the basic commands.\\
   ~\\
   Some are only needed once per repository to get set up.\\
   ~\\
-  Then we'll start again with participants actually doing the commands.\\
+  Then you should follow the slides yourself, to become familiar with the basic ideas.\\
   \bigskip
 }
 
@@ -34,7 +34,7 @@
       \emph{Repositories} tab, and press the \emph{New} button.
     \item Give your repository a name. Let's call it \lst{test}.
     \item Check \emph{Initialize this repository with a README}.
-    \item Leave \emph{Add .gitignore} and \emph{Add a license}
+    \item Leave \emph{`Add .gitignore`} and \emph{`Add a license`}
       set to \emph{None}.
     \item Click \emph{Create repository}.
   \ei
@@ -42,8 +42,7 @@
 
 \frame{\frametitle{Cloning your new repository}
   \bi
-    \item Once you have created the \lst{test} repository on \gh, copy
-      the URL of the repository.
+    \item Now copy the full URL of your test repository.
     \item Open the \gs\ and run the following command to \emph{clone} your repository:
       \lst{git clone URL}\\
       where \lst{URL} is the url of your newly created repository. You
@@ -56,9 +55,17 @@
   In \gs, change
   to that directory:\\
   \lst{cd test}
+  ~\\
+  So `clone' is Git speak for copying something from GitHub onto your local
+  computer.
+  ~\\
+  This example has just one file (the README). But the process is the same for a
+  repository with multiple files and multiple directories (the structure is
+  fully preserved).
 }
 
-\frame{\frametitle{Windows only: Storing your credentials}
+\frame{\frametitle{Windows only: Storing your credentials [TODO: not sure about
+    this nowadays]}
   When you are using the \gs\ for the \alert{very first time}, issue
   the following command:\\
   \bigskip
@@ -74,43 +81,79 @@
 \small
 \frame{\frametitle{Copy and commit \emph{.gitignore}}
   \bi
-    \item Copy the \emph{.gitignore} file from the git-course directory and
-      paste it into your new \lst{github/test} directory. You can edit this to suit
-      the project, as there is a different \emph{.gitignore} file for each
-      project.
+    \item Copy the \emph{.gitignore} file from the \lst{git-course} directory and
+      paste it into your new \lst{github/test} directory. (We are using
+      \emph{.gitignore} as an example file here).
     \pause
-    \item Check the status of your repository: \lst{git status}
+    \item Check the status of your (\lst{test}) repository: \lst{git status}
     \pause
-    \item You will see that the new file \emph{.gitignore} has not been
-      staged for commit. It is an \emph{Untracked file}. You need to add any
-      new files to be committed by using the \lst{git add} command:\\
+  \item It should say that you have an `Untracked file' called \emph{.gitignore}.
+      You want to tell Git to start tracking it, by using the \lst{git add}
+      command:\\
       \lst{git add .gitignore}
-    \pause
-    \item Make a commit for the changes:\\
-      \lst{git commit -a -m "Added .gitignore"}\\
+   \pause
+ \item Type \lst{git status} again.
+ \item You should see that the file is listed as a `new file` under `Changes to
+   be committed`.
+    \item Let's now `commit' it:\\
+      \lst{git commit -a -m "Add .gitignore file."}\\
       The commit message should be a useful message saying what the commit
       encapsulates.\\
     \pause
     \item Push the commit to \gh: \lst{git push}
     \pause
-    \item Check the \gh\ webpage and see your commit and that the file
+    \item Check (refresh) the \gh\ webpage and see your commit and that the file
       has been uploaded.
   \ei
 }
 \endgroup
 
+\frame{\frametitle{What just happened?}
+  We just used three of the main Git commands:
+  \bi
+  \item \lst{git add <filename>} -- tell Git to start keeping track of changes
+    to this file. You only need to tell Git this once.
+  \item \lst{git commit -a -m "Message."} -- committing your changes, which means tell Git
+    you are happy with your edits and want to save them. You are actually saving
+    a snapshot of your entire repository (all the folders and files in your repository).
+  \item \lst{git push} -- this sends your commit to the GitHub website.
+  \ei
+  ~\\
+ You always have your files stored \emph{locally} on your computer. When
+    you push to GitHub they can then be easily fetched (retrieved) by whoever
+    you are collaborating with.
+}
+
 \frame{\frametitle{Committing and pushing}
+
   ~\\
   \lst{git commit} and \lst{git push} are two of the commonly used commands.
   ~\\
   \bi
-  \item \lst{git commit -a -m "Message"} commits all your changes locally (Git has recorded
+  \item \lst{git commit -a -m "Message."} commits all your changes locally (Git has recorded
     that you have made changes)
   \item your \lst{Message} is what you write to describe the change
   \item \lst{git push} pushes them to your \gh\ site
     \ei
-  Note that you still edit files in the usual way -- if you stop committing
-  the latest versions of your files will still be there
+Now, \lst{git commit -a -m "Message."} is a bit much to type, so we have a
+shortcut:
+\lst{git com "Message."}
+
+This is defined in the \emph{.gitconfig} file you installed in the `git-setup`
+instructions.
+
+The `-a` means `commit all changes of files that Git is tracking`, and `-m` is
+saying that you want to include a message. Since we usually want to do both of
+these, \lst{git com "Message."} is a useful shortcut. But it is important to
+realise it is a shortcut if searching online for help.
+
+
+
+
+
+TODO: put later:    Note that you still edit and save your files in the usual way. If you don't
+  commit you will still have the latest versions of your files on your computer
+  (as you would if you weren't using Git).
 }
 
 
@@ -941,9 +984,9 @@ problems) that these are aliases.
   \item Fork it (on the \gh\ site)
   \item \lst{git clone http://github.com/YOUR-GITHUB-NAME/TTTworkshop}
     \ei
-  ~\\  
-    $^*$some PBS folks are members of the \gh\ `organization' \lst{pbs-assess}   
-    and so automatically have push access so don't need to fork.  
+  ~\\
+    $^*$some PBS folks are members of the \gh\ `organization' \lst{pbs-assess}
+    and so automatically have push access so don't need to fork.
 }
 
 \frame{\frametitle{For tomorrow (now added to TTT readme)}
@@ -956,7 +999,7 @@ problems) that these are aliases.
   ~\\
   Then to get csasdown:\\
   \lst{devtools::install_github("pbs-assess/csasdown")}
-  
+
 }
 
 \end{document}
