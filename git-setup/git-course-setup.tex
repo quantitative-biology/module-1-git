@@ -258,7 +258,7 @@ should be the end of it.
   \bi
     \item Git uses a configuration file for your account info, name to use
       when committing, aliases for commands, and other things.
-    \item Open up the \emph{content} sub-directory in the \emph{git-course}
+    \item Open up the \emph{misc} sub-directory in the \emph{git-course}
       directory and copy the file \emph{.gitconfig}
     \item For Windows, copy this file (overwrite the existing file) to:\\
       \bigskip
@@ -277,7 +277,7 @@ should be the end of it.
 \frame{\frametitle{Edit the \emph{.gitconfig} file}
   \bi
     \item Use your favourite editor to edit the file. Don't edit the one in the
-      \emph{git-course/content} directory.
+      \emph{git-course/misc} directory.
     \item Change the [user] settings to reflect your information.
     \item Change the [difftool] and [diffmerge] directories so they point to
       the location where you have DiffMerge.
@@ -289,6 +289,8 @@ should be the end of it.
       \bigskip
       \lst{/usr/local/bin/diffmerge}
       \bigskip
+    \item If you could not install [difftool] or [diffmerge] then delete those
+      lines in your \emph{.gitconfig} file.
     \ei
 }
 
