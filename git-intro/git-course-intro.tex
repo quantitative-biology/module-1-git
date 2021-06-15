@@ -19,11 +19,12 @@
 
 \frame{\frametitle{Basics}
   \bigskip
-  I will go through the next 7-8(TODO) slides, demonstrating the basic commands.\\
+  I will go through the next 9(TODO: check how many) slides, demonstrating the basic commands.\\
   ~\\
   Some are only needed once per repository to get set up.\\
   ~\\
-  Then you should follow the slides yourself, to become familiar with the basic ideas.\\
+  So first sit back and listen, then go back through the slides yourself following the
+  instructions, to become familiar with the basic ideas.\\
   \bigskip
 }
 
@@ -114,8 +115,8 @@
   \item \lst{git add <filename>} -- tell Git to start keeping track of changes
     to this file. You only need to tell Git this once.
   \item \lst{git commit -a -m "Message."} -- committing your changes, which means tell Git
-    you are happy with your edits and want to save them. You are actually saving
-    a snapshot of your entire repository (all the folders and files in your repository).
+    you are happy with your edits and want to save them. % You are actually saving
+    % a snapshot of your entire repository (all the folders and files in your repository).
   \item \lst{git push} -- this sends your commit to the GitHub website.
   \ei
   ~\\
@@ -137,9 +138,9 @@
     \ei
 }
 
-\frame{\frametitle{Keyboard shortcuts}
-Now, \lst{git commit -a -m "Message."} is a bit much to type, so we have a
-shortcut:
+\frame{\frametitle{Keyboard aliases (shortcuts)}
+Now, \lst{git commit -a -m "Message."} is a bit much to type, so we have an
+alias for it:
 
 ~\\
 
@@ -155,17 +156,17 @@ instructions.
 The \lst{-a} means `commit all changes of files that Git is tracking`, and \lst{-m} is
 to include a message. Since we usually want to do both of
 these, \lst{git com "Message."} is a useful shortcut. But it is important to
-realise it is a shortcut if searching online for help.
+realise it is an alias if searching online for help.
 
 Similarly:
 
-\lst{git s} -- shortcut for \lst{git status}
+\lst{git s} -- for \lst{git status}
 
-\lst{git p} -- shortcut for \lst{git push}
+\lst{git p} -- for \lst{git push}
 
-From now on we will use the shortcuts.
+From now on we will use the aliases.
 
-TODO: say how to simplify to \lst{g s} etc.
+TODO: say how to simplify to \lst{g s} etc. W: from Chris.
 }
 
 \frame{\frametitle{Edit \emph{Readme.md}}
@@ -175,41 +176,44 @@ TODO: say how to simplify to \lst{g s} etc.
   \pause
   Look over the changes, commit them, and push them to your \gh\
   repository:\\
-  \lst{git status} (or just \lst{git s})\\
+  \lst{git s}\\
   \lst{git diff} -- this shows the differences between the last committed
   version and your current version (of all files; only one in this case) \\
   \lst{git com "Initial edit of Readme.md"}\\
-  \lst{git push} (or just \lst{git p}\\
+  \lst{git p}\\
   ~\\
   Refresh your \gh\ web page and you should see your text
   (the \emph{Readme.md} file is what is shown on the main page
   of your repo).
 }
 
-\frame{\frametitle{Copy, edit and commit \emph{simpleText.txt}}
+\frame{\frametitle{Exercise: copy, edit and commit \emph{simpleText.txt}}
   \bn
     \item Copy the text file \lst{git-course/exercise-files/simpleText.txt}
       into your local \lst{test} repository.
     \pause
     \item Add the file to the repository using the git commands:\\
       \lst{git add simpleText.txt}\\
+      \lst{git s} -- not necessary but useful to check you understand what is
+      changing before you commit
       \lst{git com "Adding simpleText.txt"}\\
-      \lst{git push}
+      \lst{git p}
     \pause
     \item Do some editing of simpleText.txt (see instructions at start of
-      it), to get the hang of \lst{git commit} and \lst{git push}.
+      it), to get the hang of \lst{git com} and \lst{git p}.
     \pause
-    \item \lst{git com "Message"} frequently and \lst{git push}
-      occasionally, while intermittently doing \lst{git status} and
+    \item \lst{git com "Message"} frequently and \lst{git p}
+      occasionally, while intermittently doing \lst{git s} and
       \lst{git diff} to understand what's changing.
     \pause
-    \item Keep an eye on your commits and Network Graph on the \gh\ website.
+    \item Keep an eye on your commits by refreshing the \gh\ page.
   \en
 }
 
 \frame{\frametitle{Adding multiple files at once -- slide 1}
+TODO - got to here
   Often you add multiple files or a new directory with files in it. In
-  these cases, when you run \lst{git status}, you will see a large
+  these cases, when you run \lst{git s}, you will see a large
   listing of \emph{Untracked files}. Files can be added at once, by simply
   adding the whole directory.
   \bi
@@ -219,12 +223,12 @@ TODO: say how to simplify to \lst{g s} etc.
       \lst{test1.r}, \lst{test2.r}, etc. Put some example text
       in one or more of them if you want.
     \item On the command line, check the status:\\
-      \lst{git status}
+      \lst{git s}
     \item You will see a listing showing the \emph{r-test} directory in
       \emph{Untracked files}.
     \item To see that actual files to be committed instead of just the
       directory:\\
-      \lst{git status -u}
+      \lst{git s -u}
     \item To add all the new files in preparation for a commit,
       issue the command:\\
       \lst{git add r-test}
@@ -236,12 +240,12 @@ TODO: say how to simplify to \lst{g s} etc.
 \frame{\frametitle{Adding multiple files at once -- slide 2}
   \bi
     \item Check the status of the repository again:
-      \lst{git status}
+      \lst{git s}
     \item It will now show all files in \emph{Changes to be committed}
     \item Commit the changes:\\
       \lst{git com "Added new files to r-test directory."}
     \item Push the changes to \gh:\\
-      \lst{git push}
+      \lst{git p}
     \item Check your \gh\ webpage and see your commit and that the files
       have been uploaded.
   \ei
@@ -258,7 +262,7 @@ TODO: say how to simplify to \lst{g s} etc.
   This is important as you will clutter up your repository and have to spend
   time cleaning it all up.\\
   \bigskip
-  Anytime you run the command \lst{git status} or \lst{git status -u} and
+  Anytime you run the command \lst{git s} or \lst{git s -u} and
   there are files listed that you don't want added to the repository, you
   should add them or a wildcard template encapsulating them to the
   \emph{.gitignore} file so that they are not added inadvertently.
@@ -268,19 +272,19 @@ TODO: say how to simplify to \lst{g s} etc.
   \bi
     \item You can rename any files the way you usually would (e.g. in File Explorer).
     \item Once you've renamed your files, check the repository status:\\
-      \lst{git status}\\
+      \lst{git s}\\
     \item You will see that the files you renamed have been automatically
       deleted from the repository and need to be added again. Do this the
       same way you add new files (\lst{git add filename}). You can also
       add a whole directory again and \gs\ is smart enough to only add the
       renamed files.
     \item Check the status again:\\
-      \lst{git status}\\
+      \lst{git s}\\
       It will show that the file(s) were renamed.
     \item Make a commit:\\
       \lst{git com "Renamed files x, y, and z"}\\
     \item Push the commit:\\
-      \lst{git push}
+      \lst{git p}
   \ei
 }
 
@@ -288,7 +292,7 @@ TODO: say how to simplify to \lst{g s} etc.
   With Git you can revert back to any previous state of your repository.\\
   This is {\red very powerful}, though slightly {\red scary} at first.
   \bn
-    \item \lst{git status} to make sure you are all up-to-date
+    \item \lst{git s} to make sure you are all up-to-date
       (\lst{commit} and/or \lst{push} if necessary).
     \item In File Explorer (or whatever) look at your repository.
     \item Look at the commit tab on \gh\ for your \lst{test} repo and copy
@@ -528,20 +532,20 @@ TODO Somewhere: Note that you still edit and save your files in the usual way. I
 
   \gs\ is smart, so if you forget this command and instead type:\\
 
-  \lst{git push}\\
+  \lst{git p}\\
 
   while in the new branch, \gs\ will tell you the command you need.\\
   \bigskip
   Once you've done this for a branch, all you have to do to push future
   commits in this branch is:\\
-  \lst{git push}\\
+  \lst{git p}\\
   \bigskip
   Check the \gh\ webpage to see that your branch was pushed.
 }
 
 \frame{\frametitle{Deleting branches from \gh}
   To remove a branch entirely from \gh:\\
-  \lst{git push origin --delete BRANCH-NAME}\\
+  \lst{git p origin --delete BRANCH-NAME}\\
   \bigskip
   The local branch will still exist, so if you want to delete that as well:\\
   \lst{git checkout master}\\
@@ -586,7 +590,7 @@ TODO Somewhere: Note that you still edit and save your files in the usual way. I
     \bi
       \item \lst{git fetch}
       \item \lst{git rebase} OR \lst{git merge}
-      \item \lst{git push}
+      \item \lst{git p}
     \ei
   \ei
   %\bigskip
@@ -610,7 +614,7 @@ TODO Somewhere: Note that you still edit and save your files in the usual way. I
     \item Everyone does a few edits on their paragraph number only.
       (see \lst{helpFriends.txt}).
     \item \lst{commit} a few times, \lst{push}.
-    \item If server does not allow you to push: \lst{git fetch}, \lst{git rebase}, \lst{git push}
+    \item If server does not allow you to push: \lst{git fetch}, \lst{git rebase}, \lst{git p}
   \en
 }
 
@@ -770,7 +774,7 @@ TODO Somewhere: Note that you still edit and save your files in the usual way. I
     will remind you)\\
   \lst{git com "Kept Dave's edits as more consistent with
   remaining text."}\\
-  \lst{git push}
+  \lst{git p}
 }
 \endgroup
 
@@ -861,7 +865,7 @@ TODO Somewhere: Note that you still edit and save your files in the usual way. I
   If you already pushed the commit before realizing that the message needs
   modification, do this:\\
   \bigskip
-  \lst{git push --force}\\
+  \lst{git p --force}\\
   \bigskip
   after making the amendment to the commit message. You can also add more files
   before issuing the amendment commit and those files will be added to the commit
@@ -955,7 +959,7 @@ TODO Somewhere: Note that you still edit and save your files in the usual way. I
   \begin{table}
     \begin{tabular}{ll}
   \lst{git s}               & \lst{git status}\\
-  \lst{git com "MESSAGE"}   & \lst{git com "MESSAGE"}\\
+  \lst{git com "MESSAGE"}   & \lst{git com -a -m "MESSAGE"}\\
   \lst{git r}               & \lst{git remote -v}\\
   \lst{git cb BRANCH-NAME}  & \lst{git checkout -b BRANCH-NAME}\\
   \lst{git co BRANCH-NAME}  &  \lst{git checkout BRANCH-NAME}
@@ -971,14 +975,14 @@ problems) that these are aliases.
   \bigskip
   Change some source code\\
   \lst{git com "My commit message"}\\
-  \lst{git push}\\
+  \lst{git p}\\
   If server does not allow you to push:\\
   \lst{git fetch}\\
   \lst{git rebase}\\
   If conflicts, fix them and:\\
   \lst{git add CONFLICTED_FILE}\\
   \lst{git rebase --resume}\\
-  \lst{git push}\\
+  \lst{git p}\\
   \bigskip
   Change some source code...\\
   repeat... \\
@@ -1117,7 +1121,7 @@ problems) that these are aliases.
   conflicts, or you will have one or more merge conflicts. If you are
   up-to-date, you need to push back to your repository to complete the merge
   step:\\
-  \lst{git push}\\
+  \lst{git p}\\
   If you have conflicts, you need to fix them before continuing work.
 }
 
@@ -1196,7 +1200,7 @@ problems) that these are aliases.
         \item \lst{git fetch REMOTE-NAME}
         \item \lst{git diff REMOTE-NAME/master}
         \item \lst{git merge REMOTE-NAME/master}
-        \item \lst{git push}
+        \item \lst{git p}
         \item Check Network Graph (have to refresh).
         \item Check your collaborator's Network Graph (helpful if you care whether
           they have caught up with you).
