@@ -37,14 +37,8 @@
 
 \frame{\frametitle{While testing...}
 
-Luwen -- I think you said you already have Git set up on your computer. If so
-then don't worry about redoing anything you already have. And please let me know
-of any tips you might have if you remember how you installed it before.
-
-~\\
-
-Luwen and Matthew -- please keep notes of any steps that aren't clear. I can't
-test the installation, so any feedback is welcome.
+Please keep notes of any steps that aren't clear. I can't
+troubleshoot the installation, so any feedback is welcome.
 }
 
 \frame{\frametitle{What you will end up having installed}
@@ -54,9 +48,10 @@ test the installation, so any feedback is welcome.
   \bi
   \item A \gh\ account
   \item Git on your computer
-  \item Diffmerge or something similar for comparing changes to files
+  \item Diffmerge or something similar for comparing changes to files (not
+    completely necessary)
   \item Markdown Pad 2 or Chrome extension or something similar for viewing Markdown
-    files
+    files (not completely necessary)
 %  \item R -- presumably a version not \emph{too} old (though it's hard for us to specify
 %    exactly what version). Also a few R packages are given here
 %  \item A way of running \LaTeX\ (such as Mik\TeX\ or Pro\TeX)
@@ -96,55 +91,45 @@ point-and-click Graphical User Interface). This is for several reasons:
 \item It is easier to Google for help when you get stuck or want to learn about
   more advanced options.
 \en
-
-There are many Graphical User Interfaces that are available, as described at
-\url{https://git-scm.com/downloads/guis}. I have just started using magit
-which works in the text editor emacs (which for years I have used for pretty
-much everything, such as editing files, running R, etc.). But I would not have
-been able to learn magit without first knowing the Git commands from using the
-shell.
 }
 
-\frame{\frametitle{RStudio and Git}
+\frame{\frametitle{Git shell, RStudio}
+There are many Graphical User Interfaces that are available, as described at
+\url{https://git-scm.com/downloads/guis}.
 
-  Many (but not all) biologists use R in RStudio for their analyses. There is
-  Git functionality built in to RStudio that we (TODO: SOMEONE?) will
-  demonstrate later.
+~\\
+
+I now use one called magit
+which works in the text editor emacs (which for years I have used for pretty
+much everything, such as editing files, running R, Matlab, etc.). But I would not have
+been able to learn magit without first knowing the Git commands from using the
+shell.
+
+~\\
+
+Many (but not all) biologists use R in RStudio for their analyses. There is
+Git functionality built in to RStudio that we (TODO: SOMEONE?) will
+demonstrate later.
 
   ~\\
 
   For now we will stick with the Git shell for the aforementioned reasons. It
   will also give you a better understanding of Git and GitHub (and emphasise
   that you can use Git for any files, not just R code).
-
 }
 
-\frame{\frametitle{STOP!!}
+\frame{\frametitle{TODO: For troubleshooting}
 
-Luwen and Matthew -- please let me know how it went so far. We
-should probably have a meeting and you share your screens so I can see what you have.
-
-~\\
-
-We'll need to work out if you automatically have a Git shell installed -- a
-shell is just a command-line where you type commands.
-
-~\\
-
-The installation advice is hard to test as I did my Git installation once about
-three years ago, and I think there's a different approach now.
-
-~\\
-
-Luwen did the next slide (Powershell) and it worked, so people can do that one.
-
-~\\
-Please try the rest of the slides, except any that say SKIP at the top.
+  Please keep track of any installation difficulties and let me know, so we can update
+  the slides to make the instructions easier for people.
 
 ~\\
 There might be some one-time authentication to your GitHub account (the first
 time you get set up), that I think
-may be prompted by instructions. Follow those if necessary.
+may be prompted by instructions. Follow those if necessary, and please let Andy
+know so we can make a note here. (Once we're all using Git you'll know how to make the
+change yourself, rather than tell me and I make it!)
+
 }
 
 \frame{\frametitle{Powershell and posh-git}
@@ -165,7 +150,7 @@ Windows). So they may be out of date (though first one is recent tips from a col
 }
 
 
-\frame{\frametitle{Tips from Chris in 2021 but don't think we need it all now [SKIP]}
+\frame{\frametitle{SKIP: Tips from Chris in 2021 but don't think we need it all now}
 
 Not sure we need this.... And I think this is just for Windows:
 
@@ -185,15 +170,19 @@ Now, paste the token in the GitHub for Windows dialog for logging in and that
 should be the end of it.
 }
 
-\frame{\frametitle{Configure the Git application [SKIP I think as automatic on MacOS]}
+\frame{\frametitle{Configure the Git application}
 
   \bi
-    \item Windows [**think this is simpler nowadays]:
+    \item Windows:
       \bn
     \item Create a \lst{github} directory, such as
           \lst[escapechar="\\"]{C:\\github}. It is fine
           to put it in a different path, but make sure there are no spaces
-          or special characters \emph{anywhere} in the full path.
+          or special characters \emph{anywhere} in the full path. This is where
+          you want to be saving your work that you are tracking with Git.
+        \item TODO: think these Windows steps are simpler nowadays. Basically
+          want to tell the \emph{Powershell} to open in
+          \lst[escapechar="\\"]{C:\\github} (or whatever directory you created above).
         \item Open the GitHub Desktop Application. Press the gear icon and
           choose \emph{Options}.
         \item In \emph{Configure Git}, fill in your name and the
@@ -207,29 +196,20 @@ should be the end of it.
           application). The directory that it starts in should be
           \lst[escapechar="\\"]{C:\\github} (or whatever directory you created
           above).
-      \en
-      \item MAC:
+       \en
+  \ei
+
+}
+
+\frame{\frametitle{Configure the Git application }
+  \bi
+        \item MAC:
         \bn
           \item Create the directory \lst[escapechar="\~"]{\~/github}.
           \item Enjoy a beverage.
+          \item TODO: Check with Luwen if it's that simple.
         \en
   \ei
-}
-
-\frame{\frametitle{Install the difftool [Nice to have - not essential if you
-    have trouble with it]}
-  The difftool will be used to examine differences between different
-  versions of files and also to simplify merging of branches and
-  collaborator's code. There are many programs that can be used but
-  for consistency we will use Diffmerge.\\
-  \bigskip
-
-  Install Diffmerge:\\
-  \bigskip
-  \url{https://sourcegear.com/diffmerge/downloads.php}\\
-  \bigskip
-  The configuration for directing git to use Diffmerge will be done in a
-  later step.
 }
 
 \frame{\frametitle{``Cloning'' the git-course repository}
@@ -246,11 +226,11 @@ should be the end of it.
     \item Windows: Open the \gs\ and run the following command to clone the
       repository (`clone' means copy all files in the repository to your computer):
       \lst{git clone https://github.com/quantitative-biology/module-1-git}
-    \item You now have the files for the GitHub course on your computer.
     \item MAC: Open terminal and change to the github directory:\\
       \lst{cd ~/github}
       then run the clone command:\\
       \lst{git clone https://github.com/quantitative-biology/module-1-git}
+    \item You now have the files for the GitHub course on your computer.
   \ei
 }
 
@@ -276,19 +256,15 @@ should be the end of it.
 
 \frame{\frametitle{Edit the \emph{.gitconfig} file}
   \bi
-    \item Use your favourite editor to edit the file. Don't edit the one in the
-      \emph{git-course/misc} directory.
+    \item Use your favourite editor to edit the new file (not the one in
+      \emph{git-course/misc}).
     \item Change the [user] settings to reflect your information.
     \item Change the [difftool] and [diffmerge] directories so they point to
       the location where you have DiffMerge.
     \item For Windows the location should be:\\
-      \bigskip
-      \lst[escapechar="\\"]{C:\\Program Files\\SourceGear\\Common\\DiffMerge\\sgdm.exe}
-      \bigskip
+      ~~\lst[escapechar="\\"]{C:\\Program Files\\SourceGear\\Common\\DiffMerge\\sgdm.exe}
     \item For MAC the location should be:\\
-      \bigskip
-      \lst{/usr/local/bin/diffmerge}
-      \bigskip
+      ~~\lst{/usr/local/bin/diffmerge}
     \item If you could not install [difftool] or [diffmerge] then delete those
       lines in your \emph{.gitconfig} file.
     \ei
@@ -304,7 +280,26 @@ should be the end of it.
   powershell version.
 }
 
-\frame{\frametitle{Markdown Pad}
+
+
+\frame{\frametitle{Install the difftool [Nice to have - not essential if you
+    have trouble with it]}
+  The difftool will be used to examine differences between different
+  versions of files and also to simplify merging of branches and
+  collaborator's code. There are many programs that can be used but
+  for consistency we will use Diffmerge.\\
+  \bigskip
+
+  Install Diffmerge:\\
+  \bigskip
+  \url{https://sourcegear.com/diffmerge/downloads.php}\\
+  \bigskip
+  The configuration for directing git to use Diffmerge will be done in a
+  later step.
+}
+
+\frame{\frametitle{Markdown Pad [Nice to have - not essential if you
+    have trouble with it]}
   Each project has an associated \lst{README.md} file that appears
   on its \gh\ homepage. The extension \lst{.md} stands for Markdown
   and is just an ASCii text file that contains simple formatting (such as
