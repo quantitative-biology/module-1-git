@@ -316,65 +316,65 @@ should be the end of it.
   \ei
 }
 
-\frame{\frametitle{R and packages installation (SKIP)}
-  Some exercises rely on having R installed with several packages we'll be
-  using. We are assuming everyone has R installed.\\
-  Install the following packages in R (we'll need more during the workshop):\\
+% \frame{\frametitle{R and packages installation (SKIP)}
+%   Some exercises rely on having R installed with several packages we'll be
+%   using. We are assuming everyone has R installed.\\
+%   Install the following packages in R (we'll need more during the workshop):\\
 
-  \bigskip
+%   \bigskip
 
-  \bi
-    \item \lst{knitr}
-    \item \lst{xtable}
-    \item \lst{devtools}
-  \ei
+%   \bi
+%     \item \lst{knitr}
+%     \item \lst{xtable}
+%     \item \lst{devtools}
+%   \ei
 
-  \bigskip
+%   \bigskip
 
-  Make sure the location of \lst{Rscript} is included in your
-  \textbf{PATH} environment variable. This is necessary to use the batch
-  files that build the slides using knitr/\LaTeX. To check if it is, type
-  the following into the \gs\ or any other command-line window:\\
-  \lst{Rscript --version}\\
-  and you should see something like this:\\
-  \bigskip
-  R scripting front-end version 3.3.2 (2016-10-31)
-}
+%   Make sure the location of \lst{Rscript} is included in your
+%   \textbf{PATH} environment variable. This is necessary to use the batch
+%   files that build the slides using knitr/\LaTeX. To check if it is, type
+%   the following into the \gs\ or any other command-line window:\\
+%   \lst{Rscript --version}\\
+%   and you should see something like this:\\
+%   \bigskip
+%   R scripting front-end version 3.3.2 (2016-10-31)
+% }
 
-\frame{\frametitle{\LaTeX\ installation -- Windows (SKIP for now)}
-  You will need \LaTeX\ installed (because it will correctly format Research
-  Documents, even though you won't need to learn \LaTeX). You will also
-  be able to build all of these course presentations from code.
-  \bi
-  \item If you have Rtools installed you may already have Mik\TeX installed (see
-        last bullet point below to test it).
-  \item On Windows, if you have lots of disk space ($>1.6$Gb you can use)
-        then we think it's
-        best to install it using Pro\TeX since it includes all \LaTeX\ libraries:
-        \url{https://ctan.org/pkg/protext}\\
-   \item If disk space may be a problem then install Mik\TeX\ (you may just have
-     to install further libraries during the workshop):
-      \bigskip
-      \url{https://miktex.org/download}\\
-      \bigskip
-   \item You can build this PDF (that you are reading) by entering the
-      \lst{beamer/git-setup} directory and double-click the \emph{build-pdf.bat}
-      file (close this PDF first) or type \lst{pdflatex git-course-setup}.
-   \ei
-}
+% \frame{\frametitle{\LaTeX\ installation -- Windows (SKIP for now)}
+%   You will need \LaTeX\ installed (because it will correctly format Research
+%   Documents, even though you won't need to learn \LaTeX). You will also
+%   be able to build all of these course presentations from code.
+%   \bi
+%   \item If you have Rtools installed you may already have Mik\TeX installed (see
+%         last bullet point below to test it).
+%   \item On Windows, if you have lots of disk space ($>1.6$Gb you can use)
+%         then we think it's
+%         best to install it using Pro\TeX since it includes all \LaTeX\ libraries:
+%         \url{https://ctan.org/pkg/protext}\\
+%    \item If disk space may be a problem then install Mik\TeX\ (you may just have
+%      to install further libraries during the workshop):
+%       \bigskip
+%       \url{https://miktex.org/download}\\
+%       \bigskip
+%    \item You can build this PDF (that you are reading) by entering the
+%       \lst{beamer/git-setup} directory and double-click the \emph{build-pdf.bat}
+%       file (close this PDF first) or type \lst{pdflatex git-course-setup}.
+%    \ei
+% }
 
-\frame{\frametitle{\LaTeX\ installation -- Mac (SKIP for now}
-  \bi
-  \item On MAC, install Mac\TeX:\\
-      \bigskip
-      \url{http://www.tug.org/mactex/}\\
-      \bigskip
-      Run the following two or three times (to ensure page numbers are accurate)
-      in the \lst{beamer/git-setup} directory (close this PDF first):\\
-      \lst{pdflatex git-course-setup.tex}
-  \ei
-  \bigskip
-}
+% \frame{\frametitle{\LaTeX\ installation -- Mac (SKIP for now}
+%   \bi
+%   \item On MAC, install Mac\TeX:\\
+%       \bigskip
+%       \url{http://www.tug.org/mactex/}\\
+%       \bigskip
+%       Run the following two or three times (to ensure page numbers are accurate)
+%       in the \lst{beamer/git-setup} directory (close this PDF first):\\
+%       \lst{pdflatex git-course-setup.tex}
+%   \ei
+%   \bigskip
+% }
 
 \frame{\frametitle{Text editor}
   You must have a text editor that is aware of outside changes in a file. This
