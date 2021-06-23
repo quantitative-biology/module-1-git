@@ -264,19 +264,23 @@ TODO: say how to simplify to \lst{g s} etc. W: from Chris.
 
 
 \frame{\frametitle{The \emph{.gitignore} file}
-  Each repository can have one \emph{.gitignore} file, in the root directory
+  But what if you don't want to add all the files that you create?
+
+  Each repository can have a \emph{.gitignore} file, in the root directory
   of the repository. This file has names of files or wildcard names such as
-  \lst{*.dvi} or \lst{*.nav} that will be completely ignored by
-  \gs. Many compilers make temporary files, the names of which should be added
-  to this file to avoid adding these files when adding whole directories
+  \lst{*.pdf} or \lst{*.doc} or \lst{my-secret-notes.txt} that will be completely ignored by \gs.
+
+  Some programs you run may make temporary files that don't need to be tracked
+  by Git, the names of which should also be added to \emph{.gitignore}
+  adding these files when adding whole directories
   using commands such as \lst{git add new-stuff/}.\\
   \bigskip
   This is important as you will clutter up your repository and have to spend
   time cleaning it all up.\\
   \bigskip
-  Anytime you run the command \lst{git s} or \lst{git s -u} and
-  there are files listed that you don't want added to the repository, you
-  should add them or a wildcard template encapsulating them to the
+  When you run \lst{git s} you may see untracked files that you don't want to be tracked
+  (they are fine on your computer but Git won't keep track of them or push them
+  to \gh). You should add them or a wildcard template encapsulating them to the
   \emph{.gitignore} file so that they are not added inadvertently.
 }
 
