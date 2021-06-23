@@ -85,9 +85,10 @@
 \small
 \frame{\frametitle{Copy and commit \emph{.gitignore}}
   \bi
-    \item Copy the \emph{.gitignore} file from the \lst{git-course} directory and
+    \item Copy the \emph{.gitignore} file from the \lst{module-1-git/git-intro}
+        directory that you should have already from the setup talk, and
       paste it into your new \lst{github/test} directory. (We are using
-      \emph{.gitignore} as an example file here).
+      \emph{.gitignore} as an example file here). TODO: simplify? ``Create new-file.txt''?
     \pause
     \item Check the status of your (\lst{test}) repository: \lst{git status}
     \pause
@@ -106,8 +107,7 @@
     \pause
     \item Push the commit to \gh: \lst{git push}
     \pause
-    \item Check (refresh) the \gh\ webpage and see your commit and that the file
-      has been uploaded.
+    \item Check (refresh) the \gh\ webpage and see your commit and the uploaded file.
   \ei
 }
 \endgroup
@@ -179,9 +179,11 @@ TODO: say how to simplify to \lst{g s} etc. W: from Chris.
 
 \frame{\frametitle{Exercise: copy, edit and commit \emph{simpleText.txt}}
   \bn
-    \item Copy the text file \lst{git-course/exercise-files/simpleText.txt}
+    \item Copy the text file \lst{module-1-git/exercise-files/simpleText.txt}
       into your local \lst{test} repository.
     \pause
+    \item Predict what \lst{git s} will tell you, \emph{then} type it in the
+      Git shell to check.\\
     \item Add the file to the repository using the git commands:\\
       \lst{git add simpleText.txt}\\
       \lst{git s} -- not necessary but useful to check you understand what is
