@@ -202,28 +202,25 @@ TODO: say how to simplify to \lst{g s} etc. W: from Chris.
   \en
 }
 
-\frame{\frametitle{STOP!! Adding multiple files at once -- slide 1}
-TODO - ANDY GOT TO HERE.
-  Often you add multiple files or a new directory with files in it. In
-  these cases, when you run \lst{git s}, you will see a large
-  listing of \emph{Untracked files}. Files can be added at once, by simply
+\frame{\frametitle{Adding multiple files at once -- slide 1}
+  Often you add multiple files in a new directory. When you run \lst{git s}, you
+  will see a large list of \emph{Untracked files}. They can be added at once by simply
   adding the whole directory.
   \bi
-    \item Add a new directory to your repository, using your normal method.
-      Call it \lst{r-test}.
+    \item Create a new directory to your \lst{test} repository, using your normal method. Call it \lst{new-stuff}.
     \item Add a few new test files to that directory called
-      \lst{test1.r}, \lst{test2.r}, etc. Put some example text
+      \lst{test1.txt}, \lst{test2.txt}, etc. Put some example text
       in one or more of them if you want.
     \item On the command line, check the status:\\
       \lst{git s}
-    \item You will see a listing showing the \emph{r-test} directory in
+    \item You will see a listing showing the \emph{new-stuff} directory in
       \emph{Untracked files}.
 %    \item To see the actual files to be committed instead of just the
 %      directory:\\
 %      \lst{git s -u}
     \item To add all the new files in preparation for a commit,
       issue the command:\\
-      \lst{git add r-test}
+      \lst{git add new-stuff/}
   \ei
   \bigskip
   Continued...
@@ -235,13 +232,36 @@ TODO - ANDY GOT TO HERE.
       \lst{git s}
     \item It will now show all files in \emph{Changes to be committed}
     \item Commit the changes:\\
-      \lst{git com "Added new files to r-test directory."}
+      \lst{git com "Added new-stuff directory."}
     \item Push the changes to \gh:\\
       \lst{git p}
     \item Check your \gh\ webpage and see your commit and that the files
       have been uploaded.
+    \item That works no matter how many files are in your \lst{new-stuff}
+      directory.
   \ei
 }
+
+\frame{\frametitle{Adding multiple files at once -- slide 3}
+  \bi
+    \item To add multiple files with similar names you can use the wildcard
+      \lst{*} symbol.
+    \item You just added (told Git to keep track of) the new files in your
+      \lst{new-stuff/} directory.
+    \item If you add more new files to that directory, you will
+      have to tell Git to track those also (since they are new -- you haven't
+      told Git about them yet).
+    \item Say you have 10 new files called \lst{idea1.txt}, \lst{idea2.txt}, ..., \lst{idea10.txt}.
+    \item Instead of typing\\
+      \lst{git add idea1.txt}\\
+      \lst{git add idea2.txt}\\
+      etc.
+      you can just use the wildcard \lst{*}:\\
+      \lst{git add idea*.txt}\\
+      (or even just \lst{git add *.txt}, or \lst{git add *.*}).
+  \ei
+}
+
 
 \frame{\frametitle{The \emph{.gitignore} file}
   Each repository can have one \emph{.gitignore} file, in the root directory
@@ -249,7 +269,7 @@ TODO - ANDY GOT TO HERE.
   \lst{*.dvi} or \lst{*.nav} that will be completely ignored by
   \gs. Many compilers make temporary files, the names of which should be added
   to this file to avoid adding these files when adding whole directories
-  using commands such as \lst{git add r-test}.\\
+  using commands such as \lst{git add new-stuff/}.\\
   \bigskip
   This is important as you will clutter up your repository and have to spend
   time cleaning it all up.\\
@@ -291,12 +311,12 @@ TODO - ANDY GOT TO HERE.
       the first five digits of the \lst{HASH} to the clipboard.
     \item In \gs, do\\
       \lst{git checkout HASH}
-    \item Look at File Explorer again -- your \lst{r-test} directory should
+    \item Look at File Explorer again -- your \lst{new-stuff} directory should
       have ... disappeared!!\\
       (If it hasn't then open it -- the test files, i.e. \lst{test1.r}
       , \lst{test2.r}, etc. should be gone, but your text editor may
       have saved backup versions; manually delete them plus the
-      \lst{r-test} directory)
+      \lst{new-stuff} directory)
     \item You are now back to the very first version of your repo.
   \en
 }
