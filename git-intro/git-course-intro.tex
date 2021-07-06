@@ -316,48 +316,90 @@ From now on we will use the aliases.
 
 \section{Collaborating}
 \frame{\frametitle{Git Workflow}
-  There are two ways to work using Git and \gh:
+  You have now learnt the basics of using Git. By creating a public repository
+  on \gh\ you can now release your code to the world!
 
-  \bn
-    \item A project where people contribute to a main repository that is
-      considered the 'master copy'.
+  ~\\
+  You can also choose the \emph{private repository} option when creating a
+  repository, so that you can control who can see it.
+
+  ~\\
+
+  Now we will show how to collaborate with colleagues, which is where the
+  usefulness of Git will become more apparent.
+}
+
+
+\frame{\frametitle{Git Workflow}
+  There are a few different ways to collaborate using Git and \gh. We will focus on the
+  following one since it is the simplest, and is what you need to collaborate
+  with colleagues.
+
+  ~\\
+
+ Concept: there is a project where people contribute to a main repository that is
+      considered the `master copy'.
       \bi
-        \item Don't fork, instead clone directly from the creator's repository.
-        \item All collaborators require push access to the main repository
+        \item Everyone clones directly from the creator's repository.
+        \item All collaborators require push their commits to the main
+          repository (the creator has to
+          grant them permission once on \gh).
       \ei
-    \bigskip
-    \item A project where collaborators fork from an initial repository so that
-      each have a copy of the repository, none of which are the `master copy'.
-      \bi
-        \item Fork a copy from the initial creator's repository.
-        \item Merge other people's remote repositories into yours using \gs.
-        \item Each collaborator can send a \emph{Pull request} to the creator on the
-          \gh\ site. They accept your pull request and your code is merged into
-          the `master copy'.
-        \item This stops other people messing up your `master copy'.
-      \ei
-  \en
+
+Since the creator has to grant permission, you won't have just anyone
+contributing to (and maybe messing up your work), just your team.
+
+~\\
+But you have to trust your team to not mess things up (more on that later).
+
 }
 
 
 \frame{\frametitle{Demonstration of collaborating}
   \bi
-    \item Andy to clone Chris's \lst{test} repo.
-    \item Chris gives Andy `push access' to his \lst{test} repo.
+    \item Andy to clone Kim's \lst{test} repo.
+    \item Kim gives Andy `push access' to her \lst{test} repo.
     % \item Both add each other as remotes.
-    \item Both do some edits (Andy create new files, Chris edit existing ones).
+    \item Both do some edits (Andy create new files, Kim edit existing ones).
     %  keeping an eye on the evolving Network Graphs.
-    \item (This might not be 100\% right -- we'll update in the workshop):
-      For Andy to get Chris's updates (and vice versa), it will just be:
+    \item For Andy to get Kim's updates (and vice versa), it will just be:
     \bi
-      \item \lst{git fetch}
-      \item \lst{git rebase} OR \lst{git merge}
-      \item \lst{git p}
+      \item \lst{git fetch} -- this fetches the latest version of the repository from
+        \gh\ onto your computer. Your local files have \emph{not} yet changed
+        (check them),
+        but Git has the changes stored on your computer (!).
+      \item \lst{git rebase}  -- this updates your local
+        repository (the files on your computer) with the changes you
+        have just fetched, merging both people's work together.
+      \item \lst{git p} -- this pushes the merged changes back up to \gh\ so
+        that the other person can get them.
     \ei
   \ei
-  %\bigskip
-  %It's actually even easier because \lst{git} will autocomplete, so
-  %  Andy can just do \lst{git fetch c<TAB>} etc.
+}
+
+\frame{\frametitle{Demonstration of collaborating}
+We will show examples of:
+  \bi
+  \item \lst{git p} not being allowed (read the message the shell gives you!)
+  because there are changes on \gh\ that you have not yet merged into your local
+  repository. You need to deal with these first by \lst{git f} and then \lst{git rebase}.
+  \item {\red Conflict!} This happens when two people have edited {\red the same line(s)
+      of the same file}.
+  \item Conflicts happen relatively rarely and can be generally avoided by
+    co-ordinating with collaborators so that you are working on different
+    files. But, they will happen and you need to know how to resolve them.
+  \item Git \emph{forces} you to explicitly decide whose changes to keep -- this
+    is a {\red good} thing, since you want a human to make such a decision.
+\ei
+}
+
+\frame{\frametitle{Fixing a conflict}
+  TODO: Set up some text to use and say where to have conflicts
+
+We will demonstrate a conflict. Kim will edit a line show examples of:
+
+(mention \lst{git merge} somewhere)
+
 }
 
 \frame{\frametitle{Exercise on collaborating on a single repository}
@@ -381,7 +423,53 @@ From now on we will use the aliases.
 }
 
 
+\begingroup
+\small
+\frame{\frametitle{Conflicts -- what if two people have edited the same lines?}
+  The merge message will tell you which files are conflicting. Open those
+  files one by one, and you will see the conflicted section bracketed like the
+  following:\\
+  \bigskip
+  \lst{<<<<<<< HEAD}\\
+  Line(s) of text/code which are currently in your file.\\
+  \lst{=======}\\
+  Line(s) of text/code which are trying to merge in, but conflict.\\
+  \lst{>>>>>>> BRANCH-NAME}\\
+  \bigskip
+  where \lst{BRANCH-NAME} is the name of the branch you are trying to
+  merge in from the previously-issued command:\\
+  \lst{git merge BRANCH-NAME} ~~~e.g.~\lst{git merge cgrandin/master}\\
+  All you do is remove the bracketing lines (\lst{<<<...} and \lst{>>>...}),
+  the \lst{=======} line,
+  and choose one of the line(s) of text/code to keep, or edit the line(s)
+  to be something else entirely. Once you are done fixing each conflicted file,
+  you need to \lst{add}, \lst{commit} and \lst{push}, e.g.:\\
+  \lst{git add FILENAME}~~~(not quite sure why necessary, but \lst{git s}
+    will remind you)\\
+  \lst{git com "Kept Dave's edits as more consistent with
+  remaining text."}\\
+  \lst{git p}
+}
+\endgroup
+
+
 \end{document}
+
+%Forking example and pull requests
+    \bigskip
+    \item A project where collaborators fork from an initial repository so that
+      each have a copy of the repository, none of which are the `master copy'.
+      \bi
+        \item Fork a copy from the initial creator's repository.
+        \item Merge other people's remote repositories into yours using \gs.
+        \item Each collaborator can send a \emph{Pull request} to the creator on the
+          \gh\ site. They accept your pull request and your code is merged into
+          the `master copy'.
+        \item This stops other people messing up your `master copy'.
+      \ei
+  \en
+
+
 
 \frame{\frametitle{Renaming files}
   \bi
@@ -667,7 +755,7 @@ TODO Somewhere: Note that you still edit and save your files in the usual way. I
   \lst{git branch -d BRANCH-NAME}
 }
 
-\section{Git Workflow}
+
 
 
 \section{Network Graph}
@@ -749,7 +837,7 @@ TODO Somewhere: Note that you still edit and save your files in the usual way. I
      {../git-motivation/figures/netWorkGraph1}\\
      The graph was for {\red Andy's repo}, so Andy is at the top.
      \\
-  Chris's name shows up because he had pushed commits that Andy did not
+  Kim's name shows up because he had pushed commits that Andy did not
     yet have.\\
   So the graph shows that Andy should get caught up before continuing on
     this project.\\
@@ -770,10 +858,10 @@ TODO Somewhere: Note that you still edit and save your files in the usual way. I
      keepaspectratio]
      {../git-motivation/figures/netWorkGraph3}
   ~\\
-  All files that Chris edited got updated, plus Andy then had any new files
-    that Chris created, and our folder structures are identical.\\
+  All files that Kim edited got updated, plus Andy then had any new files
+    that Kim created, and our folder structures are identical.\\
   ~\\
-  Chris's name doesn't show up, even though he did a lot of the work.\\
+  Kim's name doesn't show up, even though he did a lot of the work.\\
   ~\\
   It is ``{\red about code not ego}''.
   ~\\
@@ -800,38 +888,9 @@ TODO Somewhere: Note that you still edit and save your files in the usual way. I
   \ei
 }
 
-\begingroup
-\small
-\frame{\frametitle{Conflicts -- what if two people have edited the same lines?}
-  The merge message will tell you which files are conflicting. Open those
-  files one by one, and you will see the conflicted section bracketed like the
-  following:\\
-  \bigskip
-  \lst{<<<<<<< HEAD}\\
-  Line(s) of text/code which are currently in your file.\\
-  \lst{=======}\\
-  Line(s) of text/code which are trying to merge in, but conflict.\\
-  \lst{>>>>>>> BRANCH-NAME}\\
-  \bigskip
-  where \lst{BRANCH-NAME} is the name of the branch you are trying to
-  merge in from the previously-issued command:\\
-  \lst{git merge BRANCH-NAME} ~~~e.g.~\lst{git merge cgrandin/master}\\
-  All you do is remove the bracketing lines (\lst{<<<...} and \lst{>>>...}),
-  the \lst{=======} line,
-  and choose one of the line(s) of text/code to keep, or edit the line(s)
-  to be something else entirely. Once you are done fixing each conflicted file,
-  you need to \lst{add}, \lst{commit} and \lst{push}, e.g.:\\
-  \lst{git add FILENAME}~~~(not quite sure why necessary, but \lst{git s}
-    will remind you)\\
-  \lst{git com "Kept Dave's edits as more consistent with
-  remaining text."}\\
-  \lst{git p}
-}
-\endgroup
-
 \frame{\frametitle{Demonstration of conflicts}
   \bi
-    \item Chris and Andy to carry on with existing repo
+    \item Kim and Andy to carry on with existing repo
     \item Both modify {\red same lines of same file}
     \item Demonstrate how to rectify
     \pause
@@ -865,7 +924,7 @@ TODO Somewhere: Note that you still edit and save your files in the usual way. I
     comments or endless emails that get overlooked.\\
   If an \emph{Issue} remains open you know that it hasn't been done.\\
   ~\\
-  % Note that because Andy forked from Chris's repo, there is no \emph{Issues}
+  % Note that because Andy forked from Kim's repo, there is no \emph{Issues}
   %  page under\\
   % ~~\url{https://github.com/andrew-edwards/git-course}\\
 }
