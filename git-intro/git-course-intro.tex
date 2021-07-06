@@ -88,7 +88,7 @@ onto your computer.
 %  \lst[escapechar="\\"]{C:\\Users\\YOUR-COMPUTER-USER-NAME\\.git-credentials}\\
 }
 
-\section{Committing new files}
+\section{Committing}
 \begingroup
 \small
 \frame{\frametitle{Copy and commit \emph{.gitignore}}
@@ -313,6 +313,75 @@ From now on we will use the aliases.
   This will also simplify your workflow (you don't need to keep being reminded
   that you have untracked files).
 }
+
+\section{Collaborating}
+\frame{\frametitle{Git Workflow}
+  There are two ways to work using Git and \gh:
+
+  \bn
+    \item A project where people contribute to a main repository that is
+      considered the 'master copy'.
+      \bi
+        \item Don't fork, instead clone directly from the creator's repository.
+        \item All collaborators require push access to the main repository
+      \ei
+    \bigskip
+    \item A project where collaborators fork from an initial repository so that
+      each have a copy of the repository, none of which are the `master copy'.
+      \bi
+        \item Fork a copy from the initial creator's repository.
+        \item Merge other people's remote repositories into yours using \gs.
+        \item Each collaborator can send a \emph{Pull request} to the creator on the
+          \gh\ site. They accept your pull request and your code is merged into
+          the `master copy'.
+        \item This stops other people messing up your `master copy'.
+      \ei
+  \en
+}
+
+
+\frame{\frametitle{Demonstration of collaborating}
+  \bi
+    \item Andy to clone Chris's \lst{test} repo.
+    \item Chris gives Andy `push access' to his \lst{test} repo.
+    % \item Both add each other as remotes.
+    \item Both do some edits (Andy create new files, Chris edit existing ones).
+    %  keeping an eye on the evolving Network Graphs.
+    \item (This might not be 100\% right -- we'll update in the workshop):
+      For Andy to get Chris's updates (and vice versa), it will just be:
+    \bi
+      \item \lst{git fetch}
+      \item \lst{git rebase} OR \lst{git merge}
+      \item \lst{git p}
+    \ei
+  \ei
+  %\bigskip
+  %It's actually even easier because \lst{git} will autocomplete, so
+  %  Andy can just do \lst{git fetch c<TAB>} etc.
+}
+
+\frame{\frametitle{Exercise on collaborating on a single repository}
+  \bn
+\item Each group of four sitting together will collaborate. Each group
+  will choose one person to create the repository.
+    \item The chosen person will set up a new repository on \gh\ called
+      \lst{help-friends}
+    \item The chosen person copies \lst{git-course/exercise-files/helpFriends.txt}
+      into their new repository (on their computer).
+    \item \lst{add}, \lst{commit}, \lst{push}.
+      Check Network Graph.
+    \item The chosen person gives permission to the others to collaborate for their
+      repository on \gh.
+    \item The other three people then clone the repository using Person 1's URL.
+    \item Everyone does a few edits on their paragraph number only.
+      (see \lst{helpFriends.txt}).
+    \item \lst{commit} a few times, \lst{push}.
+    \item If server does not allow you to push: \lst{git fetch}, \lst{git rebase}, \lst{git p}
+  \en
+}
+
+
+\end{document}
 
 \frame{\frametitle{Renaming files}
   \bi
@@ -599,70 +668,6 @@ TODO Somewhere: Note that you still edit and save your files in the usual way. I
 }
 
 \section{Git Workflow}
-\frame{\frametitle{Git Workflow}
-  There are two ways to work using Git and \gh:
-
-  \bn
-    \item A project where people contribute to a main repository that is
-      considered the 'master copy'.
-      \bi
-        \item Don't fork, instead clone directly from the creator's repository.
-        \item All collaborators require push access to the main repository
-      \ei
-    \bigskip
-    \item A project where collaborators fork from an initial repository so that
-      each have a copy of the repository, none of which are the `master copy'.
-      \bi
-        \item Fork a copy from the initial creator's repository.
-        \item Merge other people's remote repositories into yours using \gs.
-        \item Each collaborator can send a \emph{Pull request} to the creator on the
-          \gh\ site. They accept your pull request and your code is merged into
-          the `master copy'.
-        \item This stops other people messing up your `master copy'.
-      \ei
-  \en
-}
-
-
-\frame{\frametitle{Demonstration of collaborating}
-  \bi
-    \item Andy to clone Chris's \lst{test} repo.
-    \item Chris gives Andy `push access' to his \lst{test} repo.
-    % \item Both add each other as remotes.
-    \item Both do some edits (Andy create new files, Chris edit existing ones).
-    %  keeping an eye on the evolving Network Graphs.
-    \item (This might not be 100\% right -- we'll update in the workshop):
-      For Andy to get Chris's updates (and vice versa), it will just be:
-    \bi
-      \item \lst{git fetch}
-      \item \lst{git rebase} OR \lst{git merge}
-      \item \lst{git p}
-    \ei
-  \ei
-  %\bigskip
-  %It's actually even easier because \lst{git} will autocomplete, so
-  %  Andy can just do \lst{git fetch c<TAB>} etc.
-}
-
-\frame{\frametitle{Exercise on collaborating on a single repository}
-  \bn
-\item Each group of four sitting together will collaborate. Each group
-  will choose one person to create the repository.
-    \item The chosen person will set up a new repository on \gh\ called
-      \lst{help-friends}
-    \item The chosen person copies \lst{git-course/exercise-files/helpFriends.txt}
-      into their new repository (on their computer).
-    \item \lst{add}, \lst{commit}, \lst{push}.
-      Check Network Graph.
-    \item The chosen person gives permission to the others to collaborate for their
-      repository on \gh.
-    \item The other three people then clone the repository using Person 1's URL.
-    \item Everyone does a few edits on their paragraph number only.
-      (see \lst{helpFriends.txt}).
-    \item \lst{commit} a few times, \lst{push}.
-    \item If server does not allow you to push: \lst{git fetch}, \lst{git rebase}, \lst{git p}
-  \en
-}
 
 
 \section{Network Graph}
