@@ -130,10 +130,13 @@ onto your computer.
     % a snapshot of your entire repository (all the folders and files in your repository).
   \item \lst{git push} -- this sends your commit to the GitHub website.
   \ei
-  ~\\
- You always have your files stored \emph{locally} on your computer. When
-    you push to GitHub they can then be easily fetched (retrieved) by whoever
-    you are collaborating with.
+
+ You always have your files stored \emph{locally} on your computer (as usual),
+ even if you don't \lst{add} them or \lst{commit} changes.
+
+ ~\\
+
+ When you push to GitHub then your colleagues can easily \lst{fetch} (retrieve) them.
 }
 
 \frame{\frametitle{Keyboard aliases (shortcuts)}
@@ -163,8 +166,6 @@ Similarly:
 \lst{git p} -- for \lst{git push}
 
 From now on we will use the aliases.
-
-TODO: say how to simplify to \lst{g s} etc. W: from Chris.
 }
 
 \frame{\frametitle{Edit \emph{Readme.md}}
@@ -175,7 +176,7 @@ TODO: say how to simplify to \lst{g s} etc. W: from Chris.
   Look over the changes, commit them, and push them to your \gh\
   repository:\\
   \lst{git s}\\
-  \lst{git diff} -- this shows the differences between the last committed
+  \lst{git diff} -- this gives a simple look at the differences between the last committed
   version and your current version (of all files; only one in this case) \\
   \lst{git com "Initial edit of Readme.md"}\\
   \lst{git p}\\
@@ -221,7 +222,7 @@ TODO: say how to simplify to \lst{g s} etc. W: from Chris.
       in one or more of them if you want.
     \item On the command line, check the status:\\
       \lst{git s}
-    \item You will see a listing showing the \emph{new-stuff} directory in
+    \item You will see a listing showing the \lst{new-stuff} directory in
       \emph{Untracked files}.
 %    \item To see the actual files to be committed instead of just the
 %      directory:\\
@@ -267,29 +268,50 @@ TODO: say how to simplify to \lst{g s} etc. W: from Chris.
       you can just use the wildcard \lst{*}:\\
       \lst{git add idea*.txt}\\
       (or even just \lst{git add *.txt}, or \lst{git add *.*}).
+    \item No need to do this now, but this is useful to know.
   \ei
 }
 
 
-\frame{\frametitle{STOP: The \emph{.gitignore} file}
+\frame{\frametitle{The \emph{.gitignore} file}
   But what if you don't want to add all the files that you create?
 
+  ~\\
+
   Each repository can have a \emph{.gitignore} file, in the root directory
-  of the repository. This file has names of files or wildcard names such as
-  \lst{*.pdf} or \lst{*.doc} or \lst{my-secret-notes.txt} that will be completely ignored by \gs.
+  of the repository. Earlier you copied one into your \lst{test} repository.
+
+  Such a file has names of files (such as \lst{my-secret-notes.txt}) or wildcard names (such as
+  \lst{*.pdf} or \lst{*.doc}) that will be completely ignored by Git.
+
+  ~\\
+
+  When sharing a repository with others, you want to share your \emph{code} (for
+  example, R or Python code) and maybe data, but generally \emph{not} share the output (such as figures
+  that the code generates; more on this later). For reproducible research your colleague (or anyone)
+  should be able to run your code to generate the results.
+
+  ~\\
 
   Some programs you run may make temporary files that don't need to be tracked
-  by Git, the names of which should also be added to \emph{.gitignore}
-  adding these files when adding whole directories
-  using commands such as \lst{git add new-stuff/}.\\
-  \bigskip
-  This is important as you will clutter up your repository and have to spend
-  time cleaning it all up.\\
-  \bigskip
-  When you run \lst{git s} you may see untracked files that you don't want to be tracked
-  (they are fine on your computer but Git won't keep track of them or push them
-  to \gh). You should add them or a wildcard template encapsulating them to the
+  by Git, the names of which should also be included in your \emph{.gitignore}.
+}
+
+\frame{\frametitle{The \emph{.gitignore} file}
+  When sharing code or collaborating you want to keep your
+  repository as clean as possible and not clutter it up with files that other
+  people don't need.
+
+  ~\\
+
+  So when you run \lst{git s} and see untracked files that you don't want to be
+  tracked, add them (or a suitable wildcard expression) to your
   \emph{.gitignore} file so that they are not added inadvertently.
+
+  ~\\
+
+  This will also simplify your workflow (you don't need to keep being reminded
+  that you have untracked files).
 }
 
 \frame{\frametitle{Renaming files}
