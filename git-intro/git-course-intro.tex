@@ -341,7 +341,7 @@ From now on we will use the aliases.
       considered the `master copy'.
       \bi
         \item Everyone clones directly from the creator's repository.
-        \item All collaborators require push their commits to the main
+        \item All collaborators push their commits to the main
           repository (the creator has to
           grant them permission once on \gh).
       \ei
@@ -357,10 +357,10 @@ But you have to trust your team to not mess things up (more on that later).
 
 \frame{\frametitle{Demonstration of collaborating}
   \bi
-    \item Andy to clone Kim's \lst{test} repo.
-    \item Kim gives Andy `push access' to her \lst{test} repo.
-    % \item Both add each other as remotes.
-    \item Both do some edits (Andy create new files, Kim edit existing ones).
+    \item Kim creates new repo called \lst{collaborate} (and clones it to her computer).
+    \item Andy clones it also.
+    \item On \gh, Kim gives Andy `push access' to her \lst{collaborate} repo.
+    \item Both do some edits (create some new simple text files).
     %  keeping an eye on the evolving Network Graphs.
     \item For Andy to get Kim's updates (and vice versa), it will just be:
     \bi
@@ -369,7 +369,7 @@ But you have to trust your team to not mess things up (more on that later).
         (check them),
         but Git has the changes stored on your computer (!).
       \item \lst{git rebase}  -- this updates your local
-        repository (the files on your computer) with the changes you
+        repository (the committed files on your computer) with the changes you
         have just fetched, merging both people's work together.
       \item \lst{git p} -- this pushes the merged changes back up to \gh\ so
         that the other person can get them.
@@ -382,27 +382,97 @@ We will show examples of:
   \bi
   \item \lst{git p} not being allowed (read the message the shell gives you!)
   because there are changes on \gh\ that you have not yet merged into your local
-  repository. You need to deal with these first by \lst{git f} and then \lst{git rebase}.
-  \item {\red Conflict!} This happens when two people have edited {\red the same line(s)
+  repository. You need to deal with these first by \lst{git f} and then \lst{git
+    rebase}.
+  \item {\red Conflict!} This happens when two people have edited {\red the same line(s)}.
+\ei
+}
+
+\frame{\frametitle{A bit more about \lst{git rebase}}
+\bi
+  \item Andy commits local changes, tries to \lst{git push} but is told to first
+    \lst{git fetch} (to get Kim's changes from \gh).
+  \item Andy does \lst{git fetch} and then \lst{git rebase}.
+  \item What \lst{git rebase} does is basically add Andy's commits to Kim's
+    commits (TODO: check it's not the other way around!).
+  \item Andy then does \lst{git push} to push his commits to \gh\ (from where
+    Kim will \lst{fetch} them when she's ready).
+  \item Providing there are no conflicts, this will work fine.
+\ei
+
+Another option is to do a \lst{git merge}, which basically creates a new commit
+that merges both people's work together.
+
+Our groups used to use \lst{git merge} and now use \lst{git rebase}; some people
+don't like \lst{git merge} because it adds extra commits.
+
+For a more in-depth understanding see
+https://reflectoring.io/git-rebase-merge/ for one of the
+clearer explanations out there concerning \lst{rebase} v \lst{merge}.
+}
+
+\section{Conflicts}
+\frame{\frametitle{Fixing a conflict}
+  \bi
+    \item As mentioned, a {\red conflict} happens when two people have edited {\red the same line(s)
       of the same file}.
   \item Conflicts happen relatively rarely and can be generally avoided by
     co-ordinating with collaborators so that you are working on different
     files. But, they will happen and you need to know how to resolve them.
   \item Git \emph{forces} you to explicitly decide whose changes to keep -- this
     is a {\red good} thing, since you want a human to make such a decision.
-\ei
+  \ei
+
+We will demonstrate a conflict.
 }
 
 \frame{\frametitle{Fixing a conflict}
-  TODO: Set up some text to use and say where to have conflicts
-
-We will demonstrate a conflict. Kim will edit a line show examples of:
-
-(mention \lst{git merge} somewhere)
-
+The best approach I have found to fixing a conflict is the following:
+  \bi
+\item Trying \lst{git rebase} will tell you there is a conflict.
+\item \lst{git rebase --abort} -- do this to abort the rebase attempt.
+\item \lst{git merge} -- this will tell you there is a conflict.
+\item Open the file(s) with the conflict and edit the text (next slide).
+\item \lst{git add <filename(s)>} -- you have to then add the files that had the
+  conflict (I am not sure why this is necessary, I just do it).
+\item \lst{git com "<message>"} -- in your commit message you can explain how
+  you fixed the conflict. This is useful so that your collaborators know you have
+  resolved a conflict (they can look at the commit to see if they are happy with
+  it).
+\ei
 }
 
-\frame{\frametitle{Exercise on collaborating on a single repository}
+\begingroup
+\small
+\frame{\frametitle{Fixing a conflict}
+  The merge message will tell you which files are conflicting. Open those
+  files one by one, and you will see the conflicted section bracketed like the
+  following:\\
+  \bigskip
+  \lst{<<<<<<< HEAD}\\
+  ~~Line(s) of text/code which are currently in your file.\\
+  \lst{=======}\\
+  ~~Line(s) of text/code which are trying to merge in, but conflict.\\
+  \lst{>>>>>>> origin/main TODO: CHECK}\\
+  \bigskip
+  where \lst{origin/main} refers to the version you have fetched from \gh.
+  ~\\
+
+  All you do is remove the line(s) of text that you do not want to keep (or edit
+  the line(s) to be something else entirely), and remove the
+  bracketing lines \lst{<<<...} and \lst{>>>...}, and
+  the \lst{=======} line.
+
+  Save each conflicted file and then (as mentioned previously):\\
+  \lst{git add <filename(s)>}\\
+  \lst{git com "Kept Kim's edits as more consistent with
+  remaining text."}\\
+  \lst{git p}
+}
+\endgroup
+
+
+\frame{\frametitle{TODO: Exercise on collaborating on a single repository}
   \bn
 \item Each group of four sitting together will collaborate. Each group
   will choose one person to create the repository.
@@ -421,36 +491,6 @@ We will demonstrate a conflict. Kim will edit a line show examples of:
     \item If server does not allow you to push: \lst{git fetch}, \lst{git rebase}, \lst{git p}
   \en
 }
-
-
-\begingroup
-\small
-\frame{\frametitle{Conflicts -- what if two people have edited the same lines?}
-  The merge message will tell you which files are conflicting. Open those
-  files one by one, and you will see the conflicted section bracketed like the
-  following:\\
-  \bigskip
-  \lst{<<<<<<< HEAD}\\
-  Line(s) of text/code which are currently in your file.\\
-  \lst{=======}\\
-  Line(s) of text/code which are trying to merge in, but conflict.\\
-  \lst{>>>>>>> BRANCH-NAME}\\
-  \bigskip
-  where \lst{BRANCH-NAME} is the name of the branch you are trying to
-  merge in from the previously-issued command:\\
-  \lst{git merge BRANCH-NAME} ~~~e.g.~\lst{git merge cgrandin/master}\\
-  All you do is remove the bracketing lines (\lst{<<<...} and \lst{>>>...}),
-  the \lst{=======} line,
-  and choose one of the line(s) of text/code to keep, or edit the line(s)
-  to be something else entirely. Once you are done fixing each conflicted file,
-  you need to \lst{add}, \lst{commit} and \lst{push}, e.g.:\\
-  \lst{git add FILENAME}~~~(not quite sure why necessary, but \lst{git s}
-    will remind you)\\
-  \lst{git com "Kept Dave's edits as more consistent with
-  remaining text."}\\
-  \lst{git p}
-}
-\endgroup
 
 
 \end{document}
