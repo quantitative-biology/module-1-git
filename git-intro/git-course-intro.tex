@@ -389,15 +389,35 @@ But you have to trust your team to not mess things up (more on that later).
 }
 
 \frame{\frametitle{Demonstration of collaborating}
-We will show examples of:
-  \bi
-  \item \lst{git p} not being allowed (read the message the shell gives you!)
-  because there are changes on \gh\ that you have not yet merged into your local
-  repository. You need to deal with these first by \lst{git f} and then \lst{git
-    rebase}.
-  \item {\red Conflict!} This happens when two people have edited {\red the same line(s)}.
-\ei
+We will show an example of \lst{git p} \emph{not} being allowed
+  because there are changes on \gh\ (by someone else) that you have not yet merged into your local
+  repository.
+
+  ~\\
+
+  You need to deal with these first by \lst{git f} and then \lst{git
+    rebase}. Here is an example of the error message you get:\\
+
+  \includegraphics[
+  width=0.8\textwidth,
+  keepaspectratio]{figures/unable-to-pull}
+
+  While a bit lengthy, the error message is useful. It forces you to get the
+  other person's work before you push yours.
 }
+
+\frame{\frametitle{Demonstration of collaborating}
+  So to be allowed to push, just fetch and then rebase (which combines the commits):
+  \bi
+\item \lst{git f}
+\item \lst{git rebase}
+\item \lst{git push}
+  \ei
+}
+
+
+
+
 
 \frame{\frametitle{A bit more about \lst{git rebase}}
 \bi
@@ -425,7 +445,7 @@ clearer explanations out there concerning \lst{rebase} v \lst{merge}.
 \section{Conflicts}
 \frame{\frametitle{Fixing a conflict}
   \bi
-    \item As mentioned, a {\red conflict} happens when two people have edited {\red the same line(s)
+    \item A {\red conflict} happens when two people have edited {\red the same line(s)
       of the same file}.
   \item Conflicts happen relatively rarely and can be generally avoided by
     co-ordinating with collaborators so that you are working on different
