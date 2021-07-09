@@ -514,24 +514,25 @@ The best approach I have found to fixing a conflict is the following:
 \endgroup
 
 
-\frame{\frametitle{TODO: Exercise on collaborating on a single repository}
-  \bn
-\item Each group of four sitting together will collaborate. Each group
-  will choose one person to create the repository.
-    \item The chosen person will set up a new repository on \gh\ called
-      \lst{help-friends}
-    \item The chosen person copies \lst{git-course/exercise-files/helpFriends.txt}
-      into their new repository (on their computer).
-    \item \lst{add}, \lst{commit}, \lst{push}.
-      Check Network Graph.
-    \item The chosen person gives permission to the others to collaborate for their
-      repository on \gh.
-    \item The other three people then clone the repository using Person 1's URL.
-    \item Everyone does a few edits on their paragraph number only.
-      (see \lst{helpFriends.txt}).
-    \item \lst{commit} a few times, \lst{push}.
-    \item If server does not allow you to push: \lst{git fetch}, \lst{git rebase}, \lst{git p}
-  \en
+\frame{\frametitle{Exercise on collaborating on a single repository}
+  If you have a colleague available, try what we just did:
+  \bi
+\item Person 1 creates a new repository on \gh\ and clone to their computer.
+\item Give the Person 2 `push access' to the repository (on the repo page on
+  \gh: Settings -- Manage access -- Invite a collaborator)
+\item Person 2 clones to their computer.
+\item Both create a simple text file (use different filenames), add some text
+  and, as usual, \lst{add}, \lst{commit}, and \lst{push} it.
+\item \lst{git fetch} and \lst{git rebase} to get the other person's file.
+\item Continue editing either file, committing, and pushing.
+\item If you get the \lst{push} error (shown earlier), refresh the \gh\ repository site to
+  see recent commits (click on the XX commits link). You can easily
+  spot the other person's recent commits. Click on one (the bold message) to see
+  details.
+\item Purposefully create a conflict (both edit the same line of the same
+  file). Resolve it as described earlier.
+\item In practice you won't commit so frequently, this is good to get the hang of it.
+  \ei
 }
 
 
@@ -1365,7 +1366,7 @@ problems) that these are aliases.
       in the group gets a number: 1, 2, 3, or 4.
     \item Person 1 will set up a new repository on \gh\ called
       \lst{help-friends}
-    \item Person 1 copies \lst{git-course/exercise-files/helpFriends.txt}
+    \item Person 1 copies \lst{module-1-git/exercise-files/helpFriends.txt}
       into their new repository (on their computer).
     \item \lst{add}, \lst{commit}, \lst{push}.
       Check Network Graph.
