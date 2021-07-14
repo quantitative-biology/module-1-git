@@ -48,8 +48,8 @@
   slides). Obviously skip any that you already have working.
   \bi
   \item A \gh\ account
-  \item Git on your computer
   \item A text editor that isn't Notepad
+  \item Git on your computer
   \item Diffmerge or something similar for comparing changes to files (not
     completely necessary)
   \item Markdown Pad 2 or Chrome extension or something similar for viewing Markdown
@@ -69,6 +69,32 @@
   \ei
 }
 
+\frame{\frametitle{Text editor}
+  You must have a text editor that is aware of outside changes in a file. This
+  is necessary because if you have a file open in the editor and you download
+  an updated version of the file, you want the editor to ask you if you want
+  to use the updated version.\\
+
+  \bigskip
+
+  We know that \textbf{Emacs}, \textbf{Xemacs} and maybe \textbf{Vim} are okay, as is
+  \textbf{RStudio} for \textbf{.R} (and other) files.
+
+  \bigskip
+
+  \textbf{Notepad} is not okay. But you can download and install
+  \textbf{Notepad++} which is fine:
+
+  \bigskip
+
+  \url{https://notepad-plus-plus.org/download/v7.3.3.html}
+
+  \bigskip
+
+%  [Andy uses \textbf{Emacs} for everything (including running R and Git) as it has many keyboard shortcuts
+%    and colours text and code based on the file extension; Chris uses a mixture
+%    of \textbf{Xemacs} and \textbf{RStudio}.]
+}
 
 \frame{\frametitle{Install the Git application on your machine}
 See \url{https://git-scm.com/downloads} for downloading instructions for Windows, MAC and
@@ -76,7 +102,8 @@ Linux/Unix.
 
 ~\\
 
-It seems best to accept the default options, except for: TODO (Issue \#4).
+It seems best to accept the default options, except NOT Notepad (and we're not
+sure about Vim) as the default editor.
 
 }
 
@@ -356,32 +383,6 @@ authentication to connect to your GitHub account. Follow any instructions.
 %   \bigskip
 % }
 
-\frame{\frametitle{Text editor}
-  You must have a text editor that is aware of outside changes in a file. This
-  is necessary because if you have a file open in the editor and you download
-  an updated version of the file, you want the editor to ask you if you want
-  to use the updated version.\\
-
-  \bigskip
-
-  We know that \textbf{Emacs}, \textbf{Xemacs}, \textbf{vim} are okay, as is
-  \textbf{RStudio} for \textbf{.r} (and other) files.
-
-  \bigskip
-
-  \textbf{Notepad} is not okay. But you can download and install
-  \textbf{Notepad++} which is fine:
-
-  \bigskip
-
-  \url{https://notepad-plus-plus.org/download/v7.3.3.html}
-
-  \bigskip
-
-%  [Andy uses \textbf{Emacs} for everything (including running R and Git) as it has many keyboard shortcuts
-%    and colours text and code based on the file extension; Chris uses a mixture
-%    of \textbf{Xemacs} and \textbf{RStudio}.]
-}
 
 % \frame{\frametitle{Pandoc (SKIP)}
 %   \bigskip
