@@ -13,7 +13,14 @@
 \titlepage
 }
 
-\frame{\frametitle{Getting started...}
+\frame{\frametitle{NOTE}
+  Matt is copying these slides into bookdown, so make edits there rather than here
+  from now on. These slides are instructions and don't need recorded as a
+  (rather boring) video lecture.
+}
+
+
+\frame{\frametitle{Getting started}
   Before you start using Git you need to set up your computer to use it, and
   install a few other programs that are useful.
 
@@ -35,12 +42,6 @@
   ~\\
 }
 
-\frame{\frametitle{While testing...}
-
-  Luwen, Matt etc. -- please keep notes of any steps that aren't clear. I can't
-troubleshoot the installation, so any feedback is welcome.
-}
-
 \frame{\frametitle{What you will end up having installed}
   \bigskip
   These are programs/things you will need (instructions are on the next
@@ -48,15 +49,11 @@ troubleshoot the installation, so any feedback is welcome.
   \bi
   \item A \gh\ account
   \item Git on your computer
+  \item A text editor that isn't Notepad
   \item Diffmerge or something similar for comparing changes to files (not
     completely necessary)
   \item Markdown Pad 2 or Chrome extension or something similar for viewing Markdown
     files (not completely necessary)
-%  \item R -- presumably a version not \emph{too} old (though it's hard for us to specify
-%    exactly what version). Also a few R packages are given here
-%  \item A way of running \LaTeX\ (such as Mik\TeX\ or Pro\TeX)
-  \item A text editor that isn't Notepad
-%  \item Pandoc (comes with RStudio)
   \ei
 }
 
@@ -67,16 +64,20 @@ troubleshoot the installation, so any feedback is welcome.
     \item If possible, choose a user name that will make sense to colleagues,
       e.g. \textbf{andrew-edwards} or \textbf{cgrandin}, not
       \textbf{pink-unicorn}.
-    \item Optional (but desirable): attach a photo (headshot) to your
+    \item Desirable: attach a photo (headshot) to your
       profile. This makes it easy for collaborators to identify you.
   \ei
 }
 
 
-
 \frame{\frametitle{Install the Git application on your machine}
 See \url{https://git-scm.com/downloads} for downloading instructions for Windows, MAC and
 Linux/Unix.
+
+~\\
+
+It seems best to accept the default options, except for: TODO (Issue \#4).
+
 }
 
 \frame{\frametitle{Git shell}
@@ -99,7 +100,13 @@ There are many Graphical User Interfaces that are available, as described at
 
 ~\\
 
-I now use one called magit
+Many (but not all) biologists use R in RStudio for their analyses. There is
+Git functionality built in to RStudio that we (TODO: SOMEONE?) will
+demonstrate later.
+
+  ~\\
+
+I use magit
 which works in the text editor emacs (which for years I have used for pretty
 much everything, such as editing files, running R, Matlab, etc.). But I would not have
 been able to learn magit without first knowing the Git commands from using the
@@ -107,37 +114,21 @@ shell.
 
 ~\\
 
-Many (but not all) biologists use R in RStudio for their analyses. There is
-Git functionality built in to RStudio that we (TODO: SOMEONE?) will
-demonstrate later.
-
-  ~\\
-
-  For now we will stick with the Git shell for the aforementioned reasons. It
-  will also give you a better understanding of Git and GitHub (and emphasise
-  that you can use Git for any files, not just R code).
+ For now we will stick with the Git shell for the aforementioned reasons. It
+ will also give you a better understanding of Git and GitHub, and emphasise
+ that you can use Git for any files, not just R code.
 }
 
-\frame{\frametitle{TODO: For troubleshooting}
-
-  Please keep track of any installation difficulties and let me know, so we can update
-  the slides to make the instructions easier for people.
-
-~\\
-There might be some one-time authentication to your GitHub account (the first
-time you get set up), that I think
-may be prompted by instructions. Follow those if necessary, and please let Andy
-know so we can make a note here. (Once we're all using Git you'll know how to make the
-change yourself, rather than tell me and I make it!)
-
-}
 
 \frame{\frametitle{Powershell and posh-git}
 
-  Download a Powershell and then posh-git following the instructions at:
+  Download a Powershell (a shell window in which you can type commands,
+  presumably the `power' part means it's more powerful than a basic version) and then posh-git following the instructions at:
 
   \url{https://github.com/dahlbyk/posh-git}.
 
+Do the `Installation' and `Using posh-git' sections. If you don't understand
+some options (I don't!) just pick the simplest, usually the first.
 
 ~\\
 
@@ -149,26 +140,12 @@ Windows). So they may be out of date (though first one is recent tips from a col
 
 }
 
+\frame{\frametitle{One-time authentication}
 
-\frame{\frametitle{SKIP: Tips from Chris in 2021 but don't think we need it all now}
-
-Not sure we need this.... And I think this is just for Windows:
-
-Install scm-git (you need this version because it has the new Windows credential
-manager): https://git-scm.com/
-
-Then make sure c:/Program Files/Git/cmd is the first place Git is found on your
-PATH. That's where git-scm installs it. This is just opening a command window
-and typing where git and making sure that folder is first.
-
-Then change something in a file in a test repo,  and commit. Then try to push. You will get a Github for Windows dialog box that asks for your token. Leave that dialog open and
-Create a new token on GitHub using these instructions:
-https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token
-
-Copy the token (it's some long alphanumeric string, then click Update token if updating or `create token` if creating a new one then finish saving the token so it is live.
-Now, paste the token in the GitHub for Windows dialog for logging in and that
-should be the end of it.
+The first time you get set up or start using Git, there will be some one-time
+authentication to connect to your GitHub account. Follow any instructions.
 }
+
 
 \frame{\frametitle{Configure the Git application}
 
@@ -180,22 +157,24 @@ should be the end of it.
           to put it in a different path, but make sure there are no spaces
           or special characters \emph{anywhere} in the full path. This is where
           you want to be saving your work that you are tracking with Git.
-        \item TODO: think these Windows steps are simpler nowadays. Basically
-          want to tell the \emph{Powershell} to open in
-          \lst[escapechar="\\"]{C:\\github} (or whatever directory you created above).
-        \item Open the GitHub Desktop Application. Press the gear icon and
-          choose \emph{Options}.
-        \item In \emph{Configure Git}, fill in your name and the
-          email address you used for your GitHub account.
-        \item Change your \emph{Clone Path} to \lst[escapechar="\\"]{C:\\github}
-          (or whatever directory you created above).
-        \item Make sure that for \emph{Default Shell}, \emph{PowerShell} is
-          checked.
-        \item Click \emph{Save} and close the application.
-        \item Check the configuration by opening the \gs, (not the \gh\
-          application). The directory that it starts in should be
-          \lst[escapechar="\\"]{C:\\github} (or whatever directory you created
-          above).
+        \item TODO: Andy has to reinstall anyway and will write something
+          here. Think it's just following instructions.
+        %  think these Windows steps are simpler nowadays. Basically
+        %  want to tell the \emph{Powershell} to open in
+        %  \lst[escapechar="\\"]{C:\\github} (or whatever directory you created above).
+        %\item Open the GitHub Desktop Application. Press the gear icon and
+        %  choose \emph{Options}.
+        %\item In \emph{Configure Git}, fill in your name and the
+        %  email address you used for your GitHub account.
+        %\item Change your \emph{Clone Path} to \lst[escapechar="\\"]{C:\\github}
+        %  (or whatever directory you created above).
+        %\item Make sure that for \emph{Default Shell}, \emph{PowerShell} is
+        %  checked.
+        %\item Click \emph{Save} and close the application.
+        %\item Check the configuration by opening the \gs, (not the \gh\
+        %  application). The directory that it starts in should be
+        %  \lst[escapechar="\\"]{C:\\github} (or whatever directory you created
+        %  above).
        \en
   \ei
 
@@ -282,24 +261,22 @@ should be the end of it.
 
 
 
-\frame{\frametitle{Install the difftool [Nice to have - not essential if you
-    have trouble with it]}
+\frame{\frametitle{Install the difftool}
   The difftool will be used to examine differences between different
   versions of files and also to simplify merging of branches and
   collaborator's code. There are many programs that can be used but
   for consistency we will use Diffmerge.\\
   \bigskip
-
-  Install Diffmerge:\\
+  It is nice to have but not essential if you have trouble installing it.\\
   \bigskip
+  Install Diffmerge:\\
   \url{https://sourcegear.com/diffmerge/downloads.php}\\
   \bigskip
   The configuration for directing git to use Diffmerge will be done in a
   later step.
 }
 
-\frame{\frametitle{Markdown Pad [Nice to have - not essential if you
-    have trouble with it]}
+\frame{\frametitle{Markdown Pad}
   Each project has an associated \lst{README.md} file that appears
   on its \gh\ homepage. The extension \lst{.md} stands for Markdown
   and is just an ASCii text file that contains simple formatting (such as
@@ -314,6 +291,9 @@ should be the end of it.
     \item The Chrome extension for markdown viewing:\\
       \url{https://chrome.google.com/webstore/detail/markdown-viewer/ckkdlimhmcjmikdlpkmbgfkaikojcbjk?hl=en}.
   \ei
+
+  Again, this is nice to have but not absolutely essential if you have trouble
+  installing it.
 }
 
 % \frame{\frametitle{R and packages installation (SKIP)}
@@ -418,25 +398,6 @@ should be the end of it.
 % }
 
 
-\frame{\frametitle{To keep notes}
-  Our slides are fairly detailed, but you may want to also take some notes.\\
-  \bigskip
-  If so, create a file \lst{git-course/myNotes.*} the usual way {\red on
-    your computer}, where \lst{*} is \lst{txt},
-  \lst{doc}, \lst{docx} or whatever you want to write in.\\
-  \bigskip
-  This file will remain private on your computer and not be shared (even if you
-  end up making some amazing changes to our files that you want to share).
-}
-
-\frame{\frametitle{You're ready...}
-  That's it! You should have everything set up to create new repositories,
-  commit changes, push your commits, create branches, collaborate, and view
-  differences.
-
-  ~\\
-
-  During the course you'll understand what all that means.\\
   % \bigskip
   % To get a sneak peek at what is to come, take a look at the git-course
   % repository on \gh\ (you should already have these files on your computer):\\
@@ -454,6 +415,28 @@ should be the end of it.
   % on amongst you and you collaborators. We'll get into it more in the course.
 
   % See you soon.
-}
+  % }
 
 \end{document}
+
+
+% Most probably not needed:
+\frame{\frametitle{SKIP: Tips from Chris in 2021 but don't think we need it all now}
+
+Not sure we need this.... And I think this is just for Windows:
+
+Install scm-git (you need this version because it has the new Windows credential
+manager): https://git-scm.com/
+
+Then make sure c:/Program Files/Git/cmd is the first place Git is found on your
+PATH. That's where git-scm installs it. This is just opening a command window
+and typing where git and making sure that folder is first.
+
+Then change something in a file in a test repo,  and commit. Then try to push. You will get a Github for Windows dialog box that asks for your token. Leave that dialog open and
+Create a new token on GitHub using these instructions:
+https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token
+
+Copy the token (it's some long alphanumeric string, then click Update token if updating or `create token` if creating a new one then finish saving the token so it is live.
+Now, paste the token in the GitHub for Windows dialog for logging in and that
+should be the end of it.
+}
