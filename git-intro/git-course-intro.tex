@@ -535,12 +535,26 @@ The best approach I have found to fixing a conflict is the following:
   \ei
 }
 
+\section{Congratulations}
 \frame{\frametitle{Congratulations}
-  Those are the few basic commands and functionality needed to collaborate with Git
-  and \gh. It takes a bit of practice, but it is very powerful.
+  Congratulations, you now know the few basic commands and functionality needed
+  to collaborate with Git and \gh.
+  It takes a bit of practice, but it is very powerful.\\
 
-  The following slides give extra background that should improve your
-  understanding, plus tips for improving your workflow. TODO
+  {\red 95\% of the time, this is all you are doing:}\\
+  \bigskip
+  Change some code.\\
+  \lst{git com "My commit message"}\\
+  \lst{git p}\\
+  If \gh\ does not allow you to push:\\
+  \lst{git fetch}\\
+  \lst{git rebase}\\
+  If conflicts, then \lst{git rebase --abort}, \lst{git merge}, fix conflicts and:\\
+  \lst{git add CONFLICTED_FILE}\\
+  \lst{git com "Message"}
+  \lst{git p}\\
+  \bigskip
+  Change some code... repeat...
 }
 
 
@@ -1123,29 +1137,7 @@ These are on the readme file of this repo. Just remember (when Googling
 problems) that these are aliases.
 }
 
-\section{Summary}
-\frame{\frametitle{Summary}
-  95\% of the time, this is all you are doing:\\
-  \bigskip
-  Change some source code\\
-  \lst{git com "My commit message"}\\
-  \lst{git p}\\
-  If server does not allow you to push:\\
-  \lst{git fetch}\\
-  \lst{git rebase}\\
-  If conflicts, fix them and:\\
-  \lst{git add CONFLICTED_FILE}\\
-  \lst{git rebase --resume}\\
-  \lst{git p}\\
-  \bigskip
-  Change some source code...\\
-  repeat... \\
-}
 
-\frame{\frametitle{Visualization website}
-  Git Visualization website:
-  \url{http://onlywei.github.io/explain-git-with-d3}
-}
 
 \end{document}
 
