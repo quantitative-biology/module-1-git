@@ -554,26 +554,6 @@ The best approach I have found to fixing a conflict is the following:
 
 
 
-\frame{\frametitle{Renaming files}
-  \bi
-    \item You can rename any files the way you usually would (e.g. in File Explorer).
-    \item Once you've renamed your files, check the repository status:\\
-      \lst{git s}\\
-    \item You will see that the files you renamed have been automatically
-      deleted from the repository and need to be added again. Do this the
-      same way you add new files (\lst{git add filename}). You can also
-      add a whole directory again and \gs\ is smart enough to only add the
-      renamed files.
-    \item Check the status again:\\
-      \lst{git s}\\
-      It will show that the file(s) were renamed.
-    \item Make a commit:\\
-      \lst{git com "Renamed files x, y, and z"}\\
-    \item Push the commit:\\
-      \lst{git p}
-  \ei
-}
-
 \frame{\frametitle{The power to go back}
   With Git you can revert back to any previous state of your repository.\\
   This is {\red very powerful}, though slightly {\red scary} at first.
@@ -960,26 +940,7 @@ TODO Somewhere: Note that you still edit and save your files in the usual way. I
   \en
 }
 
-\frame{\frametitle{Deleting or renaming remotes (may occasionally need)}
-  \bi
-    \item To delete someone as a remote:\\
-      \lst{git remote rm REMOTE-NAME}\\
-    \item To rename a remote:\\
-      \lst{git remote rename OLD-NAME NEW-NAME}\\
-    \item To see your changes, use:\\
-      \lst{git remote -v}
-  \ei
-}
 
-\frame{\frametitle{Demonstration of conflicts}
-  \bi
-    \item Kim and Andy to carry on with existing repo
-    \item Both modify {\red same lines of same file}
-    \item Demonstrate how to rectify
-    \pause
-    \item {\bf Exercise:} Participants to create a conflict and fix
-  \ei
-}
 
 \frame{\frametitle{\gh\ -- Add collaborators}
   If your \gh\ repository is public, anyone can post an \emph{Issue} (explained
@@ -1184,35 +1145,6 @@ problems) that these are aliases.
 \frame{\frametitle{Visualization website}
   Git Visualization website:
   \url{http://onlywei.github.io/explain-git-with-d3}
-}
-
-\frame{\frametitle{For tomorrow}
-  You will need the TTT repo on your computer (it has some example code,
-  plus then you'll also have the readme on your computer).\\
-  \bi
-  \item  In your git shell, make sure you are in your folder:\\
-    ~~\lst{github/}
-  \item Since you don't (all$^*$) have push access to \lst{pbs-assess/TTTworkshop}
-    you need to:
-  \item Fork it (on the \gh\ site)
-  \item \lst{git clone http://github.com/YOUR-GITHUB-NAME/TTTworkshop}
-    \ei
-  ~\\
-    $^*$some PBS folks are members of the \gh\ `organization' \lst{pbs-assess}
-    and so automatically have push access so don't need to fork.
-}
-
-\frame{\frametitle{For tomorrow (now added to TTT readme)}
-  Also need some R packages (get those that you don't have):\\
-  ~\\
-  \lst{install.packages("dplyr",
-                        "kableExtra",
-                        "xtable",
-                        "devtools")}\\
-  ~\\
-  Then to get csasdown:\\
-  \lst{devtools::install_github("pbs-assess/csasdown")}
-
 }
 
 \end{document}
