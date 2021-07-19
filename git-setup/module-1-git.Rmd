@@ -1,0 +1,129 @@
+---
+title: "Module-1-Git"
+output: html_document
+author: Andrew Edwards
+---
+
+# Setting up Git and GitHub for the first time
+
+## Getting started
+Before you start using Git you need to set up your computer to use it, and install a few other programs that are useful.
+
+This is a <span style="color:red">one-time setup</span> and once it is done, you will be able to easily create new projects or join others in collaboration. 
+
+We have tested the installations as much as feasible. If you have an issue then search the internet, as it may be due to some configuration on your particular computer.
+
+This module is for any operating system: Windows, MacOS, Linux or Unix.
+
+## What you will end up having installed
+These are programs/things you will need (instructions are on the next slides). Obviously skip any that you already have working. 
+
+* A GitHub account
+* A text editor that isn't Notepad
+* Git on your computer
+* Diffmerge or something similar for comparing changes to files (not completely necessary)
+* Markdown Pad 2 or Chrome extension or something similar for viewing Markdown files (not completely necessary)
+
+## Get a GitHub account
+* Sign up for GitHub: http://github.com
+* If possible, choose a user name that will make sense to colleagues, e.g. __andrew-edwards__ or __cgrandin__, not __pink-unicorn__.
+* Desirable: attach a photo (headshot) to your profile. This makes it easy for collaborators to identify you.
+
+## Text Editor
+You must have a text editor that is aware of outside changes in a file. This is necessary because if you have a file open in the editor and you download an updated version of the file, you want the editor to ask you if you want to use the updated version.
+
+We know that __Emacs__, __Xemacs__ and maybe __Vim__ are okay, as is __RStudiofor.R__ (and other) files. 
+
+__Notepad__ is not okay. But you can download and install __Notepad++__ which is fine:
+
+https://notepad-plus-plus.org/download/v7.3.3.html
+
+## Install the Git application on your machine
+See https://git-scm.com/downloads for downloading instructions for Windows, MAC and Linux/Unix
+
+It seems best to accept the default options, except NOT Notepad (and we're not
+sure about Vim) as the default editor.
+
+## Git shell
+For this course we will use a simple git shell to type commands (rather than a point-and-click Graphical User Interface). This is for several reasons:  
+
+1. Commands are the same across operating systems.
+2. It is easier to demonstrate (and remember) a few simple commands, rather than follow a cursor moving across a screen.
+3. Learning the text commands will give you a good understanding of how Git and GitHub work.
+4. It is easier to Google for help when you get stuck or want to learn about more advanced options.
+
+## Git shell, RStudio
+There are many Graphical User Interfaces that are available, as described at https://git-scm.com/downloads/guis. 
+
+Many (but not all) biologists use R in RStudio for their analyses. There is Git functionality built in to RStudio that we (TODO: SOMEONE?) will demonstrate later.
+
+I use magit which works in the text editor emacs (which for years I have used for pretty much everything, such as editing files, running R, Matlab, etc.). But I would not have been able to learn magit without first knowing the Git commands from using the shell.
+
+For now we will stick with the Git shell for the aforementioned reasons. It will also give you a better understanding of Git and GitHub, and emphasise that you can use Git for any files, not just R code.
+
+## Powershell and posh-git
+Download a Powershell (a shell window in which you can type commands, presumablythe ‘power’ part means it’s more powerful than a basic version) and then posh-gitfollowing the instructions at:https://github.com/dahlbyk/posh-git
+
+Do the ‘Installation’ and ‘Using posh-git’ sections.  If you don’t understand someoptions (I don’t!) just pick the simplest, usually the first.
+
+The next slides are from our course about three years ago (and were for
+Windows). So they may be out of date (though first one is recent tips from a colleague).
+
+[Maybe we should see https://upg-dh.newtfire.org/explainGitShell.html]
+
+## One-time authentication
+The first time you get set up or start using Git, there will be some one-timeauthentication to connect to your GitHub account. Follow any instructions.
+
+## Configure the Git application
+* Windows
+  1. Create a github directory, such as C:\github.  It is fine to put it in a differentpath, but make sure there are no spaces or special charactersanywherein the fullpath. This is where you want to be saving your work that you are tracking with Git.
+  2. TODO: Andy has to reinstall anyway and will write something here. Think it’s just following instructions.  
+<br>
+* MAC
+  1. Create the directory ~/github
+  2. Enjoy a beverage
+  3. TODO: Check with Luwen if it is that simple 
+  
+## "Cloning" the git-course repository 
+For these instructions, replace GITHUB-USER with your GitHub account name. 
+
+* On the GitHub webpage, sign into your account and navigate to: https://github.com/quantitative-biology/module-1-git
+* Windows: Open the Git shell and run the following command to clone the repository ('clone' means copy all files in the repository to your computer): git clone https://github.com/quantitative-biology/module-1-git
+* MAC: Open terminal and change to the GitHub directory: cd ~/github then run the clone command: git clone https://github.com/quantitative-biology/module-1-git
+* You now have the files for the GitHub course on your computer
+
+## Copy the _.gitignore_ file
+* Git uses a configuration file for your account info, name to use when committing, aliases for commands, and other things.
+* Open up the _misc_ sub-directory in the git-module-1 directory and copy the file _.gitconfig_. 
+* For Windows, copy this file (overwrite the existing file) to: C:\Users\YOUR-COMPUTER-USER-NAME\.gitconfig, where YOUR-COMPUTER-USER-NAME is your username on your computer, not your GitHub account name. 
+* For MAC, copy this file (overwrite the existing file) to: ~/.gitconfig
+
+## Edit the _.gitconfig_ file
+* Use your favourite editor to edit the new file (not the one ingit-course/misc).
+* Change the [user] settings to reflect your information.
+* Change the [difftool] and [diffmerge] directories so they point to the location where you have DiffMerge.
+* For Windows the location should be: C:\Program Files\SourceGear\Common\DiffMerge\sgdm.exe
+* For MAC the location should be: /usr/local/bin/diffmerge
+* If you could not install [difftool] or [diffmerge] then delete those lines in your _.gitconfig_ file. 
+
+## MAC only: make your output pretty 
+On the MAC, change the ~/github directory and run the following command: 
+
+git config --global color.ui.auto
+
+This will make your git output colored in a similar way to the Windows powershell version. 
+
+## Install the difftool
+The difftool will be used to examine differences between different versions of files andalso to simplify merging of branches and collaborator’s code. There are many programsthat can be used but for consistency we will use Diffmerge. 
+
+It is nice to have but not essential if you have trouble installing it.
+
+Install Diffmerge: https://sourcegear.com/diffmerge/downloads.php 
+
+The configuration for directing git to use Diffmerge will be done in a later step.
+
+## Markdown Pad
+Each project has an associated README.md file that appears on its GitHub homepage.The extension .md stands for Markdown and is just an ASCii text file that containssimple formatting (such as bold or italics). There are two options we have used to readmarkdown files, choose one:
+
+* The Markdown Pad 2 editor/viewer which is easy to use: http://markdownpad.com. Just get the free version.
+* The Chrome extension for markdown viewing: https://chrome.google.com/webstore/detail/markdown-viewer/ckkdlimhmcjmikdlpkmbgfkaikojcbjk?hl=en.
