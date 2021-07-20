@@ -24,3 +24,5 @@ git-motivation/figures/*
 git-motivation/git-for-Rworkshop.tex
 git-motivation/NGbeforeCmerges.png
 git-intro/build-pdf.bat
+
+*.html
