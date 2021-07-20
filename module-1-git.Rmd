@@ -9,7 +9,11 @@ author: Andrew Edwards
 ## Getting started
 Before you start using Git you need to set up your computer to use it, and install a few other programs that are useful.
 
-This is a <span style="color:red">one-time setup</span> and once it is done, you will be able to easily create new projects or join others in collaboration.
+This is a `r colorize("one-time setup")`
+and once it is done, you
+will be able to easily create new projects or join others in collaboration.
+
+
 
 We have tested the installations as much as feasible. If you have an issue then search the internet, as it may be due to some configuration on your particular computer.
 
