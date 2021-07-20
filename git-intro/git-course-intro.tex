@@ -24,6 +24,7 @@
 \item Committing -- the crux of working with Git
 \item Collaborating -- efficiently work with colleagues
 \item Conflicts -- fixing conflict changes (happens rarely)
+\item Congratulations -- you now know the basics, summarised on a page
 \en
 }
 
@@ -325,6 +326,23 @@ From now on we will use the aliases.
   that you have untracked files).
 }
 
+\frame{\frametitle{Thoughts/hints regarding commit messages}
+  What to write in \lst{git com "Message"}?\\
+  Ideally:
+  \bi
+    \item Want to describe \emph{what} and (sometimes \emph{why}) you did
+       something.
+    \item The \emph{how} is not needed since that will be explained by the
+       actual changes in the code.
+    \item Message should be informative for collaborators (including your future self).
+  \ei
+  {\red Bad}:\\
+  ~~\lst{git com "Tweaked function."}\\
+  {\blue Good}:\\
+  ~~\lst{git com "Allow plot.biomass() to use extra colours."}\\
+}
+
+
 \section{Collaborating}
 \frame{\frametitle{Git Workflow}
   You have now learnt the basics of using Git. By creating a public repository
@@ -557,6 +575,9 @@ The best approach I have found to fixing a conflict is the following:
   Change some code... repeat...
 }
 
+% Andy ending it here, as the rest won't be a recorded lecture, I'll just put
+%  what I want straight into .Rmd and edit it there.
+\end{document}
 
 \frame{\frametitle{Other slides to add.....}
   Mention pull requests as you hear them a lot
@@ -663,21 +684,6 @@ TODO Somewhere: Note that you still edit and save your files in the usual way. I
   commit, and the \textbf{HEAD} points to the master.\\
 }
 
-\frame{\frametitle{Thoughts/hints regarding commit messages}
-  What to write in \lst{git com "Message"}?\\
-  Ideally:
-  \bi
-    \item Want to describe \emph{what} and (sometimes \emph{why}) you did
-       something.
-    \item The \emph{how} is not needed since that will be explained by the
-       actual changes in the code.
-    \item Message should be informative for collaborators (including your future self).
-  \ei
-  {\red Bad}:\\
-  ~~\lst{git com "Tweaked function."}\\
-  {\blue Good}:\\
-  ~~\lst{git com "Allow plot.biomass() to use extra colours."}\\
-}
 
 \frame{\frametitle{Why you should not commit binary files}
   An example:
