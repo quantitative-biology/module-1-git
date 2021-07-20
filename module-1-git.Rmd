@@ -88,8 +88,16 @@ The first time you get set up or start using Git, there will be some one-timeaut
 For these instructions, replace GITHUB-USER with your GitHub account name.
 
 * On the GitHub webpage, sign into your account and navigate to: https://github.com/quantitative-biology/module-1-git
-* Windows: Open the Git shell and run the following command to clone the repository ('clone' means copy all files in the repository to your computer): git clone https://github.com/quantitative-biology/module-1-git
-* MAC: Open terminal and change to the GitHub directory: cd ~/github then run the clone command: git clone https://github.com/quantitative-biology/module-1-git
+* Windows: Open the Git shell and run the following command to clone the
+repository ('clone' means copy all files in the repository to your computer):
+```
+git clone https://github.com/quantitative-biology/module-1-git
+```
+* MAC: Open terminal and change to the GitHub directory: cd ~/github then run
+the clone command:
+```
+git clone https://github.com/quantitative-biology/module-1-git
+```
 * You now have the files for the GitHub course on your computer
 
 ## Copy the _.gitignore_ file
