@@ -13,13 +13,30 @@ just covered.
 
 Realise that you still edit and save your files in the usual way on your
   computer. If you don't do Git commits you will still have the latest versions
-  of your files on your computer (as you would if you weren't using Git).
+  of your files on your computer (as you would if you weren't using Git). So if
+  you do get stuck with Git you can carry on working as normal (though you
+  probably do want to try and fix it at some point).
 
-### I've made some changes but don't want to keep them -- stash
+When collaborating:
+
+* If working closely with others, when you start each day (or after a break)
+  then make sure you are up to date and have all their commits. Refresh the
+  GitHub page for you repository, and `git fetch` (or just `git f`)and `git clone` if needed. (To
+  be safe you can `git f` and `git s` to check).
+* We find it helpful to co-ordinate our work (Slack is useful for this, or use
+  GitHub Issues for complex discussion -- see below), so that if multiple people
+  are working at the same time, you are at least not working on exactly the same
+  parts, just to reduce conflicts.
+* Commit fairly frequently and write helpful commit messages (so your colleagues
+  get an idea of what you've done in each commit). Push less frequently, and
+  _don't push code that doesn't work_ -- that will annoy your colleagues. And
+  then they (and probably you) may both spend time fixing it.
+
+
+### So I've made some changes but don't really want to keep them -- git stash
 
 If you've changed some code but _have not committed it_, and then maybe got in a
 mess and just want to go back to your last commit, you can _stash_ your changes
-(such that they can maybe be retrieved later -- you don't have to fully delete them):
 ```
 git stash
 ```
@@ -28,9 +45,11 @@ and to include a message (for your future self):
 git stash save "Message"
 ```
 
+This stashes them away such that they can be retrieved later.
 This is handy. You may _think_ you don't want to keep those changes, but
-sometimes you may later wish you had kept them somehwere. You can have multiples
-stashes, seen by doing:
+sometimes you may later wish you had kept them somehwere.
+
+You can have multiple stashes, seen by doing:
 ```
 git stash list
 ```
@@ -39,9 +58,11 @@ TODO: Often you're working on something but it's not finished, but you want to
 push it. Stash, then make branch then copy files in. Tricky to do all with git,
 so do manually.
 
-TODO: see my README for details, and test them.
+TODO: see my README for details, and test what to do
 
 ### Pull requests
+
+TODO
 
 ### The power to go back
 
@@ -57,26 +78,24 @@ Do this with your test repository, that should have some files in it from the
 * In File Explorer (or whatever you use) look at your repository, you should see
     all your files, including the `new-stuff\` directory.
 * Look at the commit tab on GitHub for your test repo and click on the clipboard
-      icon to copy the HASH to the clipboard .
-* In Git shell: `git checkout HASH`
-* Look at File Explorer again -- your `new-stuff`` directory should
+      icon to copy the HASH number thingy to the clipboard .
+* In Git shell: `git checkout HASH` (where `HASH` is the pasted HASH)
+* Look at File Explorer again -- your `new-stuff` directory should
       have ... disappeared!!
 * (If it hasn't disappeared then open it -- the test files, i.e. `test1.r`,
       `test2.r`, etc. should be gone, but your text editor may
       have saved backup versions; manually delete them plus the
-      `new-stuff/` directory.
-* You are now back to the very first version of your repo.
+      `new-stuff/` directory.)
+* You are now back to the very first version of your repo!
 
-Wow.
-
-Errr... but now I want my work  back please...
+Powerful and scary.
 
 Now, to get your files back to the most recent version you had committed:
 
 * `git checkout main`   (or `git checkout master`, the names have recently changed).
 
-That's it! Check that your files are back. So you can `r colorize("revert to any previous commit in your
-    repository").
+That's it! Check that your files are back. All this means that you can
+`r colorize("revert to any previous commit in your repository")`.
 
 This is very reassuring. For example you have some complex code that you realise
   is now a complete mess and you want to go back to yesterday's version of everything.
@@ -84,25 +103,30 @@ This is very reassuring. For example you have some complex code that you realise
 In practice you rarely actually do this, but it's very comforting to know
   that you can.
 
-So you can transit the commit history and select any previous version of your
-  repository. So your workflow is less cluttered and more tractable than having
-  to save multiple versions of the same files with dates in the filename, such as
-```{r, versions}
-knitr::include_graphics("../module-1-git/images/EAversions.png")
-```
+Consequently, your workflow is less cluttered and more tractable than having
+  to save multiple versions of the same files with dates in the filename, such
+  as this nightmare:
 
+![](../module-1-git/images/EAversions.png){width=100%}
 
 ### So how does Git do all this?
 
 By now you're probably wondering how Git keeps track of everything.
-There is a hidden `.git` directory in each repository.
-Look at the `.git/objects` subdirectory. Each subdirectory name is the
-first two digits of a HASH. The rest of digits of the HASH are the filenames in the
+Git does not keep versions of code, it keeps _commits_. The commits
+are kept track of using a HASH key which is a generated 40-digit key in
+hexadecimal (base 16). The hashes are
+what you see on GitHub and in various places when you use Git shell.
+
+By stitching all the commits back together again, Git can recreate all your code.
+
+There is a hidden `.git/` directory in each repository.
+Look at the `.git/objects/` subdirectory. Each subdirectory name is the
+first two digits of a HASH. The rest of the digits of the HASH are the filenames in the
 subdirectory.
 
-You can think of the hashes as representing `commits` (apparently they can also
-be `blobs` and `trees` but I've not looked into understanding that). I
-think of these files as containing the `r colorize("differences")` between each commit.
+You can basically think of the hashes as representing `commits` (apparently they can also
+be `blobs` and `trees`, whatever they might be).
+I think of the files in the subdirectories containing the `r colorize("differences")` between each commit.
 
 Because of these structures, Git can go back and `r colorize("rebuild")` any or
       all files at any `commit`, and even have different directory
@@ -118,29 +142,31 @@ Git does work for binary files, such as `.xls`, `.docx`, `.RData`, but since
       are changed. Think of a binary file as something that you cannot open in a
       text editor and read (it does not contain simple ASCii letters and numbers).
 
-Exceptions: often you may have an image (or other) file that you need for a
-      write up, but it isn't going to keep changing. So that's fine to commit.
+Exceptions: often you may have an image or photo or other type file that you need to share for a
+      document, but it isn't going to keep changing. So that's fine to commit.
 
 An example of why you should not commit binary files:
+
 * A collaborator was running some R code (and correctly committed the `.R` files
-  so that others could run it), but also committed the results, which included
+  so that I could run it), but also committed the results, which included
   `.pdf`, `.png` and `.RData` files, which can get quite large.
 * But, these latter files got updated every time the code was run. So changing
   one line of the `.R` code (which Git deals with very efficiently), and running
   that code and committing, resulted in the new `.pdf` etc. files being fully
-  saved (since Git cannot just save the difference from the last commit). Even
-  if, say, one point changes on a figure in a graph in a `.pdf` file.
-
+  saved (since Git cannot just save the difference from the last commit because
+  they are binary files). Even
+  if, say, one point changes on a figure in a graph in a `.pdf` file, Git has to
+  save the whole new version.
 * This ended up with `.git/objects/pack` (whatever that might be!) being 2.8Gb.
-* I needed space quickly so just deleted four files in `.git/objects/pack`, which freed up 1.6Gb.
+* I needed space quickly on my computer so just deleted four files in
+  `.git/objects/pack`, which freed up 1.6Gb.
 * Note that I still had the actual final versions of files (as you would
      if not using Git), but just not the full repository history.
 * However, when I tried to later do some work and then `commit` I got lots of
-'fatal' errors with scary messages like `bad object HEAD` and the great 'You are
-on a branch yet to be born':
-```{r, notgood}
-knitr::include_graphics("../module-1-git/images/notGood.png")
-```
+'fatal' errors with scary messages like `bad object HEAD` and the awesomely titled `You are
+on a branch yet to be born`:
+
+![](../module-1-git/images/notGood.png){width=100%}
 
 I just had to start again from scratch (reclone I think). Take-home message:
 
@@ -149,15 +175,12 @@ I just had to start again from scratch (reclone I think). Take-home message:
 ### Git terminology
 
 At some point you will likely need to search online for some help (often
-questions are posted and answered on the `stackoverflow` website).
+questions are posted and answered on the excellent 'stackoverflow' website).
 A bit more understanding of terminology will help you.
 
-Git does not keep versions of code, it keeps _commits_. The commits
-are kept track of using a hash code, using Secure Hash Algorithm 1
-(SHA-1) which generates a hash key 40 digits long in hexadecimal (base 16). These are
-what you see on GitHub and in various places when you use Git shell.
+Remember that Git keeps _commits_.
+Several of these commits have pointers to them that have special names:
 
-Several of these commits have pointers to them which have special names:
 * **HEAD** points to the commit you are currently on in the Git shell.
 * **main** or **master** is the default branch when you set up a repository on
     GitHub (there are two names because of recent changes on GitHub).
