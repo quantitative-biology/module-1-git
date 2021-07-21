@@ -99,10 +99,6 @@ onto your computer.
   \bigskip
   This means that you don't have to repeatedly enter your \gh\ password (just do
   it when you are first prompted).\\
-
-%The command creates a credential file containing your account information once
-% you do it the first time (:\\
-%  \lst[escapechar="\\"]{C:\\Users\\YOUR-COMPUTER-USER-NAME\\.git-credentials}\\
 }
 
 \section{Committing}
@@ -222,7 +218,7 @@ From now on we will use the aliases.
     \item Add some text to \lst{simpleText.txt}, then \lst{git com "Message"} and \lst{git p}.
     \pause
     \item Repeat this a few times to get the hang of it, while intermittently doing \lst{git s} and
-      \lst{git d to understand what's changing.
+      \lst{git d} to understand what's changing.
     \pause
     \item Keep an eye on your commits by refreshing the \gh\ page.
   \en
@@ -524,7 +520,7 @@ The best approach I have found to fixing a conflict is the following:
   ~~Line(s) of text/code which are currently in your file.\\
   \lst{=======}\\
   ~~Line(s) of text/code which are trying to merge in, but conflict.\\
-  \lst{>>>>>>> origin/main TODO: CHECK}\\
+  \lst{>>>>>>> origin/main}\\
   \bigskip
   where \lst{origin/main} refers to the version you have fetched from \gh.
   ~\\
