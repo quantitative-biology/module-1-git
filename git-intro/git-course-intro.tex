@@ -27,8 +27,8 @@
 \item Congratulations -- you now know the basics, summarised on a page
   \en
   \bigskip
-We will demonstrate the basics in this video lecture, which includes two
-exercises for you (you need a partner for the second one).
+We will demonstrate the basics in this video lecture, which includes three
+exercises for you (you need a partner for the third one).
 }
 
 \section{Creating}
@@ -186,7 +186,7 @@ From now on we will use the aliases.
   of your repo).
 }
 
-\frame{\frametitle{Exercise: create, edit, and commit \emph{simpleText.txt}}
+\frame{\frametitle{Exercise 1: create, edit, and commit \emph{simpleText.txt}}
   \bn
     \item Create a text file \lst{simpleText.txt}
       in your local \lst{test} repository.
@@ -247,7 +247,9 @@ From now on we will use the aliases.
       have been uploaded.
     \item That works no matter how many files are in your \lst{new-stuff}
       directory.
-  \ei
+      \ei
+  Exercise 2: Try the above, to practice creating multiple files in a folder and
+  committing that folder.
 }
 
 \frame{\frametitle{Adding multiple files at once -- slide 3}
@@ -259,14 +261,14 @@ From now on we will use the aliases.
     \item If you add more new files to that directory, you will
       have to tell Git to track those also (since they are new -- you haven't
       told Git about them yet).
-    \item Say you have 10 new files called \lst{idea1.txt}, \lst{idea2.txt}, ..., \lst{idea10.txt}.
+    \item Say you have 10 new files in \lst{new-stuff/} called \lst{idea1.txt}, \lst{idea2.txt}, ..., \lst{idea10.txt}.
     \item Instead of typing\\
-      \lst{git add idea1.txt}\\
-      \lst{git add idea2.txt}\\
-      etc.
+      \lst{git add new-stuff/idea1.txt}\\
+      \lst{git add new-stuff/idea2.txt}\\
+      etc. (note the \lst{new-stuff/} folder name there)
       you can just use the wildcard \lst{*}:\\
-      \lst{git add idea*.txt}\\
-      (or even just \lst{git add *.txt}, or \lst{git add *.*}).
+      \lst{git add new-stuff/idea*.txt}\\
+      (or even just \lst{git add new-stuff/*.txt}, or \lst{git add new-stuff/*.*}).
     \item No need to do this now, but this is useful to know.
   \ei
 }
@@ -523,7 +525,7 @@ The best approach I have found to fixing a conflict is the following:
 \endgroup
 
 
-\frame{\frametitle{Exercise on collaborating on a single repository}
+\frame{\frametitle{Exercise 3: collaborating on a single repository}
   If you have a colleague available, try what we just did:
   \bi
 \item Person 1 creates a new repository on \gh\ and clone to their computer.
