@@ -92,18 +92,20 @@ onto your computer.
 \section{Committing}
 \begingroup
 \small
-\frame{\frametitle{Copy and commit \emph{.gitignore}}
+\frame{\frametitle{Creating and committing a new file}
   \bi
     \item Create a new file, \emph{newFile.txt}, in your \lst{github/test} directory.
     \pause
-    \item Check the status of your (\lst{test}) repository: \lst{git status}
+  \item Check the status of your (\lst{test}) repository by typing
+    \lst{git status} in the Git shell.
     \pause
   \item It should say that you have an `Untracked file' called \emph{newFile.txt}.
       You want to tell Git to start tracking it, by using the \lst{git add}
       command:\\
       \lst{git add newFile.txt}
    \pause
- \item Type \lst{git status} again.
+ \item Type \lst{git status} again. (If on MacOS you may see mention of a
+   \emph{.DS\_Store} file -- ignore that for now).
  \item You should see that the file is listed as a `new file` under `Changes to
    be committed`.
     \item Let's now `commit' it:\\
@@ -191,6 +193,7 @@ From now on we will use the aliases.
     \pause
     \item Predict what \lst{git s} will tell you, \emph{then} type it in the
       Git shell to check.\\
+    \pause
     \item Add the file to the repository using the git commands:\\
       \lst{git add simpleText.txt}\\
       \lst{git s} -- not necessary but useful to check you understand what is
@@ -308,6 +311,10 @@ From now on we will use the aliases.
 
   This will also simplify your workflow (you don't need to keep being reminded
   that you have untracked files).
+
+  ~\\
+  If you are on MacOS and you find that folders have a \emph{.DS\_Store} file
+  created, then create (and add and commit) a \emph{.gitignore} file with \emph{.DS\_Store} as a line.
 }
 
 \frame{\frametitle{Thoughts/hints regarding commit messages}
