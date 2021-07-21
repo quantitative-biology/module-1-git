@@ -3,37 +3,48 @@ title: "module-1-git-intro"
 output: html_document
 ---
 
-# An Introduction to GitHub and Git shell
+## Using GitHub and the Git shell
 
-## Contents 
-1. Creating - create a new repository on GitHub
-2. Cloning - copying it to your local computer
-3. Committing - the crux of working with Git
-4. Collaborating - efficiently work with colleagues
-5. Conflicts - fixing conflict changes (happens rarely)
+This section also has a recorded lecture to
+demonstrate the main concepts and ideas. The lecture is available here (TODO)
+and the slides from the talk are here (TODO), though the notes below mostly
+replicate the slides.
 
-## Basics
-June 2021 testing:
-I will go through the next slides up to slide 9, demonstrating the basic commands. 
+### Definitions
 
-Some are only needed once per repository to get set up. 
+Let's start with some definitions:
 
-So first sit back and listen, then go back through the slides yourself following the instructions, to become familiar with the basic ideas.
+* Repository -- essentially a directory containing all your files for a
+    project (plus some files that Git uses).
+* Git -- a program that allows you to efficiently save ongoing versions of
+    your files (`version control').
+* GitHub -- a website that hosts your repositories so that you can easily
+   share code and collaborate with colleagues.
 
-Then you can do the Exercise on page 10.
+Basically, the idea is that you work on your files in a repository on your computer, use Git on
+your computer when you are happy to keep your changes, and use GitHub to easily
+share the files.
 
-## Creating a new repository
+Here you will learn the important steps:
+
+* Creating -- create a new repository on GitHub
+* Cloning -- copying it to your local computer
+* Committing -- the crux of working with Git
+* Collaborating -- efficiently work with colleagues
+* Conflicts -- fixing conflict changes (happens rarely)
+
+### Creating a new repository
 * Sign into your GitHub account, click on the _Repositories_ tab, and press the _New_ button.
 * Give your repository a name. Let's call it test.
 * Check _Initialize_ this _repository_ with a _README_.
-* Leave ' _Add .gitignore_ ' and ' _Add a license_ ' set to _None_
+* Leave _Add .gitignore_ and _Add a license_ set to _None_
 * Click _Create repository_.
 
-You now have a new repository on the GitHub website. Next we will clone it onto your computer. 
+You now have a new repository on the GitHub website. Next we will clone it onto your computer.
 
-## Cloning your new repository
+### Cloning your new repository
 * Copy the full URL (web address) of your test repository.
-* Open the Git shell and navigate to your C://github directory (or whatever you called it when you created it in the setup instructions - it's the place you are going to save all your Git repositories).
+* Open the Git shell and navigate to your C://github directory (or whatever you called it when you created it in the setup instructions -- it's the place you are going to save all your Git repositories).
 * Run the following command to _clone_ your repository:
 git clone URL
 where URL is the url of your newly created repository (paste should work).
@@ -43,12 +54,12 @@ In Git shell, change to that directory:
 cd test
 So 'clone' is Git speak for copying something from GitHub onto your local computer. This example has just one file (the README). But the process is the same for a repository with multiple files and multiple directories (the structure is fully preserved).
 
-## Windows only: Storing your credentials
-When you are using the Git shell for the very first time on Windows, issue the following command:  
-git config --global credential.helper wincred  
+### Windows only: Storing your credentials
+When you are using the Git shell for the very first time on Windows, issue the following command:
+git config --global credential.helper wincred
 This means that you don't have to repeatedly enter you GitHub password (just do it when you are first prompted).
 
-## Copy and commit _.gitignore_
+### Copy and commit _.gitignore_
 * Copy the _.gitignore_ file from the module-1-git/git-intro directory that you should have already from the setup talk, and paste it into your new github/test directory. (we are using _.gitignore_ as an example file here). TODO: simplify "Create new-file.txt"?
 * Check the status of your (test) repository: git status
 * It should say that you have an 'Untracked file' called _.gitignore_. You want to tell Git to start tracking it, by using the git add command:
@@ -61,98 +72,98 @@ The commit message should be a useful message saying what the commit encapsulate
 * Push the commit to GitHub: git push
 * Check (refresh) the GitHub webpage and see your commit and the uploaded file.
 
-## What just happened?
-We just used three of the main Git commands:  
+### What just happened?
+We just used three of the main Git commands:
 
-* git add <filename> - tell Git to start keeping track of changes to this file. You only need to tell Git this once.   
-* git commit -a -m "Message." - committing your changes, which means tell Git you are happy with your edits and want to save them.  
-* git push - this sends your commit to the GitHub website.   
+* git add <filename> -- tell Git to start keeping track of changes to this file. You only need to tell Git this once.
+* git commit -a -m "Message." -- committing your changes, which means tell Git you are happy with your edits and want to save them.
+* git push -- this sends your commit to the GitHub website.
 
 You always have your files stored locally on your computer (as usual), even if you don't add them or commit changes.
 
-When you push to GitHub then your colleagues can easily fetch (retrieve) them. 
+When you push to GitHub then your colleagues can easily fetch (retrieve) them.
 
-## Keyboard aliases (shortcuts)
+### Keyboard aliases (shortcuts)
 Now, git commit -a -m "Message." is a bit much to type, so we have an alias for it:
 
 git com "Message."
 
 This is defined in the _.gitconfig_ file you installed in the 'git-setup' instructions.
 
-The -a means 'commit all changes of files that Git is tracking', and -m is to include a message. Since we usually want to do both of these, git com "Message." is a useful shortcut. But it is important to realise it is an alias if searching online for help. 
+The -a means 'commit all changes of files that Git is tracking', and -m is to include a message. Since we usually want to do both of these, git com "Message." is a useful shortcut. But it is important to realise it is an alias if searching online for help.
 
 Similarly:
 git s- for git status
-git p - for git push
+git p -- for git push
 
 From now on we will use the aliases.
 
-## Edit _Readme.md_
+### Edit _Readme.md_
 Edit the _Readme.md_ file. Add some simple comments describing the project such as: "A test repository for learning Git."
 
-Look over the changes, commit them, and push them to your GitHub repository:  
-git s  
-git diff - this gives a simple look at the differences between the last committed version and your current version (of all files; only one in this case)  
-git com "Initial edit of Readme.md"  
-git p  
+Look over the changes, commit them, and push them to your GitHub repository:
+git s
+git diff -- this gives a simple look at the differences between the last committed version and your current version (of all files; only one in this case)
+git com "Initial edit of Readme.md"
+git p
 
 Refresh your GitHub web page and you should see your text (the _Readme.md_ file is what is shown on the main page of your repo).
 
-## Exercise: copy, edit and commit _simpleText.txt_
+### Exercise: copy, edit and commit _simpleText.txt_
 1. Copy the text file module-1-git/exercise-files/simpleText.txt into your local test repository.
 2. Predict what git s will tell you, then type it in the Git shell to check.
-3. Add the file to the repository using the git commands:  
-git add simpleText.txt  
-git s - not necessary but useful to check you understand what is changing before you commit  
-git com "Adding simpleText.txt"  
-git p  
+3. Add the file to the repository using the git commands:
+git add simpleText.txt
+git s -- not necessary but useful to check you understand what is changing before you commit
+git com "Adding simpleText.txt"
+git p
 4. Do some editing of simpleText.txt (see instructions at start of it), to get the hange of git com and git p.
 5. git com "Message" frequently and git p  occasionally, while intermittently doing git s and git diff to understand what's changing.
 6. Keep and eye on your commits by refreshing the GitHub page.
 
-## Adding multiple files at once - slide 1
-Often you add multiple files in a new directory. When you run git s, you will see a large list of _Untracked files_. They can be added at once by simply adding the whole directory.  
+### Adding multiple files at once -- slide 1
+Often you add multiple files in a new directory. When you run git s, you will see a large list of _Untracked files_. They can be added at once by simply adding the whole directory.
 
 * Create a new directory to your test repository, using your normal method. Call it new-stuff.
 * Add a few new test files to that directory called test1.txt, test2.txt, etc. Put some example text in one or more of them if you want.
-* On the command line, check the status:  
-git s  
-* You will see a listing showing the new-stuff directory in _Untracked files_. 
-* To add all the new files in preparation for a commit, issue the command:  
+* On the command line, check the status:
+git s
+* You will see a listing showing the new-stuff directory in _Untracked files_.
+* To add all the new files in preparation for a commit, issue the command:
 git add new-stuff/
 
 Continued...
 
-## Adding multiple files at once - slide 2
+### Adding multiple files at once -- slide 2
 * Check the status of the repository again: git s
 * It will now show all files in _Changes to be committed_
-* Commit the changes:  
-git com "Added new-stuff directory."  
-* Push the changes to GitHub:  
-git p  
+* Commit the changes:
+git com "Added new-stuff directory."
+* Push the changes to GitHub:
+git p
 * Check your GitHub webpage and see your commit and that the files have been uploaded.
 * That works no matter how many files are in your new-stuff directory.
 
-## Adding multiple files at once - slide 3
+### Adding multiple files at once -- slide 3
 * To add multiple files with similar names you can use the wildcard * symbol.
 * You just added (told Git to keep track of) the new files in your new-stuff/directory.
-* If you add more new files to that directory, you will have to tell Git to track those also (since they are new - you haven't told Git about them yet).
+* If you add more new files to that directory, you will have to tell Git to track those also (since they are new -- you haven't told Git about them yet).
 * Say you have 10 new files called idea1.txt, idea2.txt, ..., idea 10.txt.
-* Instead of typing  
-git add idea1.txt  
-git add idea2.txt  
-etc. you can just use the wildcard *:  
-git add idea*.txt  
+* Instead of typing
+git add idea1.txt
+git add idea2.txt
+etc. you can just use the wildcard *:
+git add idea*.txt
 (or even just git add * .txt, or git add * .*)
 * No need to do this now, but this is useful to know.
 
-## The _.gitignore_ file
+### The _.gitignore_ file
 But what if you don't want to add all the files that you create?
 
-Each repository can have a _.gitignore_ file, in the root directory of the repository. Earlier you copied one into your test repository. 
+Each repository can have a _.gitignore_ file, in the root directory of the repository. Earlier you copied one into your test repository.
 Such a file has names of files (such as my-secret-notes.txt) or wildcard names (such as * .pdf or * .doc) that will be completely ignored by Git.
 
-When sharing a repository with others, you want to share your _code_ (for example, R or Python code) and maybe data, but generatlly _not_ share the output (such as figures that the code generates; more on this later). For reproducible research your colleague (or anyone) should be able to run your code to generate the results. 
+When sharing a repository with others, you want to share your _code_ (for example, R or Python code) and maybe data, but generatlly _not_ share the output (such as figures that the code generates; more on this later). For reproducible research your colleague (or anyone) should be able to run your code to generate the results.
 
 Some programs you run may make temporary files that don't need to be tracked by Git, the names of which should also be included in your _.gitignore_.
 
@@ -162,42 +173,42 @@ So when you run git s and see untracked files that you don't want to be tracked,
 
 This will also simplify your workflow (you don't need to keep being reminded that you have untracked files).
 
-## Git Workflow
+### Git Workflow
 You have now learnt the basics of using Git. By creating a public repository on GitHub you can now release your code to the world!
 
 You can also choose the _private repository_ option when creating a repository, so that you can control who can see it.
 
 Now we will show how to collaborate with colleagues, which is where the usefulness of Git will become more apparent.
 
-There are a few different ways to collaborate using Git and GitHub. We will focus on the following one since it is the simplest, and is what you need to collaborate with colleagues. 
+There are a few different ways to collaborate using Git and GitHub. We will focus on the following one since it is the simplest, and is what you need to collaborate with colleagues.
 
-Concept: there is a project wehre people contribute to a main repository that is considered the 'master copy'.  
+Concept: there is a project wehre people contribute to a main repository that is considered the 'master copy'.
 
 * Everyone clones directlry from the creator's repository.
-* All collaborators push their commits to the main repository (the creator ahs to grant them permission once on GitHub).  
+* All collaborators push their commits to the main repository (the creator ahs to grant them permission once on GitHub).
 Since the creator has to grant permission, you won't have just anyone contributing to (and mayb emessing up your work), just your team.
 
 But you have to trust your team to not mess things up (more on that later).
 
-## Demonstration of collaborating
+### Demonstration of collaborating
 * Kim creates new repo called collaborate (and clones it to her computer).
 * Andy clones it also.
 * On GitHub, Kim gives Andy 'push access' to her collaborate repo.
 * Both do some edits (create some new simple text files).
-* For Andy to get Kim's updates (and vice versa), it will just be:  
-  + git fetch - this fetches the latest version of the repository from GitHub onto your computer. your local files have _not_ yet changed (check them), but Git has the changes stored on your computer (!).
-  + git rebase - this updates your local repository (the committed files on your computer) with the changes you have just fetched, merging both people's work together. 
-  + git p - this pusehs the merged changes back up to GitHub so taht the other person can get them.  
+* For Andy to get Kim's updates (and vice versa), it will just be:
+  + git fetch -- this fetches the latest version of the repository from GitHub onto your computer. your local files have _not_ yet changed (check them), but Git has the changes stored on your computer (!).
+  + git rebase -- this updates your local repository (the committed files on your computer) with the changes you have just fetched, merging both people's work together.
+  + git p -- this pusehs the merged changes back up to GitHub so taht the other person can get them.
 
-## Demonstration of collaborating
-We will show an example of git p _not_ being allowed because there are changes on GitHub (by someone else) that you have not yet merged into your local repository. 
+### Demonstration of collaborating
+We will show an example of git p _not_ being allowed because there are changes on GitHub (by someone else) that you have not yet merged into your local repository.
 
 You need to deal with these first by git f and then git rebase. Here is an example of the error message you get:
 (Insert error message image)
 
-While a bit lengthy, the error message is useful. It forces you to get the other person's work before you push yours.  
+While a bit lengthy, the error message is useful. It forces you to get the other person's work before you push yours.
 
-So to be allowed to push, just fetch and then rebase (which combines the commits):  
+So to be allowed to push, just fetch and then rebase (which combines the commits):
 
 * git f
 * git rebase
@@ -205,68 +216,66 @@ So to be allowed to push, just fetch and then rebase (which combines the commits
 
 See next page for a full screenshot.
 
-Here is a full screenshot ('g' is just a shortcut for 'git'). The green up arrow number 8 tells me I have 8 commits to push to GitHub. The yellow arrows I think of as just implying I need to do a rebase:  
+Here is a full screenshot ('g' is just a shortcut for 'git'). The green up arrow number 8 tells me I have 8 commits to push to GitHub. The yellow arrows I think of as just implying I need to do a rebase:
 (Insert full screenshot)
 
-## A bit more about git rebase
+### A bit more about git rebase
 * Andy commits local changes, tries to git push but is told to first git fetch (to get Kim's changes from GitHub).
 * Andy does git fetch and then git rebase.
 * What git rebase does is basically add Andy's commits to Kim's commits (TODO: check it's not the othe way around!)
 * Andy then does git push to push his commits to GitHub (from where Kim will fetch them when she's ready).
-* Providing there are no conflicts, this will work fine.  
+* Providing there are no conflicts, this will work fine.
 
-Another option is to do a git merge, which basically creates a new commit that merges both people's work togehter. 
-Our groups used to use git merge and now use git rebase; some people dont' like git merge because it adds extra commits. 
+Another option is to do a git merge, which basically creates a new commit that merges both people's work togehter.
+Our groups used to use git merge and now use git rebase; some people dont' like git merge because it adds extra commits.
 For a more in-depth understanding see https://reflectoring.io/git-rebase-merge/ for one of the clearer explanations out there concerning rebase v merge.
 
-## Fixing a conflict 
+### Fixing a conflict
 * A conflict happens when two people have edited the same line(s) of the same file.
 * Conflicts happen relatively rarely and can be generally avoided by co-ordinating with collaborators so that you are working on different files. But, they will happen and you need to know how to resolve them.
-* Git _forces_ you to explicitly decide whose changes to keep - this is a good thing, since you want a human to make such a decision. 
+* Git _forces_ you to explicitly decide whose changes to keep -- this is a good thing, since you want a human to make such a decision.
 
-We will demonstrate a conflict. 
+We will demonstrate a conflict.
 
-## Fixing a conflict 
-The best approach I have found to fixing a conflict is the following: 
+### Fixing a conflict
+The best approach I have found to fixing a conflict is the following:
 
 * Trying git rebase will tell you there is a conflict.
-* git rebase --abort - do this to abort the rebase attempt.
-* git merge - this will tell you there is a conflict.
+* git rebase --abort -- do this to abort the rebase attempt.
+* git merge -- this will tell you there is a conflict.
 * Open the file(s) with the conflict and edit the text (next slide).
-* git add <filename(s)> - you have to then add the files that had the conflict (I am not sure why this is necessary, I just do it).
-* git com "<message>" - in your commit message you can explain how you fixed the conflict. This is useful so that your collaborators know you have resolved a conflict (they can look at the commit to see if they are happy with it). 
+* git add <filename(s)> -- you have to then add the files that had the conflict (I am not sure why this is necessary, I just do it).
+* git com "<message>" -- in your commit message you can explain how you fixed the conflict. This is useful so that your collaborators know you have resolved a conflict (they can look at the commit to see if they are happy with it).
 
-The merge message will tell you which files are conflicting. Open those files one by one, and you will see the conflicted section bracketed like the following:  
+The merge message will tell you which files are conflicting. Open those files one by one, and you will see the conflicted section bracketed like the following:
 
-<<<<<<< HEAD  
-Line(s) of text/code which are currently in your file.  
- =======  
-Line(s) of text/code which are trying to merge in, but conflict  
-.>>>>>> origin/main TODO: CHECK  
+<<<<<<< HEAD
+Line(s) of text/code which are currently in your file.
+ =======
+Line(s) of text/code which are trying to merge in, but conflict
+.>>>>>> origin/main TODO: CHECK
 
-where origin/main refers to the version you have fetched from GitHub.  
-All you do is remove the line(s) of text that you do not want to keep (or edit the line(s) to be something else entirely), and remove the bracketing lines <<<... and >>>..., and the ====== line.  
+where origin/main refers to the version you have fetched from GitHub.
+All you do is remove the line(s) of text that you do not want to keep (or edit the line(s) to be something else entirely), and remove the bracketing lines <<<... and >>>..., and the ====== line.
 
-Save each conflicted file and then (as mentioned previously):  
-git add <filename(s)>  
-git com "Kept Kim's edits as more consistent with remaining text."  
-git p  
+Save each conflicted file and then (as mentioned previously):
+git add <filename(s)>
+git com "Kept Kim's edits as more consistent with remaining text."
+git p
 
-## Exercise on collaborating on a single repository
-If you have a colleague available, try what we just did:  
+### Exercise on collaborating on a single repository
+If you have a colleague available, try what we just did:
 
 * Person 1 creates a new repository on GitHub and clone to their computer.
-* Give the Person 2 'push access' to the repository (on the repo page on GitHub: Settings - Manage access - Invite a collaborator)
+* Give the Person 2 'push access' to the repository (on the repo page on GitHub: Settings -- Manage access -- Invite a collaborator)
 * Person 2 clones to their computer
 * Both create a simple text file (use different filenames), add some text and, as usual, add, commit, and push it.
 * git fetch and git rebase to get the other person's file.
 * Continue editing either file, committing, and pushing.
 * If you get the push error (shown earlier), refresh GitHub repository site to see recent commits (click on the XX commits link). You can easily spot the other person's recent commits. Click on one (the bold message) to see details.
-* Purposefully create a conflict (both edit the same line of the same file). Resolve it as described earlier. 
+* Purposefully create a conflict (both edit the same line of the same file). Resolve it as described earlier.
 * In parctice you won't commit so frequently, this is good to get the hang of it.
 
-## Congratulations 
-Those are the few basic commands and funcitonality needed to collaborate with Git and GitHub. It takes a bit of practice, but it is very powerful. 
+### Congratulations
+Those are the few basic commands and funcitonality needed to collaborate with Git and GitHub. It takes a bit of practice, but it is very powerful.
 The following slides give extra background that should improve your understanding, plus tips for improving your workflow. TODO
-
-
