@@ -94,23 +94,20 @@ onto your computer.
 \small
 \frame{\frametitle{Copy and commit \emph{.gitignore}}
   \bi
-    \item Copy the \emph{.gitignore} file from the \lst{module-1-git/git-intro}
-        directory that you should have already from the setup talk, and
-      paste it into your new \lst{github/test} directory. (We are using
-      \emph{.gitignore} as an example file here). TODO: simplify? ``Create new-file.txt''?
+    \item Create a new file, \emph{newFile.txt}, in your \lst{github/test} directory.
     \pause
     \item Check the status of your (\lst{test}) repository: \lst{git status}
     \pause
-  \item It should say that you have an `Untracked file' called \emph{.gitignore}.
+  \item It should say that you have an `Untracked file' called \emph{newFile.txt}.
       You want to tell Git to start tracking it, by using the \lst{git add}
       command:\\
-      \lst{git add .gitignore}
+      \lst{git add newFile.txt}
    \pause
  \item Type \lst{git status} again.
  \item You should see that the file is listed as a `new file` under `Changes to
    be committed`.
     \item Let's now `commit' it:\\
-      \lst{git commit -a -m "Add .gitignore file."}\\
+      \lst{git commit -a -m "Add newFile.txt file."}\\
       The commit message should be a useful message saying what the commit
       encapsulates.\\
     \pause
@@ -187,10 +184,10 @@ From now on we will use the aliases.
   of your repo).
 }
 
-\frame{\frametitle{Exercise: copy, edit and commit \emph{simpleText.txt}}
+\frame{\frametitle{Exercise: create, edit, and commit \emph{simpleText.txt}}
   \bn
-    \item Copy the text file \lst{module-1-git/exercise-files/simpleText.txt}
-      into your local \lst{test} repository.
+    \item Create a text file \lst{simpleText.txt}
+      in your local \lst{test} repository.
     \pause
     \item Predict what \lst{git s} will tell you, \emph{then} type it in the
       Git shell to check.\\
@@ -201,11 +198,9 @@ From now on we will use the aliases.
       \lst{git com "Adding simpleText.txt"}\\
       \lst{git p}
     \pause
-    \item Do some editing of simpleText.txt (see instructions at start of
-      it), to get the hang of \lst{git com} and \lst{git p}.
+    \item Add some text to \lst{simpleText.txt}, then \lst{git com "Message"} and \lst{git p}.
     \pause
-    \item \lst{git com "Message"} frequently and \lst{git p}
-      occasionally, while intermittently doing \lst{git s} and
+    \item Repeat this a few times to get the hang of it, while intermittently doing \lst{git s} and
       \lst{git diff} to understand what's changing.
     \pause
     \item Keep an eye on your commits by refreshing the \gh\ page.
