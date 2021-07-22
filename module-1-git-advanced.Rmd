@@ -4,6 +4,24 @@ output: html_document
 author: Andrew Edwards
 ---
 
+```{r echo = FALSE}
+
+# We should list the required packages here, it's best to load them up front.
+# library(...)
+
+# From  https://bookdown.org/yihui/rmarkdown-cookbook/font-color.html
+#  to then say `r colorize("some words in red", "red")` etc. ("red" is the
+#  default so you don't need to say that.
+colorize <- function(x, color = "red") {
+  if (knitr::is_latex_output()) {
+    sprintf("\\textcolor{%s}{%s}", color, x)
+  } else if (knitr::is_html_output()) {
+    sprintf("<span style='color: %s;'>%s</span>", color,
+      x)
+  } else x
+}
+```
+
 ## Beyond the basics
 
 Here are some Git and GitHub concepts and tips that go beyond the basics that we
@@ -186,6 +204,382 @@ Several of these commits have pointers to them that have special names:
     GitHub (there are two names because of recent changes on GitHub).
 
 TODO Got to HERE (rest is commented)
+
+### Branching overview
+When you want to add some new code to your project, but don't want to break what is already there, you create a new branch. When creating a new branch, your starting point is identical to the branch you were when you created the new one.
+
+Once you have completed your work in the new branch and are satisfied that everything is working correctly, you merge the changes into your master branch (or any other branch you wish).
+
+You can also push branches to GitHub if you feel the branch is going to be a longer term project and/or if there are going to be multiple collaborators on that new branch.
+
+It is a good idea to commit all changes before creating a new branch, as local changes which haven't been committed will appear in the new branchas well.
+
+### Creating a new branch
+* In the Git shell, enter your test repository:
+
+  `cd test`
+
+  and see that you are in the _master_ branch by looking at the prompt.
+
+* Create a new branch based off the branch you are currently on:
+
+  `git checkout -b temp`
+
+  You will be automatically placed in the new branch called _temp_, and commits you make will now occur in that branch only.
+
+* To view all local branches:
+
+  `git branch`
+
+  There is an asterisk next to the branch you are currently in.
+
+* To switch to another branch, let's say back to _master_:
+
+  `git checkout master`
+
+
+### Make a commit in the new branch
+* Make sure you are in the new branch:
+
+  `git checkout temp`
+  
+* Create a new file called `tester.txt`
+* `git add tester.txt`
+* `git com "Added tester.txt"`
+* Switch back to _master_:
+
+  `git checkout master`
+
+* Notice that the file you just added is gone. It only exists in the _temp_ branch at this point. You will need to merge that branch back in to the _master_ branch if you want to keep the work you did in the other branch.
+
+### Merging branches
+* To merge the changes from a branch into another branch:
+  1. Change to the branch you want to merge into, typically _master_:
+  
+      `git checkout master`
+  
+  2. Merge the branch into _master_: 
+  
+      `git rebase temp` 
+  
+      OR 
+  
+      `git merge temp`
+
+* Notice that the file you created in the _temp_ branch now appears in the _master_ branch. All commits done in a branh which is merged in will be included in the merge step.
+* If there was a merge conflict, you must fix it at this point. This will be covered later in the section about merging remotes, which follows the exact same method.
+* Since we are done with that branch for good, we will delete it so we don't have unused branches hanging around (next slide).
+
+### Deleting branches
+* To delete a branch that you are not currently in, in this case the _temp_ branch:
+
+  `git branch -d temp`
+
+* To delete the branch you are currently in, switch to another branch first, (e.g. _master_) and then delete the branch:
+
+  `git checkout master`
+  
+  `git branch -d temp`
+
+* If you have unmerged changes in the branch, you will not be allowed to delete it. If you want to forcibly delete it, discarding your changes, use:
+  
+  `git branch -D temp`
+
+  __Warning - you won't be able to get any of those changes back once you do this.__
+
+### Pushing branches to GitHub
+If you want to push the branch up to GitHub, i.e. so others can fetch it and edit it, you need to be in the branch locally and:
+
+`git --set-upstream origin BRANCH-NAME`
+
+Git shell is smart, so if you forget this command and instead type:
+
+`git p`
+
+while in the new branch, Git shell will tell you the command you need.
+
+Once you've dont this for a branch, all you have to do to push future commits in this branch is:
+
+`git p`
+
+Check the GitHub webpage to see that your branch was pushed.
+
+### Deleting branches from GitHub
+To remove a branch entirely from GitHub:
+
+`git p origin --delete BRANCH-NAME`
+
+The local branch will still exist, so if you want to delete that as well:
+
+`git checkout master`
+
+`git branch -d BRANCH-NAME`
+
+### Network Graph
+* The Network Graph is a useful visualization tool to keep track of your commits.
+* Each `commit` is shown as a point on the graph.
+* Hover the mouse over a commit to see:
+  + who committed
+  + the commit `HASH` - a 20-byte hexadecimal string that identifies that commit;
+  
+    e.g.: `1ef1da5659a4b147562b155ffb6289811adab36b`
+    
+  + the commit message (so provide meaningful messages!)
+* Click on a commit to see the actual changes made for that commit (therefore commit frequently so each commit only has a few changes).
+* See that you (or a collaborator) can add comments for each commit.
+* In the comments (or when you do `git commit -a -m "..."`) you can include a `HASH` from any other commit. You only really need the first five digits to ensure uniqueness (16^5^ = 1,048,576 possible conbinations), but if you use seven then GitHub will create a link to that commit (see June 13th commits).
+
+### Understanding the Network Graph
+The Network Graph is useful when working alone, but especially so when collaborating using forking (which we haven't really shown, so we'll only talk about some of these slides).
+
+Find it for any repo under `Insights-Graphs-Network`.
+
+Look at https://github.com/cgrandin/git-course/network
+
+Hover over commits to see commit details.
+
+Hints for GitHub:
+* GitHub has keyboard shortcuts. Type _?_ while on the site to get a list of them.
+* Use left and right arrows to navigate the network graph.
+* Use shift-left arrow or shift-right arrow to go to the beginning or end of the network graph.
+
+Screenshot from 30th May shows (and next page):
+
+(Screenshot)
+
+(Screenshot)
+
+Andy has done nothing for a while.
+
+[This is a slightly different way of collaborating to what we are now teaching].
+
+(Screenshot)
+
+The graph was for `r colorize ("Andy's repo")`, so Andy is at the top.
+
+Kim's name shows up because he had pushed commits that Andy did not yet have. So the graph shows that Andy should get caught up before continuing on this project. This took three commands, resulting in:
+
+(Screenshot)
+
+All files that Kim edited got updated, plus Andy then had any new files that Kim created, and our folder structures are identical.
+
+Kim's name doesn't show up, even though he did a lot of the work.
+
+It is `r colorize ("about code not ego")`.
+
+### Exercise regarding this git-course repo
+1. Look at `r colorize ("your")` Network Graph for this `git-course` repo.
+2. We'll look at some other people's.
+3. Why are they different?
+4. What to do?
+
+### Deleting or renaming remotes (may occasionally need)
+* To delete someone as a remote:
+
+  `git remote rm REMOTE-NAME`
+  
+* To rename a remote:
+  
+  `git remote rename OLD-NAME NEW-NAME`
+
+* To see your changes, use:
+
+  `git remote -v`
+  
+### Demonstration of conflicts 
+* Kim and Andy to carry on with existing repo
+* Both modify `r colorize ("same lines of same file")`
+* Demonstrate how to rectify
+* **Exercise:** Participants to create a conflict and fix
+
+### GitHub - Add collaborators
+If your GitHub repository is public, anyone can post an _Issue_ (explained next). If you want someone to be able to:
+
+  * set assignees to _Issues_
+  * receive notifications when you reply to their _Issue_
+  
+you need to add them as a collaborator. Select the _Settings_ tab and then the _Collaborators_ button. Type their GitHub username in and send them an invitation to collaborate.
+
+### GitHub - Issues
+_Issues_ are very useful for discussing issues with your repo. For this course we used them a lot:
+
+  https://github.com/cgrandin/git-course
+
+then click _Issues_
+
+Can see that we have some (maybe none?) 'Open' - still have not closed them. We have some 'Closed' ones - we have resulved the issue, maybe after a discussion.
+
+This is very useful and avoids having to clutter up code and write-ups with comments or endless emails that get overlooked.
+
+If an _Issue_ remains open you know that it hasn't been done.
+
+For hake we have over 430 closed _Issues_:
+
+  https://github.com/cgrandin/hake-assessment
+
+Many of the unresolved ones are all tagged (using _Milestones_) with '2019 assessment' - not essential for finishing the 2018 assessment but we didn't want to forget about them.
+
+You can assign collaborators to deal with an _Issue_, and add comments.
+
+You automatically get emails when _Issues_ are created, commented on, etc. Equivalently, a blue notification circle appears on th ebell at the otp right (though I think it disappears when you read the email).
+
+Emails are useful, but if you're actively using your GitHub page you can just turn them off (someone will know how ...).
+
+In your commit message you can refer to, say, Issue 41, using #41.
+
+The commit then gets mentioned on the Issue page.
+
+Can even say something like:
+
+`git com "Update catch figure, closes #41."`
+
+This automatically closes the issue on GitHUb e.g.:
+
+  https://github.com/cgrandin/hake-assessment/commit/0e88ff58
+  
+### Changing the commit message in the last commit
+If you make a commit, then realize that your message had a spelling error, or needed more information in it, you can change the commit message:
+
+`git commit --amend -m "Correct message."`
+
+This only works on the last commit. You can't change any other commit message using _amend_.
+
+If you already pushed the commit before realizing that the message needs modification, do this:
+
+`git p --force`
+
+after making the amendment to the commit message. You can also add more files before issuing the amendment commit and those files will be added to the commit you are amending. You can't add changes to  file content this way though, you'll need to do another commit for that.
+
+### Undoing a commit
+If you make a commit followed by other commits, then realize you want to undo the earlier commit, you use _revert_:
+
+`git revert HASH`
+
+where `HASH` is the hash for the commit you want to undo (20-byte string). Remember that Git shell is smart enough that you only need the first five digits:
+
+`git revert 1ef1d`
+
+This actually creates a new commit with the automatic message
+
+`Revert "<previous commit message>"`.
+
+For example commit `1fe84d4` in `git-course`.
+
+It is important to make a lot of commits, each with only small changes. You can only revert the whole commit, not parts.
+
+### Undoing changes not yet committed
+If you've made a mess in your working directory and you want to change everything back to the way it was on the last commit:
+
+`git reset --hard HEAD`
+
+If you've messed up a singel file and just want that one file to go back to the way it was on the last commit:
+
+`git checkout HEAD file/to/restore.r`
+
+Warning - running these commands will delete the changes you have made. Since you have not committed any changes, they will be lost. Make sure you are certain you don't need the changes before running these commands. If you aren't sure if you need the changes again in the future, use `git stash` instead.
+
+### Stashing overview
+If you are in the middle of working on something, but you need to change branches for some reason, you can _stash_ your changes and apply them back later. Let's say you are working in the master branch. To stash all changes in master:
+
+`git stash`
+
+then change branches, and do whatever you like. To get those changes back, switch back to master:
+
+`git checkout master`
+
+and apply the stashed changes:
+
+`git stash pop`
+
+Note that nothing is committed, this just lets you put onhold your work in progress and come back to where you left off.
+
+To make sure new files are included in the stash, you must have added them using `git add filename` before using the `git stash` command.
+
+### Stashing - make it into a branch
+If you leave a stash for awhile and have made commits since the stash, then try to reapply it, you may get conflicts. The best way to apply a stash if you have modified things since you stashed is to let git create a branch for the stash, which you can then look at and edit if you wish before merging back into your master or other working branch:
+
+`git stash branch BRANCH-NAME`
+
+where `BRANCH-NAME` is the name you want to call the new branch. You can then merge this branch in as outlined in the merging slides and resolve conflicts in the same way as with remotes or other local branches.
+
+### Aliases
+Are you getting tired of typing:
+
+`git com "Message"`?
+
+You can make your own shorter commands in git using Aliases. These are defined in:
+
+`C:\Users\YOUR-USER-NAME\.gitconfig`
+
+If you set up Git from scratch using our instructions you will already have that file that includes some of Chris's aliases. These include:
+
+  `git s` -> `git status`
+  
+  `git com "MESSAGE"` -> `git com -a -m "MESSAGE"`
+  
+  `git r` -> `git remote -v`
+  
+  `git cd BRANCH-NAME` -> `git checkout -b BRANCH-NAME`
+  
+  `git co BRANCH-NAME` -> `git checkout BRANCH-NAME`
+  
+These are on the readme file of this repo. Just remember (when Googling problems) that these are aliases.
+
+### Summary
+95% of the time, this is all you are doing:
+
+Change some source code
+
+`git com "My commit message"`
+
+`git p`
+
+If server does not allow you to push:
+
+`git fetch`
+
+`git rebase`
+
+If conflicts, fix them and:
+
+`git add CONFLICTED_FILE`
+
+`git rebase --resume`
+
+`git p`
+
+Change some source code...
+
+Repeat...
+
+### Visualization website
+Git Visualization website: http://onlywei.github.io/explain-git-with-d3
+
+### For Tomorrow
+You will need the TTT repo on your computer (it has some example code, plus then you'll also have the readme on your computer).
+
+* In your git shell, make sure you are in your folder:
+
+  `github/`
+  
+* Since you don't (all*) have push access to `pbs-assess/TTTworkshop` you need to:
+* Fork it (on the GitHub site)
+* `git clone http://github.com/YOUR-GITHUB-NAME/TTTworkshop
+
+Some PBS folks are members of the GitHub 'organization' `pbs-assess` and so automatically have push access so don't need to fork.
+
+### For tomorrow (now added to TTT readme)
+Also need some R packages (get those that you don't have):
+
+`install.packages("dplyr", "kableExtra", "xtable", "devtools")`
+
+Then to get csasdown:
+
+`devtools::install_github("pbs-assess/csasdown")`
+  
+
+
+
 
 <!--
 \section{Branches}
