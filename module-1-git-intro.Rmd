@@ -86,7 +86,7 @@ When you are using the Git shell for the very first time on Windows, issue the f
 
 This means that you don't have to repeatedly enter you GitHub password (just do it when you are first prompted).
 
-**Copy and commit _.gitignore_**
+### Committing
 
 * Create a new file, _newFile.txt_, in the _github/test_ directory.
 * Add a line of text at the start of the file and save it.
@@ -94,7 +94,7 @@ This means that you don't have to repeatedly enter you GitHub password (just do 
 
 `git status`
 
-* It should say that you have an 'Untracked file' called _.gitignore_. You want
+* It should say that you have an 'Untracked file' called _newFile.txt_. You want
   to tell Git to start tracking it, by using:
 
 `git add. gitignore`
@@ -103,7 +103,7 @@ This means that you don't have to repeatedly enter you GitHub password (just do 
 * You should see that the file is listed as a 'new file' under 'Changes to be commited'.
 * Let's now 'commit' it:
 
-`git commit -a -m "Add. gitignore file."`
+`git commit -a -m "Add newFile.txt."`
 
 The commit message (in the quotes) should be a useful message saying what the
 commit encapsulates (more on that later).
@@ -201,7 +201,9 @@ Often you add multiple files in a new directory. When you run `git s`, you will
 see a large list of _Untracked files_. They can be all added at once by simply
 adding the whole directory.
 
-Exercise 2: Do the following, to get the idea of creating multiple files in a folder and
+### Exercise 2: multiple files
+
+Do the following, to get the idea of creating multiple files in a folder and
 committing that folder.
 
 * Create a new directory in your `test` repository, using your normal method. Call it _new-stuff_.
@@ -441,7 +443,8 @@ git com "Kept Kim's edits as more consistent with remaining text."
 git p
 ```
 
-**Exercise 3: collaborating on a single repository**
+### Exercise 3: collaborating on a single repository
+
 If you have a colleague available, try what we just did:
 
 * Person 1 creates a new repository on GitHub and clone to their computer.
