@@ -8,7 +8,189 @@ author: Andrew Edwards
 
 ## Motivation
 
-TODO
+As a biology graduate student or a professional biologist in a university or
+government setting, why might you want to use Git and GitHub? And what are Git
+and GitHub anyway?
+
+* Scientists (including students) are working far more collaboratively than in the past
+* This involves both sharing code and writing up results
+* There is a push towards open science -- including your code as part of a scientific paper
+* We have called this a TTT approach:
+  + Transparent -- a clear and open way to show data, code, and results, enabling reproducibility
+  + Traceable -- a clear link from database queries and code to final results (numbers, tables, and graphs in a document)
+  + Transferable -- it should be feasible for another person to reproduce work and build upon it with a minimal learning curve
+
+Using Git and GitHub in your workflow greatly enables this, both when working alone and in a team.
+
+* `r colorize("Git")` keeps track of the latest versions of your files,
+    such as computer code or write up for results as you work on them.
+* It also allows you to go back to `r colorize("any previous version")` of your
+    files (this is 'version control'). (It also does much more).
+* `r colorize("GitHub")` is a website that hosts a 'repository' of your work code and enables
+      users to easily collaborate.
+* Your repositories can be either public or private.
+
+We use Git and GitHub extensively:
+
+ * to collaborate on writing code and producing documents (such as this entire document!).
+ * to easily share code publically for scientific  papers, and update it if necessary.
+ * when working alone to retain a methodical workflow.
+
+**Example application -- Pacific Hake stock assessment**
+
+Under a formal Agreement between the Canadian and US governments, a team of four
+of us (two from each country) conduct an
+annual stock assessment for Pacific Hake (_Merluccius productus_) off the west
+coast of Canada and the US. The assessment is used to manage the stock, which is of important
+ecological and economic value ($100 million export value in Canada).
+
+![](../module-1-git/images/hake-picture.png){width=50%}
+
+We fit complex population models to data to make projections about future
+health of the stock under different levels of catch. There is a very short
+turnaround (five weeks) between getting the final data, doing the analyses
+(model runs can take many hours of computer time) and submitting the
+assessment document, which is typically >200 pages and contains numerous figures
+and tables [available
+here](https://media.fisheries.noaa.gov/2021-03/hake-assessment-post-srg-final_20210303.pdf?null).
+
+Prior to 2016, the document was assembled in Word, requiring lots of editing
+and amaglamating of files, often late at night. Now we share our code via
+GitHub, automate a lot of the document production using knitr (similar to
+Rmarkdown, covered in Module 2).
+
+So with four people constantly working on the same large document, we need to
+ensure we are keeping up-to-date with each other, can all produce the latest
+version, and have `r colorize("identical")` folder structures on each other's
+computers. The alternative of emailing files back and forth is:
+
+* very inefficient,
+* prone to errors,
+* just painful.
+
+**What we can avoid**
+
+Using GitHub it is easy to see what text/code collaborators have changed, avoiding
+things like the following, for which it hard to see where to get started:
+
+![](../module-1-git/images/interim.png){width=100%}
+
+
+We may want to keep old versions of files (and email them back and forth), but
+without GitHub we can end up with a veritable gong show:
+
+![](../module-1-git/images/EAversions.png){width=100%}
+
+We can avoid having to co-ordinate having only one person working on the latest
+version of a document, so we don't get things like:
+
+![](../module-1-git/images/proposalEmail.png){width=100%}
+
+Can avoid multiple versions of a file that then have to be carefully merged:
+
+![](../module-1-git/images/dogsBreakfast.png){width=100%}
+
+While GoogleDocs, for example, is fine for collaborating on a short document, it
+isn't suitable for sharing complex code, or complex documents that are somewhat
+automatically updated.
+
+**GitHub advantages**
+
+1. Say you've off on a two-week hike while your collaborators
+have been diligently working away and they have edited 15 new files of code in
+five folders, added four data sets, and created five new pages of text towards
+a manuscript. You can easily
+catch up with them (get all their changes onto your computer) with a few
+simple commands. You don't even have to pester them to ask what they've done,
+as you can check it yourself.
+
+So rather than this conversation:
+
+* You: "Hey, I'm back from my awesome trip and saw some bears. What have you
+  been doing with the project?"
+
+* Likely reply: "Glad you had fun. I'm busy on something else right now. Er,
+  where were we at when you left?"
+
+You can have this one:
+
+* You: "Hey, I'm back from my awesome trip and saw some bears. I went through your
+    commits on GitHub and everything looks great. Shall I get on those Methods
+    Issues you assigned me?"
+
+* Likely reply: "Glad you had fun, looking forward to hearing about it. I'm busy
+  on something else right now so, yes, resolving those issues will be great,
+  thanks."
+
+And the project keeps moving in an efficient way.
+
+
+2. By having code shared publically, it is easy to answer questions, such as
+   this one I received:
+
+![](../module-1-git/images/MEEcodeQuest.png){width=100%}
+
+Rather than go searching on my laptop for the code that I hadn't looked at for
+six months, I could click on the link the questioner sent and answer very
+quickly, with a simple link to the file I am referring to (there is no ambiguity):
+
+![](../module-1-git/images/MEEcodeAnswer.png){width=100%}
+
+
+3. You can even ask who last edited a particular line of code/text (GitHub
+  amusingly calls it 'Blame'):
+
+![](../module-1-git/images/blame.png){width=100%}
+
+4. You can properly keep track of (and discuss) 'Issues' to be thought about or
+  fixed, rather than having things in emails that get forgotten:
+
+![](../module-1-git/images/hakeIssues21.png){width=100%}
+
+5. **Important:** You still have all your work locally on your computer. So if
+  your internet access goes down or GitHub is unavailable (which of course will only happen
+  when you have a deadline) you can still carry on with your work.
+
+
+**Why this course?**
+
+Delving into the Git and GitHub world online it can feel like you need a
+computer science degree to get started. This may not be surprising as Git
+was writting by the guy who wrote the operating system Linux, to help people
+collaborate on writing the operating system Linux. But it means that, for
+example, the second paragraph of the Wikipedia Git page says:
+
+"As with most other distributed version control systems, and unlike most
+client–server systems, every Git directory on every computer is a full-fledged
+repository with complete history and full version-tracking abilities,
+independent of network access or a central server."
+
+Say what??? That is fairly incomprehensible to those without strong computer science
+backgrounds. The aim of this module is to introduce biologists to the world of
+Git and GitHub, while avoiding a lot of the technical details. However, once you
+have mastered the basics then it should be easier to delve deeper.
+
+Our target audience is:
+
+* graduate level biology students
+* biology faculty
+* government scientists
+* scientists in non-governmental organisations
+* in fact anyone wanting to learn these tools
+
+This work is extended from lectures and exercises developed by Chris Grandin and
+myself as part of a
+[Fisheries and Oceans Canada workshop](https://github.com/pbs-assess/TTTworkshop). (Luckily Chris
+_does_ have a computer science degree, and so was able to get some of us going
+with Git and GitHub several years ago). These tools are now widely used within
+our organisation.
+
+**Computer language**
+
+For sharing code, it doesn't matter what language your code is in (R, Matlab, Python, C,
+...), as we will just be sharing text files. There is a learning curve, but once
+you get going you only really need a few main commands. Unfortunately the hardest bit is
+actually getting everything set up....
 
 ## Getting set up for the first time
 
@@ -64,14 +246,22 @@ There are many Graphical User Interfaces that are available, as described at htt
 
 Many (but not all) biologists use R in RStudio for their analyses. There is Git functionality built in to RStudio that we (TODO: SOMEONE?) will demonstrate later.
 
-I use magit which works in the text editor emacs (which for years I have used for pretty much everything, such as editing files, running R, Matlab, etc.). But I would not have been able to learn magit without first knowing the Git commands from using the shell.
+I use magit which works in the text editor emacs (which for years I have used
+for pretty much everything, such as editing files, running R, Matlab, etc.). But
+I would not have been able to learn magit without first knowing the Git commands
+from using the shell.
 
-For now we will stick with the Git shell for the aforementioned reasons. It will also give you a better understanding of Git and GitHub, and emphasise that you can use Git for any files, not just R code.
+For now we will stick with the Git shell for the aforementioned reasons. It will
+also give you a better understanding of Git and GitHub, and emphasise that you
+can use Git for any files, not just R code.
 
 ### Powershell and posh-git
-Download a Powershell (a shell window in which you can type commands, presumablythe ‘power’ part means it’s more powerful than a basic version) and then posh-gitfollowing the instructions at:https://github.com/dahlbyk/posh-git
+Download a Powershell (a shell window in which you can type commands, presumably
+the ‘power’ part means it’s more powerful than a basic version) and then
+posh-git following the instructions at https://github.com/dahlbyk/posh-git
 
-Do the ‘Installation’ and ‘Using posh-git’ sections.  If you don’t understand someoptions (I don’t!) just pick the simplest, usually the first.
+Do the ‘Installation’ and ‘Using posh-git’ sections.  If you don’t understand
+some options (I don’t!) just pick the simplest, usually the first.
 
 The next slides are from our course about three years ago (and were for
 Windows). So they may be out of date (though first one is recent tips from a colleague).

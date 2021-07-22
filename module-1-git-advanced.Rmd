@@ -49,15 +49,21 @@ When collaborating:
   get an idea of what you've done in each commit). Push less frequently, and
   _don't push code that doesn't work_ -- that will annoy your colleagues. And
   then they (and probably you) may both spend time fixing it.
+* To see who last edited a particular piece of code, when viewing the file on
+  GitHub click `r colorize("Blame")` (you can even click on the square icon to
+  go to the previous commit that changed that line):
+
+![](../module-1-git/images/blame.png){width=100%}
 
 **GitHub Issues**
 
 GitHub _Issues_ are very useful for discussing issues with your repo. For our
 annual Pacific Hake assessment we have used them extensively over the years:
 
-![](../module-1-git/images/hake-issues.png){width=100%}
+![](../module-1-git/images/hakeIssues21.png){width=100%}
 
-The Issues tab lists our current 'Open' issues -- we have 21, of which four are
+The Issues tab lists our current 'Open' issues -- we have 20, of which five (the
+most recently posted) are
 shown here. We are currently in-between assessments (and not working on it), so
 we have created Issues that we want to think about or deal with for next
 year. This avoids forgetting about ideas or losing them in old emails.
