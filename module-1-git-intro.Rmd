@@ -136,7 +136,9 @@ is a bit much to type, so we have an alias for it:
 
 `git com "Message."`
 
-This is defined in the _.gitconfig_ file you installed in the `git-setup` instructions.
+This is defined in the _.gitconfig_ file you installed in the `git-setup`
+instructions into `C:\Users\YOUR-USER-NAME\.gitconfig` (for Windows). YOu can
+also add your own commands to that file.
 
 The `-a` means 'commit all changes of files that Git is tracking', and `-m` is
 to include a message. Since we usually want to do both of these,

@@ -50,6 +50,58 @@ When collaborating:
   _don't push code that doesn't work_ -- that will annoy your colleagues. And
   then they (and probably you) may both spend time fixing it.
 
+**GitHub Issues**
+
+GitHub _Issues_ are very useful for discussing issues with your repo. For our
+annual Pacific Hake assessment we have used them extensively over the years:
+
+![](../module-1-git/images/hake-issues.png){width=100%}
+
+The Issues tab lists our current 'Open' issues -- we have 21, of which four are
+shown here. We are currently in-between assessments (and not working on it), so
+we have created Issues that we want to think about or deal with for next
+year. This avoids forgetting about ideas or losing them in old emails.
+
+Issues are intuitive to use. There is a bright green 'New Issues' button to
+create new ones, you give a title and then write some details, people can reply,
+you can assign people to look at them, and you can close them. In the above
+screenshot you can see that we have closed 815 issues (this was over several years).
+
+Useful tip: when doing a commit that refers to an Issue, if you refer to the
+Issue number (with `#<number>`) in your commit message, then after pushing that commit the Issue on
+GitHub will automatically mention and link to the commit:
+
+`git com "Add more options to fancy_function(), #21."`
+
+will mention the commit when you look at the issue. You can even automatically
+close the issue by saying `closes #21` in your commit message:
+
+`git com "Add more options to fancy_function(), closes #21."`
+
+Issues are particularly useful to avoid cluttering up code with commented notes
+or ideas that you may easily not come back to, or avoiding endless emails that
+end up getting overlooked. You don't have to fix an Issue to close it, you can
+decide not to pursue, but at least you have made a decision.
+
+(We also use Slack a lot to communicate, but moreso for quick questions or
+bouncing ideas around -- Issues are better for stuff that you want to come back
+to at some point).
+
+You may receive emails regarding Issues, but if you use GitHub a lot you will
+see Notifications (the blue dot on the bell in the top-right corner when signed
+in on GitHub) and that
+will show you new Issues of repositories you are involved with, or if anyone has
+updated an Issue.
+
+
+**GitHub organizations**
+
+If you will frequently collaborate with colleagues, you can create an
+Organization on GitHub and invite collaborators to it (click on your GitHub
+photo in the top-right corner, Settings, Organizations). Then they will
+automatically have access to all repositories created under the
+Organization. You can choose the security settings.
+
 
 ### So I've made some changes but don't really want to keep them -- git stash
 
@@ -63,14 +115,22 @@ and to include a message (for your future self):
 git stash save "Message"
 ```
 
-This stashes them away such that they can be retrieved later.
+This stashes them away such that they can be retrieved later
 This is handy. You may _think_ you don't want to keep those changes, but
 sometimes you may later wish you had kept them somehwere.
+Note this only for files that Git is tracking (i.e. files that have been added
+at some point).
 
 You can have multiple stashes, seen by doing:
 ```
 git stash list
 ```
+
+To retrieve the last stash:
+
+`git stash pop`
+
+TODO: check rules for other stashed things.
 
 TODO: Often you're working on something but it's not finished, but you want to
 push it. Stash, then make branch then copy files in. Tricky to do all with git,
@@ -97,7 +157,8 @@ Do this with your test repository, that should have some files in it from the
     all your files, including the `new-stuff\` directory.
 * Look at the commit tab on GitHub for your test repo and click on the clipboard
       icon to copy the HASH number thingy to the clipboard .
-* In Git shell: `git checkout HASH` (where `HASH` is the pasted HASH)
+* In Git shell: `git checkout HASH` (where `HASH` is the pasted HASH, or `git co
+  HASH` using our Alias)
 * Look at File Explorer again -- your `new-stuff` directory should
       have ... disappeared!!
 * (If it hasn't disappeared then open it -- the test files, i.e. `test1.r`,
@@ -110,7 +171,7 @@ Powerful and scary.
 
 Now, to get your files back to the most recent version you had committed:
 
-* `git checkout main`   (or `git checkout master`, the names have recently changed).
+* `git checkout main`   (it used to be `git checkout master`, the names have recently changed).
 
 That's it! Check that your files are back. All this means that you can
 `r colorize("revert to any previous commit in your repository")`.
@@ -126,6 +187,31 @@ Consequently, your workflow is less cluttered and more tractable than having
   as this nightmare:
 
 ![](../module-1-git/images/EAversions.png){width=100%}
+
+**Retrieving older work in practice**
+
+I think there are fancy ways that Git can replace a current file with a version
+from an earlier commit. But, in practice (especially since you rarely want to do
+this) it is a bit safer to do the following:
+
+* Say you are up-to-date (`git s` says all is good), but your program
+  `my_code.R` just isn't working and you want to go back to the version you had
+  yesterday at commit number `abc123`.
+* `git co abc123` (or `git checkout abc123`) to checkout the earlier commit,
+  which includes the old version of `my_code.R` that you want get.
+* Copy `my_code.R` to a new file `my_code_old.R`. In the shell you can just do
+  this with `cp my_code.R my_code_old.R`.
+* Do NOT edit `my_code.R` or make any changes, as you may end up with a scary
+  `DETACHED HEAD` warning.
+* `git co main` to checkout the latest version again.
+* Since you have NOT done `git add my_code_old.R`, Git is not tracking
+  `my_code_old.R` and so it is just sitting in your folder as normal.
+* Now you can manually copy what you want from `my_code_old.R` into `my_code.R`
+  to fix your problem. It could be the full file, or just some part of it.
+* Then commit as normal.
+* At some point you can delete `my_code_old.R` so it is not hanging around, but
+  you don't have to. (Though maybe make a note in it as to which commit it was
+  from, in case you do need it again).
 
 ### So how does Git do all this?
 
@@ -203,259 +289,140 @@ Several of these commits have pointers to them that have special names:
 * **main** or **master** is the default branch when you set up a repository on
     GitHub (there are two names because of recent changes on GitHub).
 
-TODO Got to HERE (rest is commented)
+### Branching
 
-### Branching overview
-When you want to add some new code to your project, but don't want to break what is already there, you create a new branch. When creating a new branch, your starting point is identical to the branch you were when you created the new one.
+So far we have only worked on the **main** branch. Sometimes you want to create
+a new branch that branches off from the **main** branch. It's bit like a tree
+branching, except that at some point you want your new branch to be merged back
+into **main**.
 
-Once you have completed your work in the new branch and are satisfied that everything is working correctly, you merge the changes into your master branch (or any other branch you wish).
+For example, you may want to try adding some new code to your project, but don't
+want to break what is already there. You may do this even if working alone, but
+it's especially useful if you are collaborating, or if, say, you have an R
+packages hosted on GitHub that anyone may be downloading -- you don't want to
+annoy them by pushing experimental code that doesn't work.
 
-You can also push branches to GitHub if you feel the branch is going to be a longer term project and/or if there are going to be multiple collaborators on that new branch.
+So you would create a new branch, work on that new branch (i.e. commit
+changes to the new branch), and when you are happy with your new changes you can
+easily merge it all back into **main**.
 
-It is a good idea to commit all changes before creating a new branch, as local changes which haven't been committed will appear in the new branchas well.
+**Working on a new branch**
 
-### Creating a new branch
-* In the Git shell, enter your test repository:
+When creating a new branch, your starting point is identical to the branch you
+were when you created the new one.
+
+In the Git shell navigate into your test repository:
 
   `cd test`
 
-  and see that you are in the _master_ branch by looking at the prompt.
+Depending on your set up, you should see `main` indicated somewhere (if not do
+  `git s` and it should say `On branch main`.
 
-* Create a new branch based off the branch you are currently on:
+Make sure you are up-to-date and have committed all changes (`git s`, and
+  `commit` if necessary).
+
+Create a new branch called _temp_, this will be based off the latest commit of the  _main_
+  branch you are currently on:
 
   `git checkout -b temp`
 
-  You will be automatically placed in the new branch called _temp_, and commits you make will now occur in that branch only.
+(We have an alias for that: `  `git cb temp`).
 
-* To view all local branches:
+You will be automatically placed in the new branch called _temp_, and commits
+  you make will now occur in that branch only.
 
-  `git branch`
+Make and `commit` some changes (e.g. add a new file) -- these will now be on
+  your _temp_ branch.
 
-  There is an asterisk next to the branch you are currently in.
-
-* To switch to another branch, let's say back to _master_:
-
-  `git checkout master`
-
-
-### Make a commit in the new branch
-* Make sure you are in the new branch:
-
-  `git checkout temp`
-  
-* Create a new file called `tester.txt`
-* `git add tester.txt`
-* `git com "Added tester.txt"`
-* Switch back to _master_:
-
-  `git checkout master`
-
-* Notice that the file you just added is gone. It only exists in the _temp_ branch at this point. You will need to merge that branch back in to the _master_ branch if you want to keep the work you did in the other branch.
-
-### Merging branches
-* To merge the changes from a branch into another branch:
-  1. Change to the branch you want to merge into, typically _master_:
-  
-      `git checkout master`
-  
-  2. Merge the branch into _master_: 
-  
-      `git rebase temp` 
-  
-      OR 
-  
-      `git merge temp`
-
-* Notice that the file you created in the _temp_ branch now appears in the _master_ branch. All commits done in a branh which is merged in will be included in the merge step.
-* If there was a merge conflict, you must fix it at this point. This will be covered later in the section about merging remotes, which follows the exact same method.
-* Since we are done with that branch for good, we will delete it so we don't have unused branches hanging around (next slide).
-
-### Deleting branches
-* To delete a branch that you are not currently in, in this case the _temp_ branch:
-
-  `git branch -d temp`
-
-* To delete the branch you are currently in, switch to another branch first, (e.g. _master_) and then delete the branch:
-
-  `git checkout master`
-  
-  `git branch -d temp`
-
-* If you have unmerged changes in the branch, you will not be allowed to delete it. If you want to forcibly delete it, discarding your changes, use:
-  
-  `git branch -D temp`
-
-  __Warning - you won't be able to get any of those changes back once you do this.__
-
-### Pushing branches to GitHub
-If you want to push the branch up to GitHub, i.e. so others can fetch it and edit it, you need to be in the branch locally and:
+You can push to GitHub. The first time you try `git p`, the Git shell will
+  tell you that you need to type the following so that future pushes go to the
+  new branch:
 
 `git --set-upstream origin BRANCH-NAME`
 
-Git shell is smart, so if you forget this command and instead type:
+Check the GitHub webpage to see that your branch was pushed. You repository
+  page (that will still be looking at your _main_ branch) may tell you that
+  there is a _temp_ branch with more recent commits than _main_. If not then if
+  you click on the _main_ drop-down menu:
 
-`git p`
+![](../module-1-git/images/main-branch.png){width=100%}
 
-while in the new branch, Git shell will tell you the command you need.
+it should give you the option to look at your new _temp_ branch. (The '1 branch'
+in the above image should also say '2 branches').
 
-Once you've dont this for a branch, all you have to do to push future commits in this branch is:
+You can now view your new file in your new _temp_ branch on GitHub.
 
-`git p`
+A graphical way to see and understand branching is to click on
+  Insights--Network to see the Network graph.
 
-Check the GitHub webpage to see that your branch was pushed.
+The Network Graph is a useful visualization tool, where each commit is shown as
+a point on the graph (the numbers along the top are the dates). You can hover
+your mouse over a commit to see who committed it and the commit message. You can
+click to see full details of the commit. The Network Graph is particularly
+useful if you or others are working on multiple branches, or to check details
+about merges.
 
-### Deleting branches from GitHub
+Okay, back in your Git shell you can easily switch back to your original _main_
+branch:
+
+`git checkout main` (or the alias `git co main`).
+
+You will see that the file you just added is gone, because it
+`r colorize ("only exists in the _temp_ branch")`
+at this moment.
+
+Imagine that in your _temp_ branch you did several commits to create a new
+function in your code, or have added some new text to a report. Now you are
+happy with what you've done you want to merge it back into the _main_ branch.
+
+To view all local branches:
+
+`git branch`
+
+There is an asterisk next to the branch you are currently in.
+
+To switch to another branch (_main_ in our case):
+
+`git checkout main`
+
+To combine the changes from the _temp_ branch:
+
+`git rebase temp`
+
+or
+
+`git merge temp`
+
+Now the file you created in the _temp_ branch now appears in the _main_
+branch. All commits done in the _temp_ branch will now be in the _main_ branch
+as well.
+
+If there was a merge conflict, you must fix it at this point (see earleir).
+
+Once you've merged your _temp_ branch into _main_, you don't really need _temp_
+any more and so it is good protocol to delete to keep things tidy:
+
+`git branch -d temp`
+
+If you have unmerged changes in a branch, you will not be allowed to delete it,
+but Git shell will tell you the command to forcibly delete it:
+
+`git branch -D temp`
+
+Warning -- you won't be able to get any of those changes back once you do this.
+
 To remove a branch entirely from GitHub:
 
 `git p origin --delete BRANCH-NAME`
 
-The local branch will still exist, so if you want to delete that as well:
 
-`git checkout master`
+### Undoing stuff
 
-`git branch -d BRANCH-NAME`
-
-### Network Graph
-* The Network Graph is a useful visualization tool to keep track of your commits.
-* Each `commit` is shown as a point on the graph.
-* Hover the mouse over a commit to see:
-  + who committed
-  + the commit `HASH` - a 20-byte hexadecimal string that identifies that commit;
-  
-    e.g.: `1ef1da5659a4b147562b155ffb6289811adab36b`
-    
-  + the commit message (so provide meaningful messages!)
-* Click on a commit to see the actual changes made for that commit (therefore commit frequently so each commit only has a few changes).
-* See that you (or a collaborator) can add comments for each commit.
-* In the comments (or when you do `git commit -a -m "..."`) you can include a `HASH` from any other commit. You only really need the first five digits to ensure uniqueness (16^5^ = 1,048,576 possible conbinations), but if you use seven then GitHub will create a link to that commit (see June 13th commits).
-
-### Understanding the Network Graph
-The Network Graph is useful when working alone, but especially so when collaborating using forking (which we haven't really shown, so we'll only talk about some of these slides).
-
-Find it for any repo under `Insights-Graphs-Network`.
-
-Look at https://github.com/cgrandin/git-course/network
-
-Hover over commits to see commit details.
-
-Hints for GitHub:
-* GitHub has keyboard shortcuts. Type _?_ while on the site to get a list of them.
-* Use left and right arrows to navigate the network graph.
-* Use shift-left arrow or shift-right arrow to go to the beginning or end of the network graph.
-
-Screenshot from 30th May shows (and next page):
-
-(Screenshot)
-
-(Screenshot)
-
-Andy has done nothing for a while.
-
-[This is a slightly different way of collaborating to what we are now teaching].
-
-(Screenshot)
-
-The graph was for `r colorize ("Andy's repo")`, so Andy is at the top.
-
-Kim's name shows up because he had pushed commits that Andy did not yet have. So the graph shows that Andy should get caught up before continuing on this project. This took three commands, resulting in:
-
-(Screenshot)
-
-All files that Kim edited got updated, plus Andy then had any new files that Kim created, and our folder structures are identical.
-
-Kim's name doesn't show up, even though he did a lot of the work.
-
-It is `r colorize ("about code not ego")`.
-
-### Exercise regarding this git-course repo
-1. Look at `r colorize ("your")` Network Graph for this `git-course` repo.
-2. We'll look at some other people's.
-3. Why are they different?
-4. What to do?
-
-### Deleting or renaming remotes (may occasionally need)
-* To delete someone as a remote:
-
-  `git remote rm REMOTE-NAME`
-  
-* To rename a remote:
-  
-  `git remote rename OLD-NAME NEW-NAME`
-
-* To see your changes, use:
-
-  `git remote -v`
-  
-### Demonstration of conflicts 
-* Kim and Andy to carry on with existing repo
-* Both modify `r colorize ("same lines of same file")`
-* Demonstrate how to rectify
-* **Exercise:** Participants to create a conflict and fix
-
-### GitHub - Add collaborators
-If your GitHub repository is public, anyone can post an _Issue_ (explained next). If you want someone to be able to:
-
-  * set assignees to _Issues_
-  * receive notifications when you reply to their _Issue_
-  
-you need to add them as a collaborator. Select the _Settings_ tab and then the _Collaborators_ button. Type their GitHub username in and send them an invitation to collaborate.
-
-### GitHub - Issues
-_Issues_ are very useful for discussing issues with your repo. For this course we used them a lot:
-
-  https://github.com/cgrandin/git-course
-
-then click _Issues_
-
-Can see that we have some (maybe none?) 'Open' - still have not closed them. We have some 'Closed' ones - we have resulved the issue, maybe after a discussion.
-
-This is very useful and avoids having to clutter up code and write-ups with comments or endless emails that get overlooked.
-
-If an _Issue_ remains open you know that it hasn't been done.
-
-For hake we have over 430 closed _Issues_:
-
-  https://github.com/cgrandin/hake-assessment
-
-Many of the unresolved ones are all tagged (using _Milestones_) with '2019 assessment' - not essential for finishing the 2018 assessment but we didn't want to forget about them.
-
-You can assign collaborators to deal with an _Issue_, and add comments.
-
-You automatically get emails when _Issues_ are created, commented on, etc. Equivalently, a blue notification circle appears on th ebell at the otp right (though I think it disappears when you read the email).
-
-Emails are useful, but if you're actively using your GitHub page you can just turn them off (someone will know how ...).
-
-In your commit message you can refer to, say, Issue 41, using #41.
-
-The commit then gets mentioned on the Issue page.
-
-Can even say something like:
-
-`git com "Update catch figure, closes #41."`
-
-This automatically closes the issue on GitHUb e.g.:
-
-  https://github.com/cgrandin/hake-assessment/commit/0e88ff58
-  
-### Changing the commit message in the last commit
-If you make a commit, then realize that your message had a spelling error, or needed more information in it, you can change the commit message:
-
-`git commit --amend -m "Correct message."`
-
-This only works on the last commit. You can't change any other commit message using _amend_.
-
-If you already pushed the commit before realizing that the message needs modification, do this:
-
-`git p --force`
-
-after making the amendment to the commit message. You can also add more files before issuing the amendment commit and those files will be added to the commit you are amending. You can't add changes to  file content this way though, you'll need to do another commit for that.
-
-### Undoing a commit
 If you make a commit followed by other commits, then realize you want to undo the earlier commit, you use _revert_:
 
 `git revert HASH`
 
-where `HASH` is the hash for the commit you want to undo (20-byte string). Remember that Git shell is smart enough that you only need the first five digits:
+where `HASH` is the hash for the commit you want to undo. Remember that Git shell is smart enough that you only need the first five digits:
 
 `git revert 1ef1d`
 
@@ -463,754 +430,37 @@ This actually creates a new commit with the automatic message
 
 `Revert "<previous commit message>"`.
 
-For example commit `1fe84d4` in `git-course`.
+Obviously, you have to be careful with this if you're changing something that
+was a few commits back, as you might mess up your code.
 
-It is important to make a lot of commits, each with only small changes. You can only revert the whole commit, not parts.
+**Undoing changes not yet committed**
 
-### Undoing changes not yet committed
-If you've made a mess in your working directory and you want to change everything back to the way it was on the last commit:
+If you've made a mess in your working directory and you want to change
+everything back to the way it was on the last commit:
 
 `git reset --hard HEAD`
 
-If you've messed up a singel file and just want that one file to go back to the way it was on the last commit:
+If you've messed up a single file and just want that one file to go back to the way it was on the last commit:
 
-`git checkout HEAD file/to/restore.r`
+`git checkout HEAD <filename_to_restore>`
 
-Warning - running these commands will delete the changes you have made. Since you have not committed any changes, they will be lost. Make sure you are certain you don't need the changes before running these commands. If you aren't sure if you need the changes again in the future, use `git stash` instead.
+Warning -- running these commands will delete the changes you have made. Since
+you have not committed any changes, they will be lost. Make sure you are certain
+you don't need the changes before running these commands. If you aren't sure if
+you need the changes again in the future, use `git stash` instead.
 
-### Stashing overview
-If you are in the middle of working on something, but you need to change branches for some reason, you can _stash_ your changes and apply them back later. Let's say you are working in the master branch. To stash all changes in master:
+**Changing the commit message in the last commit**
 
-`git stash`
+If you make a commit then realize you want to change it (add more information,
+fix something that will confuse your colleagues, fix something that will confuse
+you tomorrow), you can change the commit message:
 
-then change branches, and do whatever you like. To get those changes back, switch back to master:
+`git commit --amend -m "Correct message."`
 
-`git checkout master`
+This only works on the last commit.
 
-and apply the stashed changes:
+If you already pushed the commit before realizing that the message needs modification, do this:
 
-`git stash pop`
+`git p --force`
 
-Note that nothing is committed, this just lets you put onhold your work in progress and come back to where you left off.
-
-To make sure new files are included in the stash, you must have added them using `git add filename` before using the `git stash` command.
-
-### Stashing - make it into a branch
-If you leave a stash for awhile and have made commits since the stash, then try to reapply it, you may get conflicts. The best way to apply a stash if you have modified things since you stashed is to let git create a branch for the stash, which you can then look at and edit if you wish before merging back into your master or other working branch:
-
-`git stash branch BRANCH-NAME`
-
-where `BRANCH-NAME` is the name you want to call the new branch. You can then merge this branch in as outlined in the merging slides and resolve conflicts in the same way as with remotes or other local branches.
-
-### Aliases
-Are you getting tired of typing:
-
-`git com "Message"`?
-
-You can make your own shorter commands in git using Aliases. These are defined in:
-
-`C:\Users\YOUR-USER-NAME\.gitconfig`
-
-If you set up Git from scratch using our instructions you will already have that file that includes some of Chris's aliases. These include:
-
-  `git s` -> `git status`
-  
-  `git com "MESSAGE"` -> `git com -a -m "MESSAGE"`
-  
-  `git r` -> `git remote -v`
-  
-  `git cd BRANCH-NAME` -> `git checkout -b BRANCH-NAME`
-  
-  `git co BRANCH-NAME` -> `git checkout BRANCH-NAME`
-  
-These are on the readme file of this repo. Just remember (when Googling problems) that these are aliases.
-
-### Summary
-95% of the time, this is all you are doing:
-
-Change some source code
-
-`git com "My commit message"`
-
-`git p`
-
-If server does not allow you to push:
-
-`git fetch`
-
-`git rebase`
-
-If conflicts, fix them and:
-
-`git add CONFLICTED_FILE`
-
-`git rebase --resume`
-
-`git p`
-
-Change some source code...
-
-Repeat...
-
-### Visualization website
-Git Visualization website: http://onlywei.github.io/explain-git-with-d3
-
-### For Tomorrow
-You will need the TTT repo on your computer (it has some example code, plus then you'll also have the readme on your computer).
-
-* In your git shell, make sure you are in your folder:
-
-  `github/`
-  
-* Since you don't (all*) have push access to `pbs-assess/TTTworkshop` you need to:
-* Fork it (on the GitHub site)
-* `git clone http://github.com/YOUR-GITHUB-NAME/TTTworkshop
-
-Some PBS folks are members of the GitHub 'organization' `pbs-assess` and so automatically have push access so don't need to fork.
-
-### For tomorrow (now added to TTT readme)
-Also need some R packages (get those that you don't have):
-
-`install.packages("dplyr", "kableExtra", "xtable", "devtools")`
-
-Then to get csasdown:
-
-`devtools::install_github("pbs-assess/csasdown")`
-  
-
-
-
-
-<!--
-\section{Branches}
-\frame{\frametitle{Branching overview}
-  When you want to add some new code to your project, but don't want to break
-  what is already there, you create a new branch. When creating a new branch,
-  your starting point is identical to the branch you were in when you created
-  the new one.\\
-  \bigskip
-  Once you have completed your work in the new branch and are satisfied that
-  everything is working correctly, you merge the changes into your master
-  branch (or any other branch you wish).\\
-  \bigskip
-  You can also push branches to GitHub if you feel the branch is going to be a
-  longer term project and/or if there are going to be multiple collaborators
-  on that new branch.\\
-  \bigskip
-  It is a good idea to commit all changes before creating a new branch, as
-  local changes which haven't been committed will appear in the new branch
-  as well.
-}
-
-\frame{\frametitle{Creating a new branch}
-  \bi
-    \item In the Git shell, enter your test repository:\\
-      \lst{cd test}\\
-      and see that you are in the \emph{master} branch by looking at the
-      prompt.
-    \item Create a new branch based off the branch you are currently on:\\
-      \lst{git checkout -b temp}\\
-      You will be automatically placed in the new branch called
-      \emph{temp}, and commits you make will now occur in that
-      branch only.
-    \item To view all local branches:\\
-      \lst{git branch}\\
-      There is an asterisk next to the branch you are currently in.
-    \item To switch to another branch, let's say back to \emph{master}:\\
-      \lst{git checkout master}\\
-  \ei
-}
-
-\frame{\frametitle{Make a commit in the new branch}
-  \bi
-    \item Make sure you are in the new branch:\\
-      \lst{git checkout temp}
-    \item Create a new file called \lst{tester.txt}
-    \item \lst{git add tester.txt}
-    \item \lst{git com "Added tester.txt"}
-    \item Switch back to \emph{master}:\\
-      \lst{git checkout master}
-    \item Notice that the file you just added is gone. It only exists in
-      the \emph{temp} branch at this point. You will need to merge that
-      branch back in to the \emph{master} branch if you want to keep the
-      work you did in the other branch.
-  \ei
-}
-
-\frame{\frametitle{Merging branches}
-  \bi
-    \item To merge the changes from a branch into another branch:
-      \bn
-        \item Change to the branch you want to merge into, typically
-          \emph{master}:\\
-          \lst{git checkout master}
-        \item Merge the branch into \emph{master}:\\
-          \lst{git rebase temp}\\
-          OR\\
-          \lst{git merge temp}
-      \en
-    \item Notice that the file you created in the \emph{temp} branch
-      now appears in the \emph{master} branch. All commits done in a branch
-      which is merged in will be included in the merge step.
-    \item If there was a merge conflict, you must fix it at this point. This
-      will be covered later in the section about merging remotes, which
-      follows the exact same method.
-    \item Since we are done with that branch for good, we will delete it so
-      we don't have unused branches hanging around (next slide).
-  \ei
-}
-
-\frame{\frametitle{Deleting branches}
-  \bi
-    \item To delete a branch that you are not currently in, in this case
-      the \emph{temp} branch:\\
-      \lst{git branch -d temp}\\
-    \item To delete the branch you are currently in, switch to another branch
-      first, (e.g. \emph{master}) and then delete the branch:\\
-      \lst{git checkout master}\\
-      \lst{git branch -d temp}\\
-    \item If you have unmerged changes in the branch, you will not be allowed
-      to delete it. If you want to forcibly delete it, discarding your changes,
-      use:\\
-      \lst{git branch -D temp}\\
-      \textbf{Warning -- you won't be able to get any of those changes back
-        once you do this.}
-  \ei
-}
-
-\frame{\frametitle{Pushing branches to GitHub}
-  If you want to push the branch up to GitHub, i.e. so others can fetch it and
-  edit it, you need to be in the branch locally and:\\
-
-  \lst{git --set-upstream origin BRANCH-NAME}\\
-
-  Git shell is smart, so if you forget this command and instead type:\\
-
-  \lst{git p}\\
-
-  while in the new branch, Git shell will tell you the command you need.\\
-  \bigskip
-  Once you've done this for a branch, all you have to do to push future
-  commits in this branch is:\\
-  \lst{git p}\\
-  \bigskip
-  Check the GitHub webpage to see that your branch was pushed.
-}
-
-\frame{\frametitle{Deleting branches from GitHub}
-  To remove a branch entirely from GitHub:\\
-  \lst{git p origin --delete BRANCH-NAME}\\
-  \bigskip
-  The local branch will still exist, so if you want to delete that as well:\\
-  \lst{git checkout master}\\
-  \lst{git branch -d BRANCH-NAME}
-}
-
-
-
-
-\section{Network Graph}
-\frame{\frametitle{Network Graph}
-  \bi
-     \item The Network Graph is a useful visualization tool to keep
-       track of your commits.
-     \item Each \lst{commit} is shown as a point on the graph.
-     \item Hover the mouse over a commit to see:
-     \bi
-       \item who committed
-       \item the commit \lst{HASH} -- a 20-byte hexadecimal string that
-         identifies that commit;\\
-         e.g.: \lst{1ef1da5659a4b147562b155ffb6289811adab36b}
-       \item the commit message (so provide meaningful messages!).
-     \ei
-
-
-     \item Click on a commit to see the actual changes made for that commit
-        (therefore commit frequently so each commit only has a few changes).
-     \item See that you (or a collaborator) can add comments for each commit.
-     \item In the comments (or when you do \lst{git commmit -a -m "..."}) you can include
-        a \lst{HASH} from any other commit. You only really need the first five
-        digits to ensure uniqueness ($16^5 = 1,048,576$ possible combinations),
-        but if you use seven then GitHub will create a link to that commit
-        (see June 13th commits).
-  \ei
-}
-
-\frame{\frametitle{Understanding the Network Graph}
-  The Network Graph is useful when working alone, but especially so when
-  collaborating using forking (which we haven't really shown, so we'll
-  only talk about some of these slides).\\
-  \bigskip
-  Find it for any repo under \lst{Insights-Graphs-Network}.\\
-  \bigskip
-  Look at \url{https://github.com/cgrandin/git-course/network}\\
-  \bigskip
-  Hover over commits to see commit details.\\
-  \bigskip
-  Hints for GitHub:
-  \bi
-    \item GitHub has keyboard shortcuts. Type \textbf{?} while on the site
-      to get a list of them.
-    \item Use left and right arrows to navigate the network graph.
-    \item Use shift-left arrow or shift-right arrow to go to the beginning
-      or end of the network graph.
-  \ei
-}
-
-\frame{\frametitle{Understanding the Network Graph}
-  Screenshot from 30th May shows (and next page):
-  ~\\
-  ~\\
-  \includegraphics[
-     width=\textwidth,
-     height=0.6\textheight,
-     keepaspectratio]
-     {../git-motivation/figures/netWorkGraph1}
-}
-
-\frame{\frametitle{Understanding the Network Graph}
-  \includegraphics[
-     width=\textwidth,
-     height=0.6\textheight,
-     keepaspectratio]
-     {../git-motivation/figures/netWorkGraph2}
-
-  Andy had done nothing for a while.
-
-  [This is a slightly different way of collaborating to what we are now teaching].
-}
-
-\frame{\frametitle{Understanding the Network Graph}
-  \includegraphics[
-     width=\textwidth,
-     height=0.6\textheight,
-     keepaspectratio]
-     {../git-motivation/figures/netWorkGraph1}\\
-     The graph was for {\red Andy's repo}, so Andy is at the top.
-     \\
-  Kim's name shows up because he had pushed commits that Andy did not
-    yet have.\\
-  So the graph shows that Andy should get caught up before continuing on
-    this project.\\
-  This took three commands, resulting in:
-  \includegraphics[
-     width=\textwidth,
-     height=0.6\textheight,
-     keepaspectratio]
-     {../git-motivation/figures/netWorkGraph3}
-}
-
-
-
-\frame{\frametitle{Understanding the Network Graph}
-  \includegraphics[
-     width=\textwidth,
-     height=0.6\textheight,
-     keepaspectratio]
-     {../git-motivation/figures/netWorkGraph3}
-  ~\\
-  All files that Kim edited got updated, plus Andy then had any new files
-    that Kim created, and our folder structures are identical.\\
-  ~\\
-  Kim's name doesn't show up, even though he did a lot of the work.\\
-  ~\\
-  It is ``{\red about code not ego}''.
-  ~\\
-}
-
-
-\frame{\frametitle{Exercise regarding this git-course repo}
-  \bn
-    \item Look at {\red your} Network Graph for this \lst{git-course} repo.
-    \item We'll look at some other people's.
-    \item Why are they different?
-    \item What to do?
-  \en
-}
-
-
-
-\frame{\frametitle{GitHub -- Add collaborators}
-  If your GitHub repository is public, anyone can post an \emph{Issue} (explained
-    next). If you want someone to be able to:
-  \bi
-    \item set assignees to \emph{Issues}
-    \item receive notifications when you reply to their \emph{Issue}
-  \ei
-  you need to add them as a collaborator. Select the \emph{Settings} tab and
-    then the \emph{Collaborators} button. Type their GitHub username in and send
-    them an invitation to collaborate.
-}
-
-\frame{\frametitle{GitHub -- Issues}
-  \emph{Issues} are very useful for discussing issues with your repo.
-  For this course we used them a lot:\\
-  ~~\url{https://github.com/cgrandin/git-course}\\
-  then click \emph{Issues}.\\
-  ~\\
-  Can see that we have some (maybe none?) `Open' -- still have not closed them.\\
-  We have some `Closed' ones -- we have resolved the issue, maybe after a
-    discussion.\\
-  ~\\
-  This is very useful and avoids having to clutter up code and write-ups with
-    comments or endless emails that get overlooked.\\
-  If an \emph{Issue} remains open you know that it hasn't been done.\\
-  ~\\
-  % Note that because Andy forked from Kim's repo, there is no \emph{Issues}
-  %  page under\\
-  % ~~\url{https://github.com/andrew-edwards/git-course}\\
-}
-
-\frame{\frametitle{GitHub -- Issues}
-  For hake we have over 430 closed \emph{Issues}:\\
-  ~~\url{https://github.com/cgrandin/hake-assessment}\\
-  ~\\
-  Many of the unresolved ones are all tagged (using \emph{Milestones}) with
-    `2019 assessment' -- not essential for finishing the 2018 assesssment but
-    we didn't want to forget about them.\\
-  ~\\
-  You can assign collaborators to deal with an \emph{Issue}, and add comments.\\
-  ~\\
-  You automatically get emails when \emph{Issues} are created, commented on,
-    etc.\\
-  Equivalently, a blue notification circle appears on the bell at the top right
-    (though I think it disappears when you read the email).\\
-  ~\\
-  Emails are useful, but if you're actively using your GitHub page you can just
-   turn them off (someone will know how ...).\\
-  If you include the first seven digits of a commit \lst{HASH} it will become a
-   clickable link.
-}
-
-\frame{\frametitle{GitHub -- Issues}
-  In your commit message you can refer to, say, Issue 41, using \#41.\\
-  ~\\
-  The commit then gets mentioned on the Issue page.
-  ~\\
-  Can even say something like\\
-  ~~\lst{git com "Update catch figure, closes \#41."}\\
-  ~\\
-  This automatically closes the issue on GitHub, e.g.:\\
-  ~~\url{https://github.com/cgrandin/hake-assessment/commit/0e88ff58}
-    % bd6297cbdd6645a14219cf3d02edbae2}
-}
-
-\section{Undoing things}
-\frame{\frametitle{Changing the commit message in the last commit}
-  If you make a commit, then realize that your message had a spelling error,
-  or needed more information in it, you can change the commit message:\\
-  \bigskip
-  \lst{git commit --amend -m "Correct message."}\\
-  \bigskip
-  This only works on the last commit. You can't change any other commit message
-  using \emph{amend}.\\
-  If you already pushed the commit before realizing that the message needs
-  modification, do this:\\
-  \bigskip
-  \lst{git p --force}\\
-  \bigskip
-  after making the amendment to the commit message. You can also add more files
-  before issuing the amendment commit and those files will be added to the commit
-  you are amending. You can't add changes to file content this way though, you'll
-  need to do another commit for that.
-}
-
-\frame{\frametitle{Undoing a commit}
-  If you make a commit followed by other commits, then realize you want to undo
-  the earlier commit, you use \emph{revert}:\\
-  \bigskip
-  \lst{git revert HASH}\\
-  \bigskip
-  where \lst{HASH} is the hash for the commit you want to undo (20-byte string)
-  Remember that Git shell is smart enough that you only need the first five digits:\\
-  \bigskip
-  \lst{git revert 1ef1d}\\
-  \bigskip
-  This actually creates a new commit with the automatic message\\
-  ~~\lst{Revert "<previous commit message>"}.\\
-  For example commit \lst{1fe84d4} in \lst{git-course}.\\
-  \bigskip
-  It is important to make a lot of commits, each with only small changes.
-  You can only revert the whole commit, not parts.
-}
-
-\frame{\frametitle{Undoing changes not yet committed}
-  If you've made a mess in your working directory and you want to change
-  everything back to the way it was on the last commit:\\
-  \bigskip
-  \lst{git reset --hard HEAD}\\
-  \bigskip
-  If you've messed up a single file and just want that one file to go back
-  to the way it was on the last commit:\\
-  \bigskip
-  \lst{git checkout HEAD file/to/restore.r}\\
-  \bigskip
-  Warning -- running these commands will delete the changes you have made.
-  Since you have not committed any changes, they will be lost. Make sure
-  you are certain you don't need the changes before running these commands.
-  If you aren't sure if you need the changes again in the future, use
-  \lst{git stash} instead.
-}
-
-\section{Stashing}
-\frame{\frametitle{Stashing overview}
-  If you are in the middle of working on something, but you need to change
-  branches for some reason, you can \emph{stash} your changes and apply
-  them back later. Let's say you are working in the master branch. To
-  stash all changes in master:\\
-  \lst{git stash}\\
-  then change branches, and do whatever you like. To get those changes back,
-  switch back to master:\\
-  \lst{git checkout master}\\
-  and apply the stashed changes:\\
-  \lst{git stash pop}\\
-  Note that nothing is committed, this just lets you put on hold your work
-  in progress and come back to where you left off.\\
-  \bigskip
-  To make sure new files are included in the stash, you must have added them
-  using \lst{git add filename} before using the \lst{git stash} command.
-}
-
-\frame{\frametitle{Stashing -- make it into a branch}
-  If you leave a stash for awhile and have made commits since the stash,
-  then try to reapply it, you may get conflicts. The best way to apply a stash
-  if you have modified things since you stashed is to let git create a branch
-  for the stash, which you can then look at and edit if you wish before merging
-  back into your master or other working branch:\\
-  \bigskip
-  \lst{git stash branch BRANCH-NAME}\\
-  \bigskip
-  where \lst{BRANCH-NAME} is the name you want to call the new branch.
-  You can then merge this branch in as outlined in the merging slides and
-  resolve conflicts in the same way as with remotes or other local branches.
-}
-
-\section{Aliases}
-\frame{\frametitle{Aliases}
-  Are you getting tired of typing:\\
-  \lst{git com "Message"} ?\\
-
-  You can make your own shorter commands in git using Aliases. These are defined in:\\
-  \bigskip
-  \lst[escapechar="\\"]{C:\\Users\\YOUR-USER-NAME\\.gitconfig}\\
-  \bigskip
-
-  If you set up Git from scratch using our instructions you will already have
-  that file that includes some of Chris's aliases. These include:
-
-  \begin{table}
-    \begin{tabular}{ll}
-  \lst{git s}               & \lst{git status}\\
-  \lst{git com "MESSAGE"}   & \lst{git com -a -m "MESSAGE"}\\
-  \lst{git r}               & \lst{git remote -v}\\
-  \lst{git cb BRANCH-NAME}  & \lst{git checkout -b BRANCH-NAME}\\
-  \lst{git co BRANCH-NAME}  &  \lst{git checkout BRANCH-NAME}
-    \end{tabular}
-  \end{table}
-These are on the readme file of this repo. Just remember (when Googling
-problems) that these are aliases.
-}
-
-
-
-\end{document}
-
-% Old slides for using forking and cloning
-\section{Collaborating}
-\frame{\frametitle{Collaborating using forking and remotes}
-  To do this, send collaborators the URL of your GitHub repository, and ask them
-  to \emph{Fork} it on GitHub. Once they have done that and cloned your
-  repository, everyone involved will need to add each other's repository as a
-  \emph{remote} so that all changes can be merged.\\
-  \bigskip
-  Adding remotes has to be done once for each project. Once you have added
-  someone, their remote information remains on your local computer. GitHub has
-  some smart programming, which detects merges between remotes and will keep
-  track of the project and all its contributions.\\
-  \bigskip
-  The network graph is a great place to look at what has happened on a given
-  repository.
-}
-
-\frame{\frametitle{Adding remotes}
-  \bi
-    \item Once everyone has \emph{Forked} on GitHub, you must add each person as
-      a \emph{remote}. They must also add everyone else as remotes. Everyone
-      must trade URLs, and add each other person like this:\\
-      \lst{git remote add REMOTE-NAME REMOTE-URL}\\
-      where:\\
-      \bi
-        \item \lst{REMOTE-NAME} is a name you make up that you will
-          remember. I use first initial followed by last name for everyone,
-          so they have the same syntax. e.g.: cgrandin, aedwards, rforrest.
-        \item \lst{REMOTE-URL} is the URL on GitHub where the person's
-          repository can be found. e.g.:\\
-          \url{https://github.com/cgrandin/git-course}.
-      \ei
-    \item To view all remotes you have set up:\\
-      \lst{git remote -v}
-  \ei
-}
-
-\frame{\frametitle{Fetching overview}
-  Once you have set up your remotes, you can fetch other people's commits.
-  Before continuing work on your project, you should always check GitHub, and
-  see if your collaborators have been working, and if so, what their commits
-  were. At this stage you get a general idea of what has been done since
-  you last looked at the repository. Once you have familiarized yourself with
-  the changes in a broad sense, you will want to merge them into yours.\\
-  \bigskip
-  Find the most recent commit on GitHub's \emph{Network Graph}. It will have
-  one person's name associated with it. That is the person you will fetch
-  and merge in.\\
-  \bigskip
-  There may be some disarray in the network graph, but you can just merge
-  each person's repository into yours in succession if you wish, which
-  will clean up the network graph.
-}
-
-\frame{\frametitle{Fetching other people's changes}
-  To fetch someone's changes:\\
-  \bigskip
-  \lst{git fetch REMOTE-NAME}\\
-  \bigskip
-  where \lst{REMOTE-NAME} is one in the list of remotes you have set up.
-  This command fetches everything in the person's repository, including
-  all branches. Running this command does not affect your repository
-  in any way. The fetch stores the information in a cache, awaiting
-  your command to merge.
-}
-
-\frame{\frametitle{Comparing the fetched repository with yours}
-  Once you've fetched someone's repository, you can exactly see what has
-  changed compared to yours. This is called \emph{Diff-ing}.
-  \bi
-    \item To compare the changes in their master to yours (make sure you are in
-      the master branch in Git shell):
-      \lst{git diff REMOTE-NAME/master}\\
-      or using the \emph{Difftool} if you have it set up:\\
-      \lst{git difftool REMOTE-NAME/master}
-    \item This will show you exactly what changes to each file you are about
-      to merge into your repository.
-    \item In general, use \emph{diff} if there are only minor changes
-      and \emph{difftool} if there are more changes or if more than one file
-      has been changed.
-  \ei
-}
-
-\frame{\frametitle{Merging the fetched repository into yours}
-  To merge the fetched repository's master branch into yours:\\
-  \lst{git rebase REMOTE-NAME/master}\\
-  OR\\
-  \lst{git merge REMOTE-NAME/master}\\
-  note that the merge will happen in the branch you are currently in, so make
-  sure you are in the \lst{master} branch.\\
-
-  \bigskip
-
-  At this point, you will either be up-to-date, meaning there were no merge
-  conflicts, or you will have one or more merge conflicts. If you are
-  up-to-date, you need to push back to your repository to complete the merge
-  step:\\
-  \lst{git p}\\
-  If you have conflicts, you need to fix them before continuing work.
-}
-
-\frame{\frametitle{Understanding the Network Graph}
-  \bi
-
-    \item Live version: \url{https://github.com/andrew-edwards/git-course/network}\\
-    \item What about: \url{https://github.com/cgrandin/git-course/network}\\
-    \item Andy's name (probably) doesn't show up.\\
-    \item But we both did work -- can see who did what by hovering
-      over commits.\\
-    \item It is ``{\red about code not ego}''.
-  \ei
-}
-
-\frame{\frametitle{Understanding the Network Graph}
-  Paraphrasing from (slightly dated) \url{https://github.com/blog/39-say-hello-to-the-network-graph-visualizer}\\
-  \bi
-    \item If I am at the top: my row shows every commit in {\red my repo}
-    \item Next person: only commits in {\red his/her repo that are not in mine}
-    \item Next person: only commits in {\red his/her repo that are not in mine
-      or second person's}
-    \item Each commit is shown {\blue only once}\\
-    \bigskip
-    \item \textbf{Think of it as a to-do list to show what other people have done
-      that you need to catch up with}.
-  \ei
-}
-
-\frame{\frametitle{Understanding the Network Graph}
-  \bi
-    \item On your own network graph, you will always be on top.
-    \item Any names below you have changes in their repository which you
-      have not yet merged into yours.
-    \item When you merge someone's commits into yours, their name will
-      disappear from your network graph.
-    \item Once your name is the only one remaining, everyone's changes
-      have been completely merged into your repository.
-    \item All commits from all branches in the repository are shown on the
-      graph.
-    \item \textbf{Think of it as a to-do list to show what other people have done
-      that you need to catch up with}.
-  \ei
-}
-
-\frame{\frametitle{Exercise on remotes and merging -- 1}
-  \bn
-    \item Each group of four sitting together will collaborate. Each person
-      in the group gets a number: 1, 2, 3, or 4.
-    \item Person 1 will set up a new repository on GitHub called
-      \lst{help-friends}
-    \item Person 1 copies \lst{module-1-git/exercise-files/helpFriends.txt}
-      into their new repository (on their computer).
-    \item \lst{add}, \lst{commit}, \lst{push}.
-      Check Network Graph.
-    \item Persons 2, 3 and 4 then fork and clone the repository.
-    \item All team members must add everyone else as a remote:\\
-      \lst{git remote add REMOTE-NAME REMOTE-URL}\\
-      (run once for each team member other than yourself), e.g.:\\
-      \lst{git remote add aedwards https://github.com/andrew-edwards/help-friends}
-    \item Run the command \lst{git remote -v} to see your list of remotes. Make
-      sure everyone in your group is on the list.
-    \item Everyone does a few edits on their paragraph
-      (see \lst{helpFriends.txt}).
-    \item \lst{commit} a few times, \lst{push}.
-      Check Network Graph.
-  \en
-}
-
-\frame{\frametitle{Exercise on remotes and merging -- 2}
-  \bn
-    \item Explore Network Graph (hover over the commits).
-    \item Whoever is furthest behind (not that it matters), \lst{fetch}
-      and \lst{merge} from the person who's furthest ahead:
-      \bi
-        \item \lst{git fetch REMOTE-NAME}
-        \item \lst{git diff REMOTE-NAME/master}
-        \item \lst{git merge REMOTE-NAME/master}
-        \item \lst{git p}
-        \item Check Network Graph (have to refresh).
-        \item Check your collaborator's Network Graph (helpful if you care whether
-          they have caught up with you).
-      \ei
-    \item Repeat step 2 until everyone is caught up.
-    \item Step 2 is essentially all you have to (ever) do to keep collaborating on this repo.
-  \en
-  Note that Git shell auto-completes with \lst{<TAB>}, e.g. \lst{git merge <TAB>}
-}
-
-\frame{\frametitle{Exercise on remotes and merging -- 3}
-  \bn
-    \item Note that if person A has fetched and merged B's work, person C
-      can just fetch and merge from A (not from A and B -- A has already done that).
-    \item On your repo website, go to Code and navigate to and click on \emph{helpFriends.txt}.
-    \item See what Raw, Blame and History buttons do.
-    \item Your Network Graph acts as a to-do list. Each person you have not merged
-      with will be below you on the graph in a new slot. If there are no names below yours,
-      you have no unmerged commits and are up-to-date.
-  \en
-}
--->
+after making the amendment to the commit message.
