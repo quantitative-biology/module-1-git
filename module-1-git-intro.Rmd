@@ -3,7 +3,7 @@ title: "module-1-git-intro"
 output: html_document
 ---
 
-## Using GitHub and the Git shell
+## Using Git and GitHub
 
 This section also has a recorded lecture to
 demonstrate the main concepts and ideas. The lecture is available here (TODO)

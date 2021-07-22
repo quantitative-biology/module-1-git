@@ -4,7 +4,7 @@ output: html_document
 author: Andrew Edwards
 ---
 
-## More on Git and GitHub
+## Beyond the basics
 
 Here are some Git and GitHub concepts and tips that go beyond the basics that we
 just covered.
