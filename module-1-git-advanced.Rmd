@@ -53,14 +53,18 @@ When collaborating:
   GitHub click `r colorize("Blame")` (you can even click on the square icon to
   go to the previous commit that changed that line):
 
-![](../module-1-git/images/blame.png){width=100%}
+```{r, echo = FALSE, fig.alt = "", width="100%"}
+knitr::include_graphics("./images/blame.png",error = FALSE)
+```
 
 **GitHub Issues**
 
 GitHub _Issues_ are very useful for discussing issues with your repo. For our
 annual Pacific Hake assessment we have used them extensively over the years:
 
-![](../module-1-git/images/hakeIssues21.png){width=100%}
+```{r, echo = FALSE, fig.alt = "", width="100%"}
+knitr::include_graphics("./images/hakeIssues21.png",error = FALSE)
+```
 
 The Issues tab lists our current 'Open' issues -- we have 20, of which five (the
 most recently posted) are
@@ -192,7 +196,9 @@ Consequently, your workflow is less cluttered and more tractable than having
   to save multiple versions of the same files with dates in the filename, such
   as this nightmare:
 
-![](../module-1-git/images/EAversions.png){width=100%}
+```{r, echo = FALSE, fig.alt = "", width="100%"}
+knitr::include_graphics("./images/EAversions.png",error = FALSE)
+```
 
 **Retrieving older work in practice**
 
@@ -276,7 +282,9 @@ An example of why you should not commit binary files:
 'fatal' errors with scary messages like `bad object HEAD` and the awesomely titled `You are
 on a branch yet to be born`:
 
-![](../module-1-git/images/notGood.png){width=100%}
+```{r, echo = FALSE, fig.alt = "", width="100%"}
+knitr::include_graphics("./images/notGood.png",error = FALSE)
+```
 
 I just had to start again from scratch (reclone I think). Take-home message:
 
@@ -351,7 +359,9 @@ Check the GitHub webpage to see that your branch was pushed. You repository
   there is a _temp_ branch with more recent commits than _main_. If not then if
   you click on the _main_ drop-down menu:
 
-![](../module-1-git/images/main-branch.png){width=100%}
+```{r, echo = FALSE, fig.alt = "", width="100%"}
+knitr::include_graphics("./images/main-branch.png",error = FALSE)
+```
 
 it should give you the option to look at your new _temp_ branch. (The '1 branch'
 in the above image should also say '2 branches').
