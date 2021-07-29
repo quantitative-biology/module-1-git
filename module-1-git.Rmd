@@ -44,7 +44,9 @@ annual stock assessment for Pacific Hake (_Merluccius productus_) off the west
 coast of Canada and the US. The assessment is used to manage the stock, which is of important
 ecological and economic value ($100 million export value in Canada).
 
-![](../module-1-git/images/hake-picture.png){width=50%}
+```{r, echo = FALSE, fig.alt = "", width="50%"}
+knitr::include_graphics("./images/hake-picture.png",error = FALSE)
+```
 
 We fit complex population models to data to make projections about future
 health of the stock under different levels of catch. There is a very short
@@ -73,22 +75,30 @@ computers. The alternative of emailing files back and forth is:
 Using GitHub it is easy to see what text/code collaborators have changed, avoiding
 things like the following, for which it hard to see where to get started:
 
-![](../module-1-git/images/interim.png){width=100%}
+```{r, echo = FALSE, fig.alt = "", width="100%"}
+knitr::include_graphics("./images/interim.png",error = FALSE)
+```
 
 
 We may want to keep old versions of files (and email them back and forth), but
 without GitHub we can end up with a veritable gong show:
 
-![](../module-1-git/images/EAversions.png){width=100%}
+```{r, echo = FALSE, fig.alt = "", width="100%"}
+knitr::include_graphics("./images/EAversions.png",error = FALSE)
+```
 
 We can avoid having to co-ordinate having only one person working on the latest
 version of a document, so we don't get things like:
 
-![](../module-1-git/images/proposalEmail.png){width=100%}
+```{r, echo = FALSE, fig.alt = "", width="100%"}
+knitr::include_graphics("./images/proposalEmail.png",error = FALSE)
+```
 
 Can avoid multiple versions of a file that then have to be carefully merged:
 
-![](../module-1-git/images/dogsBreakfast.png){width=100%}
+```{r, echo = FALSE, fig.alt = "", width="100%"}
+knitr::include_graphics("./images/dogsBreakfast.png",error = FALSE)
+```
 
 While GoogleDocs, for example, is fine for collaborating on a short document, it
 isn't suitable for sharing complex code, or complex documents that are somewhat
@@ -128,24 +138,32 @@ And the project keeps moving in an efficient way.
 2. By having code shared publically, it is easy to answer questions, such as
    this one I received:
 
-![](../module-1-git/images/MEEcodeQuest.png){width=100%}
+```{r, echo = FALSE, fig.alt = "", width="100%"}
+knitr::include_graphics("./images/MEEcodeQuest.png",error = FALSE)
+```
 
 Rather than go searching on my laptop for the code that I hadn't looked at for
 six months, I could click on the link the questioner sent and answer very
 quickly, with a simple link to the file I am referring to (there is no ambiguity):
 
-![](../module-1-git/images/MEEcodeAnswer.png){width=100%}
+```{r, echo = FALSE, fig.alt = "", width="100%"}
+knitr::include_graphics("./images/MEEcodeAnswer.png",error = FALSE)
+```
 
 
 3. You can even ask who last edited a particular line of code/text (GitHub
   amusingly calls it 'Blame'):
 
-![](../module-1-git/images/blame.png){width=100%}
+```{r, echo = FALSE, fig.alt = "", width="100%"}
+knitr::include_graphics("./images/blame.png",error = FALSE)
+```
 
 4. You can properly keep track of (and discuss) 'Issues' to be thought about or
   fixed, rather than having things in emails that get forgotten:
 
-![](../module-1-git/images/hakeIssues21.png){width=100%}
+```{r, echo = FALSE, fig.alt = "", width="100%"}
+knitr::include_graphics("./images/hakeIssues21.png",error = FALSE)
+```
 
 5. **Important:** You still have all your work locally on your computer. So if
   your internet access goes down or GitHub is unavailable (which of course will only happen
