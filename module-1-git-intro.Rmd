@@ -351,7 +351,10 @@ there are recent commits on GitHub (by Person B) that Person A has not yet
 merged into their local version of the repository.
 
 Here is an example of the error message you get:
-![](../module-1-git/images/unable-to-pull.png){width=100%}
+
+```{r, echo = FALSE, fig.alt = "", width="100%"}
+knitr::include_graphics("./images/unable-to-pull.png",error = FALSE)
+```
 
 While a bit lengthy, the error message is useful. It forces you to get the other
 person's work before you push yours. You do this by:
@@ -368,7 +371,10 @@ Here is a full screenshot ('g' is just a shortcut for 'git'). The green up arrow
 number 8 tells me I have 8 commits to push to GitHub. The yellow arrows I think
 of as just implying I need to do a rebase (before doing that I might browse
 through the other person's commits on GitHub):
-![](../module-1-git/images/fix-the-pull.png){width=100%}
+
+```{r, echo = FALSE, fig.alt = "", width="100%"}
+knitr::include_graphics("./images/fix-the-pull.png",error = FALSE)
+```
 
 After the `rebase` I was allowed to `push` and then everything is up to date.
 
