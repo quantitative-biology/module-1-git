@@ -135,7 +135,7 @@ You can have this one:
 And the project keeps moving in an efficient way.
 
 
-2. By having code shared publically, it is easy to answer questions, such as
+2. By having code shared publicly, it is easy to answer questions, such as
    this one I received:
 
 ```{r, echo = FALSE, fig.alt = "", width="100%"}
@@ -174,7 +174,7 @@ knitr::include_graphics("./images/hakeIssues21.png",error = FALSE)
 
 Delving into the Git and GitHub world online it can feel like you need a
 computer science degree to get started. This may not be surprising as Git
-was writting by the guy who wrote the operating system Linux, to help people
+was written by the guy who wrote the operating system Linux, to help people
 collaborate on writing the operating system Linux. But it means that, for
 example, the second paragraph of the Wikipedia Git page says:
 
@@ -223,7 +223,7 @@ We have tested the installations as much as feasible. If you have an issue then 
 This module is for any operating system: Windows, MacOS, Linux or Unix.
 
 ### What you will end up having installed
-These are programs/things you will need (instructions are on the next slides). Obviously skip any that you already have working.
+These are programs/things you will need (instructions will follow). Obviously skip any that you already have working.
 
 * A GitHub account
 * A text editor that isn't Notepad
@@ -233,7 +233,7 @@ These are programs/things you will need (instructions are on the next slides). O
 
 ### Get a GitHub account
 * Sign up for GitHub: http://github.com
-* If possible, choose a user name that will make sense to colleagues, e.g. __andrew-edwards__ or __cgrandin__, not __pink-unicorn__.
+* If possible, choose a user name that will make sense to colleagues, e.g. __andrew-edwards__ or __cgrandin__, not __pink-unicorn__ (unless this name makes a lot of sense to colleagues....).
 * Desirable: attach a photo (headshot) to your profile. This makes it easy for collaborators to identify you.
 
 ### Text Editor
@@ -299,7 +299,7 @@ The first time you get set up or start using Git, there will be some one-timeaut
 * MAC
   1. Create the directory ~/github
   2. Enjoy a beverage
-  3. TODO: Check with Luwen if it is that simple
+  3. TODO: Check with testors if it is that simple
 
 ### Install the difftool
 

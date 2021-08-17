@@ -24,8 +24,8 @@ colorize <- function(x, color = "red") {
 ## Using Git and GitHub
 
 This section also has a recorded lecture to
-demonstrate the main concepts and ideas. The video is available [here TODO](TODO)
-and the slides from the talk are [here TODO](TODO), though the notes below mostly
+demonstrate the main concepts and ideas. The video is available [here](https://drive.google.com/drive/u/0/folders/1wLNNNn1e2zTKTjh8QAfTcS7L22990RRO)
+and the slides from the talk are [to be added](TODO), though the notes below mostly
 replicate the slides.
 
 ### Definitions
@@ -332,7 +332,7 @@ contributing to (and maybe messing up your work), just your trusted collaborator
 
 But you have to trust your team to not mess things up (more on that later!).
 
-Okay, so in the video we demonstrated the following:
+Okay, so in this [video](https://drive.google.com/file/d/1rqdFBnVg_zwP6SiW-KSTp6wZzAILDeeC/view?usp=sharing) we demonstrate the following:
 
 * Kim creates new repo called `collaborate` (and clones it to her computer).
 * Andy clones it also.
