@@ -1,7 +1,3 @@
----
-title: "module-1-git-intro"
-output: html_document
----
 
 ```{r echo = FALSE}
 

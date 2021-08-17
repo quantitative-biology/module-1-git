@@ -1,8 +1,3 @@
----
-title: "Module-1-Git"
-output: html_document
-author: Andrew Edwards
----
 
 # Introduction to Git and GitHub
 
