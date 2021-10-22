@@ -1,7 +1,34 @@
-
 # Introduction to Git and GitHub
 
 ## Motivation
+
+There are several reasons you might want to use Git and Github. We will explain
+these in order of difficulty. First, some definitions:
+
+`r colorize("GitHub")` refers to the website [github.com]("http::github.com")
+where millions of people and companies 'build, ship, and maintain their
+software'. This is organised by users having a unique username. For a particular
+project, a user creates a `r colorize("repository")`, which is basically a collection of code
+needed for that project. Repositories can be public (anyone can see them) or
+private (only accessible to users specified by the original owner). Hosting code
+in a public GitHub repository allows users to share their code with the world
+and collaborate with anyone.
+
+`r colorize("Git")` is software that keeps track of the latest versions of your
+files on your local computer. Your files can include computer code, data, write-ups of your
+work, etc. Git allows you to interact with GitHub to fetch code that others have
+changed, and to push your own changes so that others can retrieve
+them. Crucially, it allows you to merge each other's changes and easily keep
+track of who has done what. It is called a 'version control system', which means
+that you can go back to all earlier versions (instances) of your repository --
+this is occasionally very useful.
+
+
+
+
+1.  your collaborator uses github--> navigating the site (R packages on github)
+ 2. you want to use github for version control ---> setting it up
+ 3. you want to use github to collaborate
 
 As a biology graduate student or a professional biologist in a university or
 government setting, why might you want to use Git and GitHub? And what are Git
@@ -17,12 +44,8 @@ and GitHub anyway?
 
 Using Git and GitHub in your workflow greatly enables this, both when working alone and in a team.
 
-* `r colorize("Git")` keeps track of the latest versions of your files,
-    such as computer code or write up for results as you work on them.
 * It also allows you to go back to `r colorize("any previous version")` of your
     files (this is 'version control'). (It also does much more).
-* `r colorize("GitHub")` is a website that hosts a 'repository' of your work code and enables
-      users to easily collaborate.
 * Your repositories can be either public or private.
 
 We use Git and GitHub extensively:
