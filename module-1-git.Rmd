@@ -126,98 +126,112 @@ computers. The alternative of emailing files back and forth is:
 * prone to errors,
 * just painful.
 
-### What we can avoid
+### Examples of what we can avoid
 
-Using GitHub it is easy to see what text/code collaborators have changed, avoiding
-things like the following, for which it hard to see where to get started:
+Here are some real-world examples from *not* using GitHub, showing what we
+can *avoid* when using GitHub.
 
-```{r, echo = FALSE, fig.alt = "", width="100%"}
+1. Using GitHub it is easy to see what text/code collaborators have changed, avoiding
+things like the following example of Track Changes in Word, for which it hard to see where to get started:
+
+```{r, echo = FALSE, fig.alt = "Example of Track Changes smorgasbord in Word.", out.width="80%", fig.align = "center"}
 knitr::include_graphics("./images/interim.png",error = FALSE)
 ```
 
 
-We may want to keep old versions of files (and email them back and forth), but
-without GitHub we can end up with a veritable gong show:
+2. Often we may want to keep old versions of files (and email them back and forth), but
+without GitHub we can end up with a veritable gong show, with multiple saved
+versions of the same file:
 
-```{r, echo = FALSE, fig.alt = "", width="100%"}
+```{r, echo = FALSE, fig.alt = "Example of having multiple saved versions of a file.", out.width="80%", fig.align = "center"}
 knitr::include_graphics("./images/EAversions.png",error = FALSE)
 ```
 
-We can avoid having to co-ordinate having only one person working on the latest
-version of a document, so we don't get things like:
+3. We can avoid having to manually co-ordinate having only one person working on the latest
+version of a document. So we don't get things like this example, which tells me
+I shouldn't really do anything now and should wait until others are done merging edits:
 
-```{r, echo = FALSE, fig.alt = "", width="100%"}
+```{r, echo = FALSE, fig.alt = "Example of having to wait for colleagues to merge edits.", out.width="90%", fig.align = "center"}
 knitr::include_graphics("./images/proposalEmail.png",error = FALSE)
 ```
 
-Can avoid multiple versions of a file that then have to be carefully merged:
+4. We can avoid having multiple versions of a file that then have to be carefully merged:
 
-```{r, echo = FALSE, fig.alt = "", width="100%"}
+```{r, echo = FALSE, fig.alt = "Example of having to manually manage multiple version of the same document.", out.width="90%", fig.align = "center"}
 knitr::include_graphics("./images/dogsBreakfast.png",error = FALSE)
 ```
 
 While GoogleDocs, for example, is fine for collaborating on a short document, it
-isn't suitable for sharing complex code, or complex documents that are somewhat
-automatically updated.
+isn't suitable for sharing code that needs to be run on your local computer (or
+complex code containing files that refer to each other),  or complex documents
+that are somewhat automatically updated.
 
-### GitHub advantages
+### Example of advantages that arise from using GitHub
 
 1. Say you've off on a two-week hike while your collaborators
 have been diligently working away and they have edited 15 new files of code in
 five folders, added four data sets, and created five new pages of text towards
-a manuscript. You can easily
+a manuscript. With GitHub you can easily
 catch up with them (get all their changes onto your computer) with a few
 simple commands. You don't even have to pester them to ask what they've done,
 as you can check it yourself.
 
-So rather than this conversation:
+   So rather than this conversation:
 
-* You: "Hey, I'm back from my awesome trip and saw some bears. What have you
-  been doing with the project?"
+   * You: "Hey, I'm back from my awesome trip and saw some bears. What have you
+     been doing with the project?"
 
-* Likely reply: "Glad you had fun. I'm busy on something else right now. Er,
-  where were we at when you left?"
+   * Likely reply: "Glad you had fun. I'm busy on something else right now. Er,
+     where were we at when you left?"
 
-You can have this one:
+   You can have this one:
 
-* You: "Hey, I'm back from my awesome trip and saw some bears. I went through your
-    commits on GitHub and everything looks great. Shall I get on those Methods
-    Issues you assigned me?"
+   * You: "Hey, I'm back from my awesome trip and saw some bears. I went through your
+     commits on GitHub and everything looks great. Shall I get on with those
+     questions you asked in the GitHub Issues regarding methods?"
 
-* Likely reply: "Glad you had fun, looking forward to hearing about it. I'm busy
-  on something else right now so, yes, resolving those issues will be great,
-  thanks."
+   * Likely reply: "Glad you had fun, looking forward to hearing about it. I'm busy
+     on something else right now so, yes, resolving those Issues will be great,
+     thanks."
 
-And the project keeps moving in an efficient way.
+   And the project keeps moving in an efficient way. We'll cover GitHub Issues later.
 
 
 2. By having code shared publicly, it is easy to answer questions, such as
-   this one I received:
+   this one I once received:
 
-```{r, echo = FALSE, fig.alt = "", width="100%"}
+```{r, echo = FALSE, fig.alt = "Question someone once had about some code.", out.width="90%", fig.align = "center"}
 knitr::include_graphics("./images/MEEcodeQuest.png",error = FALSE)
 ```
 
-Rather than go searching on my laptop for the code that I hadn't looked at for
-six months, I could click on the link the questioner sent and answer very
-quickly, with a simple link to the file I am referring to (there is no ambiguity):
+   Rather than go searching on my laptop for the code that I hadn't looked at
+   for six months, I could immediately open the file (on GitHub) by clicking on the
+   link the questioner sent. I could answer very
+   quickly, with a simple link to the file I am referring to (there is no ambiguity):
 
-```{r, echo = FALSE, fig.alt = "", width="100%"}
+```{r, echo = FALSE, fig.alt = "Reply showing link to code on GitHub.", out.width="70%", fig.align = "center"}
 knitr::include_graphics("./images/MEEcodeAnswer.png",error = FALSE)
 ```
 
 
-3. You can even ask who last edited a particular line of code/text (GitHub
-  amusingly calls it 'Blame'):
+3. You can even work out who last edited a particular line of code/text (GitHub
+   amusingly calls it 'Blame'). Just open a file on GitHub and click Blame:
 
-```{r, echo = FALSE, fig.alt = "", width="100%"}
+```{r, echo = FALSE, fig.alt = "Example of GitHub showing who wrote each last line of a file.", width="100%", fig.align = "center"}
 knitr::include_graphics("./images/blame.png",error = FALSE)
 ```
 
-4. You can properly keep track of (and discuss) 'Issues' to be thought about or
-  fixed, rather than having things in emails that get forgotten:
+   Though you'll often find that it was you all along:
 
-```{r, echo = FALSE, fig.alt = "", width="100%"}
+```{r, echo = FALSE, fig.alt = "Very amusing cartoon based on the storyline in every Scooby Doo episode. ", width="100%", fig.align = "center"}
+knitr::include_graphics("../module-1-git/images/scooby-blame.png",error = FALSE)
+```
+
+
+4. You can properly keep track of 'Issues' on GitHub (discussed later) to be
+   thought about or  fixed, rather than having things in emails that get forgotten:
+
+```{r, echo = FALSE, fig.alt = "Example of GitHub Issues.", width="100%", fig.align = "center"}
 knitr::include_graphics("./images/hakeIssues21.png",error = FALSE)
 ```
 
