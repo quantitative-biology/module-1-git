@@ -85,11 +85,11 @@ from various reasons:
 Using Git and GitHub in your workflow greatly enables this, both when working alone and in a team.
 We use them extensively:
 
- * to collaborate on writing code and producing documents (such as this entire
-   set of modules!).
- * to easily share code and R packages publically for scientific papers, and
-   update them as necessary.
- * when working alone to retain a methodical workflow.
+* to collaborate on writing code and producing documents (such as this entire
+  set of modules!).
+* to easily share code and R packages publically for scientific papers, and
+  update them as necessary.
+* when working alone to retain a methodical workflow.
 
 ### Example application -- Pacific Hake stock assessment
 
@@ -293,11 +293,14 @@ We have tested the installations as much as feasible. If you have an issue then 
 This module is for any operating system: Windows, MacOS, Linux or Unix.
 
 ### What you will end up having installed
-These are programs/things you will need (instructions will follow). Obviously skip any that you already have working.
+These are programs/things you will install. Obviously skip any that you already have working.
 
-* A GitHub account
+* A GitHub account (see earlier for instructions)
 * A text editor that isn't Notepad
 * Git on your computer
+
+Optional:
+
 * Diffmerge or something similar for comparing changes to files (not completely necessary)
 * Markdown Pad 2 or Chrome extension or something similar for viewing Markdown files (not completely necessary)
 
@@ -305,11 +308,12 @@ These are programs/things you will need (instructions will follow). Obviously sk
 ### Text Editor
 You must have a text editor that is aware of outside changes in a file. This is necessary because if you have a file open in the editor and you download an updated version of the file, you want the editor to ask you if you want to use the updated version.
 
-We know that __Emacs__, __Xemacs__ and maybe __Vim__ are okay, as is __RStudiofor.R__ (and other) files.
+We know that __Emacs__, __Xemacs__ and maybe __Vim__ are okay, as is __RStudio__
+for using R (and other) files.
 
 __Notepad__ is not okay. But you can download and install __Notepad++__ which is fine:
 
-https://notepad-plus-plus.org/download/v7.3.3.html
+https://notepad-plus-plus.org
 
 ### Install the Git application on your machine
 See https://git-scm.com/downloads for downloading instructions for Windows, MAC and Linux/Unix
@@ -332,7 +336,7 @@ There are many Graphical User Interfaces that are available, as described at htt
 
 Many (but not all) biologists use R in RStudio for their analyses. There is Git functionality built in to RStudio that we (TODO: SOMEONE?) will demonstrate later.
 
-I use magit which works in the text editor emacs (which for years I have used
+I use [magit](https://magit.vc/) which works in the text editor emacs (which for years I have used
 for pretty much everything, such as editing files, running R, Matlab, etc.). But
 I would not have been able to learn magit without first knowing the Git commands
 from using the shell.
@@ -342,9 +346,14 @@ also give you a better understanding of Git and GitHub, and emphasise that you
 can use Git for any files, not just R code.
 
 ### Powershell and posh-git
+
 Download a Powershell (a shell window in which you can type commands, presumably
-the 'power' part means it's more powerful than a basic version) and then
-posh-git following the instructions at https://github.com/dahlbyk/posh-git
+the 'power' part means it's more powerful than a basic version), Git, and then
+posh-git (which adds some extra features). Do this by following the instructions at
+https://github.com/dahlbyk/posh-git .
+Note that that is a GitHub site -- it is storing the code for `posh-git' (so
+anyone can see the code), but when you scroll down you see instructions (as per
+the example in the first video).
 
 Do the ‘Installation' and ‘Using posh-git' sections.  If you don't understand
 some options (I don't!) just pick the simplest, usually the first.
@@ -352,24 +361,32 @@ some options (I don't!) just pick the simplest, usually the first.
 The next slides are from our course about three years ago (and were for
 Windows). So they may be out of date (though first one is recent tips from a colleague).
 
-[Maybe we should see https://upg-dh.newtfire.org/explainGitShell.html]
 
 ### One-time authentication
+
 The first time you get set up or start using Git, there will be some one-timeauthentication to connect to your GitHub account. Follow any instructions.
 
 ### Configure the Git application
+
 * Windows
-  1. Create a github directory, such as C:\github.  It is fine to put it in a differentpath, but make sure there are no spaces or special charactersanywherein the fullpath. This is where you want to be saving your work that you are tracking with Git.
+
+  1. Create a local GitHub directory, such as `C:\github`.  It is fine to put it
+     in a different path, but make sure there are no spaces or special
+     characters anywhere in the full path. This is where you want to be saving
+     your work that you are tracking with Git. You don't have to save Git
+     repostitories in this folder, but, especially at first, it can be helpful
+     so you remember that you are tracking a folder with Git.
+
   2. TODO: Andy has to reinstall anyway and will write something here. Think it's just following instructions.
-<br>
+
 * MAC
-  1. Create the directory ~/github
-  2. Enjoy a beverage
-  3. TODO: Check with testors if it is that simple
+  1. Create the directory ~/github for putting everything you're going to track
+     with Git (see 1. above).
 
-### Install the difftool
 
-The difftool will be used to examine differences between different versions of
+### Install a difftool (optional)
+
+A difftool will be used to examine differences between different versions of
 files and also to simplify merging of branches and collaborator's code. There are
 many programs that can be used but for consistency we will use Diffmerge.
 
@@ -377,7 +394,7 @@ It is nice to have but not essential if you have trouble installing it.
 
 Install Diffmerge: https://sourcegear.com/diffmerge/downloads.php
 
-The configuration for directing git to use Diffmerge will be done below.
+The configuration for directing Git to use Diffmerge will be done below. TODO: check
 
 ### "Cloning" the git-course repository
 
