@@ -2,8 +2,9 @@
 
 ## Motivation
 
-There are several reasons you might want to use Git and Github. We will explain
-these in order of difficulty. First, some definitions:
+As a biology graduate student or a professional biologist in a university or
+government setting, there are several reasons you might want to use Git and
+GitHub. First, we explain these terms:
 
 `r colorize("GitHub")` refers to the website [github.com]("http::github.com")
 where millions of people and companies 'build, ship, and maintain their
@@ -12,7 +13,9 @@ project, a user creates a `r colorize("repository")`, which is basically a colle
 needed for that project. Repositories can be public (anyone can see them) or
 private (only accessible to users specified by the original owner). Hosting code
 in a public GitHub repository allows users to share their code with the world
-and collaborate with anyone.
+and collaborate with anyone. `r colorize("repository")` is generally used
+interchangeably to mean both the collection of code and the
+GitHub website that hosts the collection of code.
 
 `r colorize("Git")` is software that keeps track of the latest versions of your
 files on your local computer. Your files can include computer code, data, write-ups of your
@@ -23,16 +26,51 @@ track of who has done what. It is called a 'version control system', which means
 that you can go back to all earlier versions (instances) of your repository --
 this is occasionally very useful.
 
+The three main ways that you may want to use Git and GitHub are (starting with
+the simplest):
+
+ 1. You want do download someone else's code from their GitHub repository.
+ 2. You want to share your own code on GitHub with others. This will automatically
+    include the version control aspect  mentioned above.
+ 3. You want to collaborate with colleagues on a project.
+
+We will work through these in order, giving more motivation for each as we go
+along.
+
+## You want do download someone else's code from their GitHub repository.
+
+Each GitHub repository can be viewed on GitHub. We will take a tour of a GitHub
+repository in the following video, that shows:
+
+ - the layout of the GitHub website of a repository
+ - the most useful parts to know about
+ - how to download the code if you just want to get it and don't intend to
+   collaborate
+ - ....
+
+TODO - video: sizeSpectra to show files, README, can save individual files, can
+download .zip of whole thing. Then hake-assessment to show multiple
+collaborators and Issues.
+
+To access a private repository, and for the rest of this module, you will need to set
+up a GitHub account:
+
+* Sign up for GitHub: http://github.com
+* If possible, choose a user name that will make sense to colleagues,
+  e.g. __andrew-edwards__ or __cgrandin__, not __pink-unicorn__ (such a name may
+  make sense to your current colleagues, but you may want something more
+  professional so that future colleagues know who you are)
+* Desirable: attach a photo (headshot) to your profile. This makes it easy for collaborators to identify you.
+
+For accessing a private repository, your colleague has to invite you from their
+GitHub repository page (they would do Settings-Manage access). You will get an
+email invitation, and once accepted you will have access to the repository when
+you are logged into GitHub.
 
 
+## You want to share your own code on GitHub with others
 
-1.  your collaborator uses github--> navigating the site (R packages on github)
- 2. you want to use github for version control ---> setting it up
- 3. you want to use github to collaborate
 
-As a biology graduate student or a professional biologist in a university or
-government setting, why might you want to use Git and GitHub? And what are Git
-and GitHub anyway?
 
 * Scientists (including students) are working far more collaboratively than in the past
 * This involves both sharing code and writing up results
@@ -249,10 +287,6 @@ These are programs/things you will need (instructions will follow). Obviously sk
 * Diffmerge or something similar for comparing changes to files (not completely necessary)
 * Markdown Pad 2 or Chrome extension or something similar for viewing Markdown files (not completely necessary)
 
-### Get a GitHub account
-* Sign up for GitHub: http://github.com
-* If possible, choose a user name that will make sense to colleagues, e.g. __andrew-edwards__ or __cgrandin__, not __pink-unicorn__ (unless this name makes a lot of sense to colleagues....).
-* Desirable: attach a photo (headshot) to your profile. This makes it easy for collaborators to identify you.
 
 ### Text Editor
 You must have a text editor that is aware of outside changes in a file. This is necessary because if you have a file open in the editor and you download an updated version of the file, you want the editor to ask you if you want to use the updated version.
