@@ -49,7 +49,8 @@ repository in the following video, that shows:
    the code to a supervisor, say.
  - ....
 
-TODO - video: sizeSpectra to show files, README, can save individual files, can
+TODO - video: sizeSpectra to show files, README, can save individual files (copy
+raw contents button then save manually - need for .gitconfig) can
 download .zip of whole thing. Then hake-assessment to show multiple
 collaborators and Issues.
 
@@ -396,7 +397,7 @@ Install Diffmerge: https://sourcegear.com/diffmerge/downloads.php
 
 The configuration for directing Git to use Diffmerge will be done below. TODO: check
 
-### "Cloning" the git-course repository
+### "Cloning" the git-course repository - delete me in a sec
 
 * On the GitHub webpage, sign into your account and navigate to: https://github.com/quantitative-biology/module-1-git
 * Windows: Open the Git shell and run the following command to clone the
@@ -411,7 +412,7 @@ git clone https://github.com/quantitative-biology/module-1-git
 ```
 * You now have the files for the GitHub course on your computer
 
-### Copy the _.gitignore_ file
+### Copy the _.gitconfig_ file
 
 * Git uses a configuration file for your account info, name to use when committing, aliases for commands, and other things.
 * Open up the _misc_ sub-directory in the git-module-1 directory and copy the file _.gitconfig_.
@@ -420,7 +421,7 @@ git clone https://github.com/quantitative-biology/module-1-git
 
 ### Edit the _.gitconfig_ file
 
-* Use your favourite editor to edit the new file (not the one ingit-course/misc).
+* Use your favourite editor to edit the new file (not the one in git-course/misc).
 * Change the [user] settings to reflect your information.
 * Change the [difftool] and [diffmerge] directories so they point to the
   location where you have DiffMerge (if it installed okay)..
