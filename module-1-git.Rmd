@@ -397,6 +397,8 @@ Install Diffmerge: https://sourcegear.com/diffmerge/downloads.php
 
 The configuration for directing Git to use Diffmerge will be done below. TODO: check
 
+**GOT TO HERE - checking with Chris about the file**
+
 ### "Cloning" the git-course repository - delete me in a sec
 
 * On the GitHub webpage, sign into your account and navigate to: https://github.com/quantitative-biology/module-1-git
@@ -420,6 +422,8 @@ git clone https://github.com/quantitative-biology/module-1-git
 * For MAC, copy this file (overwrite the existing file) to: ~/.gitconfig
 
 ### Edit the _.gitconfig_ file
+
+
 
 * Use your favourite editor to edit the new file (not the one in git-course/misc).
 * Change the [user] settings to reflect your information.
