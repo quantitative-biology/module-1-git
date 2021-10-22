@@ -1,10 +1,10 @@
 # Introduction to Git and GitHub
 
-## Motivation
+## What are Git and GitHub and how might they be useful?
 
 As a biology graduate student or a professional biologist in a university or
 government setting, there are several reasons you might want to use Git and
-GitHub. First, we explain these terms:
+GitHub. We'll discuss these shortly, but first give two definitions:
 
 `r colorize("GitHub")` refers to the website [github.com]("http::github.com")
 where millions of people and companies 'build, ship, and maintain their
@@ -37,7 +37,7 @@ the simplest):
 We will work through these in order, giving more motivation for each as we go
 along.
 
-## You want do download someone else's code from their GitHub repository.
+## You just want do download someone else's code from their GitHub repository
 
 Each GitHub repository can be viewed on GitHub. We will take a tour of a GitHub
 repository in the following video, that shows:
@@ -45,7 +45,8 @@ repository in the following video, that shows:
  - the layout of the GitHub website of a repository
  - the most useful parts to know about
  - how to download the code if you just want to get it and don't intend to
-   collaborate
+   collaborate (click the green 'Code' button and 'Download Zip'); useful to get
+   the code to a supervisor, say.
  - ....
 
 TODO - video: sizeSpectra to show files, README, can save individual files, can
@@ -68,31 +69,29 @@ email invitation, and once accepted you will have access to the repository when
 you are logged into GitHub.
 
 
-## You want to share your own code on GitHub with others
+## Motivation for learning more
 
-
+The above example is pretty basic. Motivation to learn more comes
+from various reasons:
 
 * Scientists (including students) are working far more collaboratively than in the past
 * This involves both sharing code and writing up results
 * There is a push towards open science -- including your code as part of a scientific paper
-* We have called this a TTT approach:
+* We have called this a [TTT approach](https://waves-vagues.dfo-mpo.gc.ca/Library/40750152.pdf):
   + Transparent -- a clear and open way to show data, code, and results, enabling reproducibility
   + Traceable -- a clear link from database queries and code to final results (numbers, tables, and graphs in a document)
   + Transferable -- it should be feasible for another person to reproduce work and build upon it with a minimal learning curve
 
 Using Git and GitHub in your workflow greatly enables this, both when working alone and in a team.
+We use them extensively:
 
-* It also allows you to go back to `r colorize("any previous version")` of your
-    files (this is 'version control'). (It also does much more).
-* Your repositories can be either public or private.
-
-We use Git and GitHub extensively:
-
- * to collaborate on writing code and producing documents (such as this entire document!).
- * to easily share code publically for scientific  papers, and update it if necessary.
+ * to collaborate on writing code and producing documents (such as this entire
+   set of modules!).
+ * to easily share code and R packages publically for scientific papers, and
+   update them as necessary.
  * when working alone to retain a methodical workflow.
 
-**Example application -- Pacific Hake stock assessment**
+### Example application -- Pacific Hake stock assessment
 
 Under a formal Agreement between the Canadian and US governments, a team of four
 of us (two from each country) conduct an
@@ -100,22 +99,23 @@ annual stock assessment for Pacific Hake (_Merluccius productus_) off the west
 coast of Canada and the US. The assessment is used to manage the stock, which is of important
 ecological and economic value ($100 million export value in Canada).
 
-```{r, echo = FALSE, fig.alt = "", width="50%"}
-knitr::include_graphics("./images/hake-picture.png",error = FALSE)
+```{r, echo = FALSE, fig.alt = "Artist rendition of a Pacific Hake.", width="50%", fig.align = "center"}
+knitr::include_graphics("./images/hake-picture.png",
+                        error = FALSE)
 ```
 
 We fit complex population models to data to make projections about future
-health of the stock under different levels of catch. There is a very short
-turnaround (five weeks) between getting the final data, doing the analyses
-(model runs can take many hours of computer time) and submitting the
+health of the stock under different levels of catch. There is an extremely short
+turnaround (four to five weeks) between getting the final data, doing the analyses
+(model runs can take many hours of computer time), resolving new problems, and submitting the
 assessment document, which is typically >200 pages and contains numerous figures
-and tables [available
-here](https://media.fisheries.noaa.gov/2021-03/hake-assessment-post-srg-final_20210303.pdf?null).
+and tables [(2021 assessment available
+here)](https://media.fisheries.noaa.gov/2021-03/hake-assessment-post-srg-final_20210303.pdf?null).
 
 Prior to 2016, the document was assembled in Word, requiring lots of editing
 and amaglamating of files, often late at night. Now we share our code via
 GitHub, automate a lot of the document production using knitr (similar to
-Rmarkdown, covered in Module 2).
+Rmarkdown which is covered in Module 2).
 
 So with four people constantly working on the same large document, we need to
 ensure we are keeping up-to-date with each other, can all produce the latest
@@ -126,7 +126,7 @@ computers. The alternative of emailing files back and forth is:
 * prone to errors,
 * just painful.
 
-**What we can avoid**
+### What we can avoid
 
 Using GitHub it is easy to see what text/code collaborators have changed, avoiding
 things like the following, for which it hard to see where to get started:
@@ -160,7 +160,7 @@ While GoogleDocs, for example, is fine for collaborating on a short document, it
 isn't suitable for sharing complex code, or complex documents that are somewhat
 automatically updated.
 
-**GitHub advantages**
+### GitHub advantages
 
 1. Say you've off on a two-week hike while your collaborators
 have been diligently working away and they have edited 15 new files of code in
@@ -226,7 +226,7 @@ knitr::include_graphics("./images/hakeIssues21.png",error = FALSE)
   when you have a deadline) you can still carry on with your work.
 
 
-**Why this course?**
+### Why this course?
 
 Delving into the Git and GitHub world online it can feel like you need a
 computer science degree to get started. This may not be surprising as Git
@@ -259,7 +259,7 @@ _does_ have a computer science degree, and so was able to get some of us going
 with Git and GitHub several years ago). These tools are now widely used within
 our organisation.
 
-**Computer language**
+### Does it matter which computer language my code is in?
 
 For sharing code, it doesn't matter what language your code is in (R, Matlab, Python, C,
 ...), as we will just be sharing text files. There is a learning curve, but once
