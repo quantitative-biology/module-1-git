@@ -1,3 +1,5 @@
+# .gitconfig file developed by Chris Grandin and Andrew Edwards
+
 [user]
   # How you want your name to appear in GitHub logs.
 	name = YOUR NAME
@@ -11,6 +13,8 @@
   # More nice outputs
   ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
   ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+  # Sean's one, likely similar to some above
+  lg3 = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)
   # List one-line commits
   lds = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
   # list one-line commits with reletive dates
@@ -21,19 +25,35 @@
   # Show diff of last commit
   dlc = diff --cached HEAD^
 
-  # Simple commands you use all the time..
+  # Simple commands you use all the time, run for example with:  git r
   # The remote URLs
   r = remote -v
   # The repository status
   s = status
+  # Sync info between local master and remote master
+  f = fetch
   # Change to the branch given as an argument
   co = ! sh -c 'git checkout \"$1\"' -
   # Create a branch given as an argument
   cb = ! sh -c 'git checkout -b \"$1\"' -
   # Commit all with a message given as an argument
   com = ! sh -c 'git commit -a -m \"$1\"' -
+  c = ! sh -c 'git commit -a -m \"$1\"' -
   # Highlight words in diffs
   wdiff = diff --word-diff=plain
+
+  # Difference
+  d = diff
+  # Rebase
+  rb = rebase
+  # Push
+  p = push
+
+  # Show commits made on the local master but not on the remote (origin/master)
+  # Note that this command will show no differences if you have not yet committed locally
+  mas = log master ^origin/master
+  # Show commits made on the remote (origin/master) but not on the local master
+  sam = log ^master origin/master
 
 [diff]
     tool = DiffMerge
