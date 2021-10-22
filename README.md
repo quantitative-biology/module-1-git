@@ -3,6 +3,12 @@ Introduction to Git and GitHub
 
 ***Under development***
 
+Andy workflow note to self: to build, do
+```
+bookdown::render_book("index.Rmd", "bookdown::gitbook")
+```
+in `quant-bio` module, with other chapters commented out. Not pushing to that repo, just this one.
+
 ## Background
 
 This is module 1 of five standalone modules that form a "Learner-centered quantitative education for biology graduate students". See https://github.com/quantitative-biology/course-overview for further details.
