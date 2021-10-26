@@ -82,7 +82,7 @@ Consequently, your workflow is less cluttered and more tractable than having
   to save multiple versions of the same files with dates in the filename, such
   as this nightmare:
 
-```{r, echo = FALSE, fig.alt = "", width="100%"}
+```{r, echo = FALSE, fig.alt = "Example showing multiple saved versions of the same file, to show what you can avoid by using Git.", width="100%", fig.align = "center"}
 knitr::include_graphics("./images/EAversions.png",error = FALSE)
 ```
 
@@ -168,11 +168,11 @@ An example of why you should not commit binary files:
 'fatal' errors with scary messages like `bad object HEAD` and the awesomely titled `You are
 on a branch yet to be born`:
 
-```{r, echo = FALSE, fig.alt = "", width="100%"}
+```{r, echo = FALSE, fig.alt = "Example of why you shouldn't mess with the .git directory, as you get confusing error messages and have to start again.", width="100%", fig.align = "center"}
 knitr::include_graphics("./images/notGood.png",error = FALSE)
 ```
 
-I just had to start again from scratch (reclone I think). Take-home message:
+I just had to start again from scratch (`clone` again I think). Take-home message:
 
 **Don't mess with the .git directory!!**
 
@@ -245,7 +245,7 @@ Check the GitHub webpage to see that your branch was pushed. You repository
   there is a _temp_ branch with more recent commits than _main_. If not then if
   you click on the _main_ drop-down menu:
 
-```{r, echo = FALSE, fig.alt = "", width="100%"}
+```{r, echo = FALSE, fig.alt = "Example of clicking on main drop-down menu on GitHub to view other branches.", width="100%", fig.align = "center"}
 knitr::include_graphics("./images/main-branch.png",error = FALSE)
 ```
 

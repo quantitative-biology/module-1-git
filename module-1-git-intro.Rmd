@@ -347,7 +347,7 @@ merged into their local version of the repository.
 
 Here is an example of the error message you get:
 
-```{r, echo = FALSE, fig.alt = "", width="100%"}
+```{r, echo = FALSE, fig.alt = "Example of a lengthy error message when trying to push; essentially its just telling you to pull before trying to push.", width="100%", fig.align = "center"}
 knitr::include_graphics("./images/unable-to-pull.png",error = FALSE)
 ```
 
@@ -367,7 +367,7 @@ number 8 tells me I have 8 commits to push to GitHub. The yellow arrows I think
 of as just implying I need to do a rebase (before doing that I might browse
 through the other person's commits on GitHub):
 
-```{r, echo = FALSE, fig.alt = "", width="100%"}
+```{r, echo = FALSE, fig.alt = "Example of output when having 8 commits to push but then having to fetch and then rebase.", width="100%", fig.align = "center"}
 knitr::include_graphics("./images/fix-the-pull.png",error = FALSE)
 ```
 
@@ -546,7 +546,7 @@ When collaborating:
 GitHub _Issues_ are very useful for discussing issues with your repo. For our
 annual Pacific Hake assessment we have used them extensively over the years:
 
-```{r, echo = FALSE, fig.alt = "", width="100%"}
+```{r, echo = FALSE, fig.alt = "Example screenshot of GitHub Issues, click on Issues in any repository in GitHub to see more.", width="100%", fig.align = "center"}
 knitr::include_graphics("./images/hakeIssues21.png",error = FALSE)
 ```
 

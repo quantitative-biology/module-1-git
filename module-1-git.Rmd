@@ -220,7 +220,7 @@ knitr::include_graphics("./images/MEEcodeAnswer.png",error = FALSE)
 3. You can even work out who last edited a particular line of code/text (GitHub
    amusingly calls it 'Blame'). Just open a file on GitHub and click Blame:
 
-```{r, echo = FALSE, fig.alt = "Example of GitHub showing who wrote each last line of a file.", width="100%", fig.align = "center"}
+```{r, echo = FALSE, fig.alt = "Example of GitHub showing who wrote each last line of a file.", width="130%", fig.align = "center"}
 knitr::include_graphics("./images/blame.png",error = FALSE)
 ```
 
@@ -451,6 +451,9 @@ we have used to readmarkdown files, choose one:
 Here is an intuitive short introduction to Markdown, which is worth looking at
 once you start writing more in your *README.md* files:
 https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet.
+
+With one of the above two options installed when you click on a *READMEmd* file
+you can edit the file and also see the rendered (formatted) version.
 
 ### Bonus keyboard shortcut
 
