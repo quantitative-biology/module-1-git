@@ -1,23 +1,4 @@
-
-```{r echo = FALSE}
-
-# We should list the required packages here, it's best to load them up front.
-# library(...)
-
-# From  https://bookdown.org/yihui/rmarkdown-cookbook/font-color.html
-#  to then say `r colorize("some words in red", "red")` etc. ("red" is the
-#  default so you don't need to say that.
-colorize <- function(x, color = "red") {
-  if (knitr::is_latex_output()) {
-    sprintf("\\textcolor{%s}{%s}", color, x)
-  } else if (knitr::is_html_output()) {
-    sprintf("<span style='color: %s;'>%s</span>", color,
-      x)
-  } else x
-}
-```
-
-## Beyond the basics
+## Beyond the basics of Git and GitHub
 
 Here are some Git and GitHub concepts and tips that go beyond the basics that we
 just covered.
@@ -26,7 +7,7 @@ just covered.
 
 Realise that you still edit and save your files in the usual way on your
   computer. If you don't do Git commits you will still have the latest versions
-  of your files on your computer (as you would if you weren't using Git). So if
+  of your files on your computer (as you would if you weren't using Git at all). So if
   you do get stuck with Git you can carry on working as normal (though you
   probably do want to try and fix it at some point).
 
@@ -34,7 +15,7 @@ When collaborating:
 
 * If working closely with others, when you start each day (or after a break)
   then make sure you are up to date and have all their commits. Refresh the
-  GitHub page for you repository, and `git fetch` (or just `git f`)and `git clone` if needed. (To
+  GitHub page for you repository, and `git fetch` (or just `git f`) and `git clone` if needed. (To
   be safe you can `git f` and `git s` to check).
 * We find it helpful to co-ordinate our work (Slack is useful for this, or use
   GitHub Issues for complex discussion -- see below), so that if multiple people
@@ -45,12 +26,7 @@ When collaborating:
   _don't push code that doesn't work_ -- that will annoy your colleagues. And
   then they (and probably you) may both spend time fixing it.
 * To see who last edited a particular piece of code, when viewing the file on
-  GitHub click `r colorize("Blame")` (you can even click on the square icon to
-  go to the previous commit that changed that line):
-
-```{r, echo = FALSE, fig.alt = "", width="100%"}
-knitr::include_graphics("./images/blame.png",error = FALSE)
-```
+  GitHub click `r colorize("Blame")`, as mentioned earlier.
 
 **GitHub Issues**
 
