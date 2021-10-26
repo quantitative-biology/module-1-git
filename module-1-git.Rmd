@@ -13,8 +13,9 @@ project, a user creates a `r colorize("repository")`, which is basically a colle
 needed for that project. Repositories can be public (anyone can see them) or
 private (only accessible to users specified by the original owner). Hosting code
 in a public GitHub repository allows users to share their code with the world
-and collaborate with anyone. `r colorize("repository")` is generally used
-interchangeably to mean both the collection of code and the
+and collaborate with anyone. The term `r colorize("repository")` is generally used
+interchangeably to mean both the collection of code (which includes some files
+that Git uses) and the
 GitHub website that hosts the collection of code.
 
 `r colorize("Git")` is software that keeps track of the latest versions of your
