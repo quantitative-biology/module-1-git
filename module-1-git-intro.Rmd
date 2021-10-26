@@ -514,6 +514,90 @@ git p
 
 Change some code and repeat!
 
-The next section gives slightly more advanced background that should further improve
-your understanding (including why Git is useful even when not collaborating or
-sharing your code), plus tips for improving your workflow.
+## Workflow tips when collaborating
+
+Here are some tips that we've developed based on our own experiences.
+
+Overall, remember that you still edit and save your files in the usual way on your
+  local computer. If you don't do Git commits you will still have the `r colorize("latest versions
+  of your files on your computer")`, as you would if you weren't using Git at all. So if
+  you do get stuck with Git you can carry on working as normal (though you
+  probably do want to try and fix it at some point).
+
+When collaborating:
+
+* If working closely with others, when you start each day (or after a break)
+  then make sure you are up to date and have all their commits. Refresh the
+  GitHub page for you repository, and `git fetch` (or just `git f`) and `git clone` if needed. (To
+  be safe you can `git f` and `git s` to check).
+* We find it helpful to co-ordinate our work (Slack is useful for this, or use
+  GitHub Issues for complex discussion -- see below), so that if multiple people
+  are working at the same time, you are at least not working on exactly the same
+  parts, just to reduce conflicts.
+* Commit fairly frequently and write helpful commit messages (so your colleagues
+  get an idea of what you've done in each commit). Push less frequently, and
+  _don't push code that doesn't work_ -- that will annoy your colleagues. And
+  then they (and probably you) may both spend time fixing it.
+* To see who last edited a particular piece of code, when viewing the file on
+  GitHub click `r colorize("Blame")`, as mentioned earlier.
+
+**GitHub Issues**
+
+GitHub _Issues_ are very useful for discussing issues with your repo. For our
+annual Pacific Hake assessment we have used them extensively over the years:
+
+```{r, echo = FALSE, fig.alt = "", width="100%"}
+knitr::include_graphics("./images/hakeIssues21.png",error = FALSE)
+```
+
+The Issues tab lists our current 'Open' issues -- we have 20, of which five (the
+most recently posted) are
+shown here. We are currently in-between assessments (and not working on it), so
+we have created Issues that we want to think about or deal with for next
+year. This avoids forgetting about ideas or losing them in old emails.
+
+Issues are intuitive to use. There is a bright green 'New Issues' button to
+create new ones, you give a title and then write some details, people can reply,
+you can assign people to look at them, and you can close them. In the above
+screenshot you can see that we have closed 815 issues (this was over several years).
+
+Useful tip: when doing a commit that refers to an Issue, if you refer to the
+Issue number (with `#<number>`) in your commit message, then after pushing that commit the Issue on
+GitHub will automatically mention and link to the commit:
+
+`git com "Add more options to fancy_function(), #21."`
+
+will mention the commit when you look at the issue. You can even automatically
+close the issue by saying `closes #21` in your commit message:
+
+`git com "Add more options to fancy_function(), closes #21."`
+
+Issues are particularly useful to avoid cluttering up code with commented notes
+or ideas that you may easily not come back to, or avoiding endless emails that
+end up getting overlooked. You don't have to fix an Issue to close it, you can
+decide not to pursue, but at least you have made a decision.
+
+(We also use Slack a lot to communicate, but moreso for quick questions or
+bouncing ideas around -- Issues are better for stuff that you want to come back
+to at some point).
+
+You may receive emails regarding Issues, but if you use GitHub a lot you will
+see Notifications (the blue dot on the bell in the top-right corner when signed
+in on GitHub) and that
+will show you new Issues of repositories you are involved with, or if anyone has
+updated an Issue.
+
+
+**GitHub organizations**
+
+If you will frequently collaborate with colleagues, you can create an
+Organization on GitHub and invite collaborators to it (click on your GitHub
+photo in the top-right corner, Settings, Organizations). Then they will
+automatically have access to all repositories created under the
+Organization. You can choose the security settings.
+
+So, congratulations for getting this far -- we have covered the basics of Git
+and GitHub to get you going. Occasionally you might get messed up, but it is
+generally hard to actually lose any work. If you get stuck then see 'The power to go
+back' part of the next section, that contains more advanced material. Good luck
+and happy comitting!
