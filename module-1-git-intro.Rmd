@@ -302,7 +302,9 @@ You can also choose the _private repository_ option when creating a repository,
 so that you can control who can see it. On your repository page on GitHub, go to
 `Settings--Manage Access` to add collaborators.
 
-### Collaborating
+## Using Git and GitHub to collaborate with colleagues
+
+### Demonstration of collaborating
 
 Now we will show how to collaborate with colleagues, which is where the
 usefulness of Git will become more apparent.
@@ -315,7 +317,7 @@ Concept: there is a project where people contribute to a main repository that is
 considered the 'master copy'.
 
 * Everyone clones directly from the creator's repository.
-* All collaborators push their commits to the main repository (the creator has
+* All collaborators push their commits to the repository (the creator has
   to add them as collaborators once on GitHub).
 
 Since the creator has to grant permission, you won't have just anyone
@@ -323,13 +325,15 @@ contributing to (and maybe messing up your work), just your trusted collaborator
 
 But you have to trust your team to not mess things up (more on that later!).
 
-Okay, so in this [video](https://drive.google.com/file/d/1rqdFBnVg_zwP6SiW-KSTp6wZzAILDeeC/view?usp=sharing) we demonstrate the following:
+Now watch this
+[video](https://drive.google.com/file/d/1rqdFBnVg_zwP6SiW-KSTp6wZzAILDeeC/view?usp=sharing)
+in which we demonstrate the following:
 
 * Kim creates new repo called `collaborate` (and clones it to her computer).
 * Andy clones it also.
 * On GitHub, Kim gives Andy 'push access' to her `collaborate` repo.
 * Both do some edits (create some new simple text files).
-* For Andy to get Kim's updates (and vice versa), it was just:
+* For Andy to get Kim's updates (and vice versa), he just uses:
 
   + `git fetch` (or just `git f`) -- fetches the latest version of the repository from GitHub onto your computer. Your local files have _not_ yet changed (check them), but Git has the changes stored on your computer (?!?).
   + `git rebase` -- updates your local repository (the committed files on your computer) with the changes you have just fetched, merging both people's work together.
@@ -337,7 +341,7 @@ Okay, so in this [video](https://drive.google.com/file/d/1rqdFBnVg_zwP6SiW-KSTp6
 
 That is the basic workflow.
 
-We also showed an example of `git p` _not_ being allowed for Person A  because
+In the video you saw that we also showed an example of `git p` _not_ being allowed for Person A  because
 there are recent commits on GitHub (by Person B) that Person A has not yet
 merged into their local version of the repository.
 
@@ -369,7 +373,7 @@ knitr::include_graphics("./images/fix-the-pull.png",error = FALSE)
 
 After the `rebase` I was allowed to `push` and then everything is up to date.
 
-**A bit more about git rebase**
+### A bit more about git rebase
 
 * Andy commits local changes, tries to `git push` but is told to first `git fetch` (to get Kim's changes from GitHub).
 * Andy does `git fetch` and then `git rebase`.
@@ -378,8 +382,8 @@ After the `rebase` I was allowed to `push` and then everything is up to date.
 * Andy then does `git push` to push his commits to GitHub (from where Kim will fetch them when she's ready).
 * Providing there are no conflicts, this will work fine.
 
-Another option is to do a `git merge`, which basically creates a new commit that merges both people's work together.
-Our groups used to use `git merge` and now use `git rebase`; some people don't
+Another option you hear about is to do a `git merge`, which basically creates a new commit that merges both people's work together.
+In our teams we used to use `git merge` and now use `git rebase`; some people don't
 like `git merge` because it adds extra commits.
 
 For a more in-depth understanding see https://reflectoring.io/git-rebase-merge/ for one of the clearer explanations out there concerning rebase v merge.
@@ -397,8 +401,7 @@ in one command, but it seems preferable to do
 
 `git rebase`.
 
-
-**Fixing a conflict**
+### Fixing a conflict
 
 * A `r colorize("conflict")` happens when two people have edited the `r colorize("same line(s) of the same
   file")`.
@@ -409,8 +412,6 @@ in one command, but it seems preferable to do
   thing, since you want a human to make such a decision.
 
 In the video we demonstrated a conflict.
-
-**Fixing a conflict**
 
 The best approach I have found to fixing a conflict is the following:
 
@@ -459,14 +460,15 @@ If you have a colleague available, try what we just did:
 * `git fetch` and `git rebase` to get the other person's file.
 * Continue editing either file, committing, and pushing.
 * If you get the push error (shown earlier), refresh GitHub repository site to
-  see recent commits (click on the XX commits link). You can easily spot the
+  see recent commits (click on the X commits link, where X shows the total
+  number of commits to the repository). You can easily spot the
   other person's recent commits. Click on one (the bold message) to see
   details.
 * Purposefully create a conflict (both edit the same line of the same
   file). Resolve it as described earlier.
 * In practice you won't commit so frequently when working, but this is good to get the hang of it.
 
-**Congratulations**
+### Collaborating summary
 
 Congratulations, you now know the few basic commands and functionality needed to collaborate with Git and GitHub.
 It takes a bit of practice, but it is very powerful.
@@ -484,11 +486,16 @@ git p
 
 (the `git s` and `git d` are useful to check you have changed only what you think you have changed).
 
-If GitHub does not allow you to push:
+If GitHub does not allow you to push then on GitHub check your colleague's latest commits
+that you haven't yet seen, and if they look fine then:
 ```
 git fetch
 git rebase
 ```
+
+(If you don't agree with your colleague's latest commits, then still rebase them
+but then manually edit the files to be what you want. Though if you want to completely
+cancel their commits see `git revert` in the Advanced section below).
 
 If conflicts, then
 
