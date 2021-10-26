@@ -47,6 +47,7 @@ repository in the following video, that shows:
  - how to download the code if you just want to get it and don't intend to
    collaborate (click the green 'Code' button and 'Download Zip'); useful to get
    the code to a supervisor, say.
+ - just download one file by clicking on Raw and then save-as.
  - ....
 
 TODO - video: sizeSpectra to show files, README, can save individual files (copy
@@ -283,10 +284,11 @@ actually getting everything set up....
 
 ## Getting set up for the first time
 
-Before you start using Git you need to set up your computer to use it, and install a few other programs that are useful.
+Before you start using Git you need to set up your computer to use it, and
+install a few other programs that are useful.
 
 This is a `r colorize("one-time setup")`
-and once it is done, you
+and, although it can sometimes be tricky, once it is done you
 will be able to easily create new projects or join others in collaboration.
 
 We have tested the installations as much as feasible. If you have an issue then search the internet, as it may be due to some configuration on your particular computer.
@@ -397,55 +399,63 @@ Install Diffmerge: https://sourcegear.com/diffmerge/downloads.php
 
 The configuration for directing Git to use Diffmerge will be done below. TODO: check
 
-**GOT TO HERE - checking with Chris about the file**
+### Save our template _.gitconfig_ file
 
-### "Cloning" the git-course repository - delete me in a sec
-
-* On the GitHub webpage, sign into your account and navigate to: https://github.com/quantitative-biology/module-1-git
-* Windows: Open the Git shell and run the following command to clone the
-repository ('clone' means copy all files in the repository to your computer):
-```
-git clone https://github.com/quantitative-biology/module-1-git
-```
-* MAC: Open terminal and change to the GitHub directory: cd ~/github then run
-the clone command:
-```
-git clone https://github.com/quantitative-biology/module-1-git
-```
-* You now have the files for the GitHub course on your computer
-
-### Copy the _.gitconfig_ file
-
-* Git uses a configuration file for your account info, name to use when committing, aliases for commands, and other things.
-* Open up the _misc_ sub-directory in the git-module-1 directory and copy the file _.gitconfig_.
-* For Windows, copy this file (overwrite the existing file) to: `C:\Users\YOUR-COMPUTER-USER-NAME\.gitconfig`, where YOUR-COMPUTER-USER-NAME is your username on your computer, not your GitHub account name.
-* For MAC, copy this file (overwrite the existing file) to: ~/.gitconfig
+* Git uses a configuration file (`.gitconfig`) for your account info, name to use when
+  committing, aliases (shortcuts) for commands, and other things.
+* We are supplying a template `.gitconfig` file that you will then edit.
+* For Windows, you will save is as
+  `C:\Users\YOUR-COMPUTER-USER-NAME\.gitconfig`, where YOUR-COMPUTER-USER-NAME
+  is your username on your computer.
+* For MAC and Linux (we think), you will save it as `~/.gitconfig`.
+* If there is already such a file there maybe save a copy of it under a
+  different name so you don't completely overwrite it in the next step.
+* The template file is on GitHub
+  [here](https://raw.githubusercontent.com/quantitative-biology/module-1-git/main/misc/.gitconfig). Do
+  `Save-As` (right click or from a menu) and save the file as the filename mentioned above.
+* Just a reminder for your understanding: that file on GitHub is
+  shown in the normal way on the Github repository for this module:
+  https://github.com/quantitative-biology/module-1-git/blob/main/misc/.gitconfig
+  and the link we gave you is from clicking `Raw', which just gives you the raw
+  code for the file -- this works for any file on GitHub, as mentioned in the
+  opening video.
 
 ### Edit the _.gitconfig_ file
 
-
-
-* Use your favourite editor to edit the new file (not the one in git-course/misc).
-* Change the [user] settings to reflect your information.
+* Use your text editor to open the new file. Given it has a non-standard
+  extension (i.e. it is not something like `file.txt`) you may have to specify
+  to open it with your editor.
+* Change the [user] name and email settings to reflect your information.
 * Change the [difftool] and [diffmerge] directories so they point to the
-  location where you have DiffMerge (if it installed okay)..
-* For Windows the location should be: `C:\Program Files\SourceGear\Common\DiffMerge\sgdm.exe`
-* For MAC the location should be: /usr/local/bin/diffmerge
-* If you could not install [difftool] or [diffmerge] then delete those lines in your _.gitconfig_ file.
+  location where you have DiffMerge (if it installed okay).
+  * For Windows the location should be: `C:\Program Files\SourceGear\Common\DiffMerge\sgdm.exe`
+  * For MAC the location should be: `/usr/local/bin/diffmerge`
+* If you did not install [difftool] or [diffmerge] then delete those lines in your _.gitconfig_ file.
+* TODO: check if need to keep the original [credential] part.
 
 ### MAC only: make your output pretty
-On the MAC, change the ~/github directory and run the following command:
+On the MAC, navigate to the `~/github` directory in a shell and run the following command:
 
-git config --global color.ui.auto
+`git config --global color.ui.auto`
 
 This will make your git output colored in a similar way to the Windows powershell version.
 
 ### Markdown Pad
 
-Each project has an associated README.md file that appears on its GitHub
-homepage.The extension .md stands for Markdown and is just an ASCii text file
+Each project has an associated `README.md` file that appears on its GitHub
+homepage. The extension `.md` stands for Markdown and is just an ASCii text file
 that contains simple formatting (such as bold or italics). There are two options
 we have used to readmarkdown files, choose one:
 
 * The Markdown Pad 2 editor/viewer which is easy to use: http://markdownpad.com. Just get the free version.
 * The Chrome extension for markdown viewing: https://chrome.google.com/webstore/detail/markdown-viewer/ckkdlimhmcjmikdlpkmbgfkaikojcbjk?hl=en.
+
+Here is an intuitive short introduction to Markdown, which is worth looking at
+once you start writing more in your `README.md` files:
+https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet.
+
+### Bonus keyboard shortcut
+
+In the upcoming video, I may type `g` instead of `git` as I have that shortcut
+set up. To enable this shortcut, create a file (on Windows at least) called `g.bat`
+somewhere on your PATH, and have it contain just the line `git %*`.
