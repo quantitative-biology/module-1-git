@@ -377,3 +377,7 @@ If you already pushed the commit before realizing that the message needs modific
 `git p --force`
 
 after making the amendment to the commit message.
+
+### Using R and GitHub within Rstudio
+
+TODO

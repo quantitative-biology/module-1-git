@@ -384,7 +384,7 @@ The first time you get set up or start using Git, there will be some one-timeaut
   2. TODO: Andy has to reinstall anyway and will write something here. Think it's just following instructions.
 
 * MAC
-  1. Create the directory ~/github for putting everything you're going to track
+  1. Create the directory `~/github` for putting everything you're going to track
      with Git (see 1. above).
 
 
@@ -402,9 +402,9 @@ The configuration for directing Git to use Diffmerge will be done below. TODO: c
 
 ### Save our template _.gitconfig_ file
 
-* Git uses a configuration file (`.gitconfig`) for your account info, name to use when
+* Git uses a configuration file (called _.gitconfig_) for your account info, name to use when
   committing, aliases (shortcuts) for commands, and other things.
-* We are supplying a template `.gitconfig` file that you will then edit.
+* We are supplying a template _.gitconfig_ file that you will then edit.
 * For Windows, you will save is as
   `C:\Users\YOUR-COMPUTER-USER-NAME\.gitconfig`, where YOUR-COMPUTER-USER-NAME
   is your username on your computer.
@@ -424,7 +424,7 @@ The configuration for directing Git to use Diffmerge will be done below. TODO: c
 ### Edit the _.gitconfig_ file
 
 * Use your text editor to open the new file. Given it has a non-standard
-  extension (i.e. it is not something like `file.txt`) you may have to specify
+  extension (i.e. it is not something like *file.txt*) you may have to specify
   to open it with your editor.
 * Change the [user] name and email settings to reflect your information.
 * Change the [difftool] and [diffmerge] directories so they point to the
@@ -432,7 +432,6 @@ The configuration for directing Git to use Diffmerge will be done below. TODO: c
   * For Windows the location should be: `C:\Program Files\SourceGear\Common\DiffMerge\sgdm.exe`
   * For MAC the location should be: `/usr/local/bin/diffmerge`
 * If you did not install [difftool] or [diffmerge] then delete those lines in your _.gitconfig_ file.
-* TODO: check if need to keep the original [credential] part.
 
 ### MAC only: make your output pretty
 On the MAC, navigate to the `~/github` directory in a shell and run the following command:
@@ -443,7 +442,7 @@ This will make your git output colored in a similar way to the Windows powershel
 
 ### Markdown Pad
 
-Each project has an associated `README.md` file that appears on its GitHub
+Each project has an associated *README.md* file that appears on its GitHub
 homepage. The extension `.md` stands for Markdown and is just an ASCii text file
 that contains simple formatting (such as bold or italics). There are two options
 we have used to readmarkdown files, choose one:
@@ -452,11 +451,12 @@ we have used to readmarkdown files, choose one:
 * The Chrome extension for markdown viewing: https://chrome.google.com/webstore/detail/markdown-viewer/ckkdlimhmcjmikdlpkmbgfkaikojcbjk?hl=en.
 
 Here is an intuitive short introduction to Markdown, which is worth looking at
-once you start writing more in your `README.md` files:
+once you start writing more in your *README.md* files:
 https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet.
 
 ### Bonus keyboard shortcut
 
 In the upcoming video, I may type `g` instead of `git` as I have that shortcut
-set up. To enable this shortcut, create a file (on Windows at least) called `g.bat`
+set up. To enable this shortcut for yourself (this is not essential), create a
+file (on Windows at least) called *g.bat*
 somewhere on your PATH, and have it contain just the line `git %*`.

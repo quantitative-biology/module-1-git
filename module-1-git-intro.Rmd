@@ -47,14 +47,14 @@ You now have a new repository on the GitHub website. Next we will clone it onto 
 ### Cloning your new repository
 
 * Copy the full URL (web address) of your test repository.
-* Open the Git shell and navigate to your _C://github_ directory (or whatever you called it when you created it in the setup instructions -- it's the place you are going to save all your Git repositories).
+* Open the Git shell and navigate to your `C:/github` directory (or whatever you called it when you created it in the setup instructions -- it's the place you are going to save all your Git repositories).
 * Run the following command to _clone_ your repository:
 
 `git clone URL`
 
 where URL is the url of your newly created repository (paste should work).
 
-You should now have a subdirectory called _github/test_ on your computer.
+You should now have a subdirectory called `github/test` on your computer.
 In Git shell, change to that directory (with `cd test`). The command `cd` just
 stands for `change directory`, to go back to where you were just do `cd ..`. You
 probably want to also open the directory using your usual graphical interface (e.g. File Explorer
@@ -75,7 +75,7 @@ This means that you don't have to repeatedly enter you GitHub password (just do 
 
 ### Committing
 
-* Create a new file, _newFile.txt_, in the _github/test_ directory.
+* Create a new file, _newFile.txt_, in the `github/test` directory.
 * Open it, add a line of text at the start of the file and save it.
 * Check the status of your (test) repository:
 
@@ -287,7 +287,7 @@ This will also simplify your workflow (you don't need to keep being reminded
 that you have untracked files).
 
 If you are on MacOS and you find that folders have a _.DS\_Store_ file in them,
-then include  _.DS\_Store_ as a line in your _.gitignore_ file.
+then include _.DS\_Store_ as a line in your _.gitignore_ file.
 
 Generally, when you create a new repository you probably want to copy an
 existing _.gitignore_ file over from an existing repository, as you will
@@ -600,4 +600,4 @@ So, congratulations for getting this far -- we have covered the basics of Git
 and GitHub to get you going. Occasionally you might get messed up, but it is
 generally hard to actually lose any work. If you get stuck then see 'The power to go
 back' part of the next section, that contains more advanced material. Good luck
-and happy comitting!
+and happy committing!
