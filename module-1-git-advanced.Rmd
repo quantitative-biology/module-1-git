@@ -83,7 +83,7 @@ Consequently, your workflow is less cluttered and more tractable than having
   as this nightmare:
 
 ```{r, echo = FALSE, fig.alt = "Example showing multiple saved versions of the same file, to show what you can avoid by using Git.", width="100%", fig.align = "center"}
-knitr::include_graphics("./images/EAversions.png",error = FALSE)
+knitr::include_graphics("../module-1-git/images/EAversions.png",error = FALSE)
 ```
 
 **Retrieving older work in practice**
@@ -169,7 +169,7 @@ An example of why you should not commit binary files:
 on a branch yet to be born`:
 
 ```{r, echo = FALSE, fig.alt = "Example of why you shouldn't mess with the .git directory, as you get confusing error messages and have to start again.", width="100%", fig.align = "center"}
-knitr::include_graphics("./images/notGood.png",error = FALSE)
+knitr::include_graphics("../module-1-git/images/notGood.png",error = FALSE)
 ```
 
 I just had to start again from scratch (`clone` again I think). Take-home message:
@@ -246,7 +246,7 @@ Check the GitHub webpage to see that your branch was pushed. You repository
   you click on the _main_ drop-down menu:
 
 ```{r, echo = FALSE, fig.alt = "Example of clicking on main drop-down menu on GitHub to view other branches.", width="100%", fig.align = "center"}
-knitr::include_graphics("./images/main-branch.png",error = FALSE)
+knitr::include_graphics("../module-1-git/images/main-branch.png",error = FALSE)
 ```
 
 it should give you the option to look at your new _temp_ branch. (The '1 branch'

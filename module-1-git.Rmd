@@ -103,7 +103,7 @@ coast of Canada and the US. The assessment is used to manage the stock, which is
 ecological and economic value ($100 million export value in Canada).
 
 ```{r, echo = FALSE, fig.alt = "Artist rendition of a Pacific Hake.", width="50%", fig.align = "center"}
-knitr::include_graphics("./images/hake-picture.png",
+knitr::include_graphics("../module-1-git/images/hake-picture.png",
                         error = FALSE)
 ```
 
@@ -138,7 +138,7 @@ can *avoid* when using GitHub.
 things like the following example of Track Changes in Word, for which it hard to see where to get started:
 
 ```{r, echo = FALSE, fig.alt = "Example of Track Changes smorgasbord in Word.", out.width="80%", fig.align = "center"}
-knitr::include_graphics("./images/interim.png",error = FALSE)
+knitr::include_graphics("../module-1-git/images/interim.png",error = FALSE)
 ```
 
 
@@ -147,7 +147,7 @@ without GitHub we can end up with a veritable gong show, with multiple saved
 versions of the same file:
 
 ```{r, echo = FALSE, fig.alt = "Example of having multiple saved versions of a file.", out.width="80%", fig.align = "center"}
-knitr::include_graphics("./images/EAversions.png",error = FALSE)
+knitr::include_graphics("../module-1-git/images/EAversions.png",error = FALSE)
 ```
 
 3. We can avoid having to manually co-ordinate having only one person working on the latest
@@ -155,13 +155,13 @@ version of a document. So we don't get things like this example, which tells me
 I shouldn't really do anything now and should wait until others are done merging edits:
 
 ```{r, echo = FALSE, fig.alt = "Example of having to wait for colleagues to merge edits.", out.width="90%", fig.align = "center"}
-knitr::include_graphics("./images/proposalEmail.png",error = FALSE)
+knitr::include_graphics("../module-1-git/images/proposalEmail.png",error = FALSE)
 ```
 
 4. We can avoid having multiple versions of a file that then have to be carefully merged:
 
 ```{r, echo = FALSE, fig.alt = "Example of having to manually manage multiple version of the same document.", out.width="90%", fig.align = "center"}
-knitr::include_graphics("./images/dogsBreakfast.png",error = FALSE)
+knitr::include_graphics("../module-1-git/images/dogsBreakfast.png",error = FALSE)
 ```
 
 While GoogleDocs, for example, is fine for collaborating on a short document, it
@@ -204,7 +204,7 @@ as you can check it yourself.
    this one I once received:
 
 ```{r, echo = FALSE, fig.alt = "Question someone once had about some code.", out.width="90%", fig.align = "center"}
-knitr::include_graphics("./images/MEEcodeQuest.png",error = FALSE)
+knitr::include_graphics("../module-1-git/images/MEEcodeQuest.png",error = FALSE)
 ```
 
    Rather than go searching on my laptop for the code that I hadn't looked at
@@ -213,7 +213,7 @@ knitr::include_graphics("./images/MEEcodeQuest.png",error = FALSE)
    quickly, with a simple link to the file I am referring to (there is no ambiguity):
 
 ```{r, echo = FALSE, fig.alt = "Reply showing link to code on GitHub.", out.width="70%", fig.align = "center"}
-knitr::include_graphics("./images/MEEcodeAnswer.png",error = FALSE)
+knitr::include_graphics("../module-1-git/images/MEEcodeAnswer.png",error = FALSE)
 ```
 
 
@@ -221,7 +221,7 @@ knitr::include_graphics("./images/MEEcodeAnswer.png",error = FALSE)
    amusingly calls it 'Blame'). Just open a file on GitHub and click Blame:
 
 ```{r, echo = FALSE, fig.alt = "Example of GitHub showing who wrote each last line of a file.", width="130%", fig.align = "center"}
-knitr::include_graphics("./images/blame.png",error = FALSE)
+knitr::include_graphics("../module-1-git/images/blame.png",error = FALSE)
 ```
 
    Though you'll often find that it was you all along:
@@ -235,7 +235,7 @@ knitr::include_graphics("../module-1-git/images/scooby-blame.png",error = FALSE)
    thought about or  fixed, rather than having things in emails that get forgotten:
 
 ```{r, echo = FALSE, fig.alt = "Example of GitHub Issues.", width="100%", fig.align = "center"}
-knitr::include_graphics("./images/hakeIssues21.png",error = FALSE)
+knitr::include_graphics("../module-1-git/images/hakeIssues21.png",error = FALSE)
 ```
 
 5. **Important:** You still have all your work locally on your computer. So if
