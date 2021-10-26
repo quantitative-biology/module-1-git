@@ -292,7 +292,9 @@ This is a `r colorize("one-time setup")`
 and, although it can sometimes be tricky, once it is done you
 will be able to easily create new projects or join others in collaboration.
 
-We have tested the installations as much as feasible. If you have an issue then search the internet, as it may be due to some configuration on your particular computer.
+We have tested the installations as much as feasible. If you have an issue then
+search the internet, as it may be due to some configuration on your particular
+computer, and also programs do get updated.
 
 This module is for any operating system: Windows, MacOS, Linux or Unix.
 
@@ -356,15 +358,11 @@ the 'power' part means it's more powerful than a basic version), Git, and then
 posh-git (which adds some extra features). Do this by following the instructions at
 https://github.com/dahlbyk/posh-git .
 Note that that is a GitHub site -- it is storing the code for `posh-git' (so
-anyone can see the code), but when you scroll down you see instructions (as per
-the example in the first video).
+anyone can see the code), but when you scroll down you see instructions (like in
+the repository example in the first video).
 
-Do the ‘Installation' and ‘Using posh-git' sections.  If you don't understand
+Do the 'Installation' and 'Using posh-git' sections.  If you don't understand
 some options (I don't!) just pick the simplest, usually the first.
-
-The next slides are from our course about three years ago (and were for
-Windows). So they may be out of date (though first one is recent tips from a colleague).
-
 
 ### One-time authentication
 
