@@ -96,32 +96,21 @@ and to include a message (for your future self):
 git stash save "Message"
 ```
 
-This stashes them away such that they can be retrieved later
+This stashes them away such that they can be retrieved later if necessary.
 This is handy. You may _think_ you don't want to keep those changes, but
 sometimes you may later wish you had kept them somehwere.
-Note this only for files that Git is tracking (i.e. files that have been added
+Note this is only for files that Git is tracking (i.e. files that have been added
 at some point).
+
+To retrieve the last stash, you 'pop' them back into your working copy with:
+`git stash pop`
 
 You can have multiple stashes, seen by doing:
 ```
 git stash list
 ```
-
-To retrieve the last stash:
-
-`git stash pop`
-
-TODO: check rules for other stashed things.
-
-TODO: Often you're working on something but it's not finished, but you want to
-push it. Stash, then make branch then copy files in. Tricky to do all with git,
-so do manually.
-
-TODO: see my README for details, and test what to do
-
-### Pull requests
-
-TODO
+To deal with these, and other aspects of `stash`, see
+https://www.atlassian.com/git/tutorials/saving-changes/git-stash
 
 ### The power to go back
 
@@ -401,6 +390,17 @@ Warning -- you won't be able to get any of those changes back once you do this.
 To remove a branch entirely from GitHub:
 
 `git p origin --delete BRANCH-NAME`
+
+### Pull requests
+
+You often hear about 'Pull requests', but in my workflow I've rarely used
+them. A pull request is when a
+contributor asks a maintainer of a Git repository to review code the contributor
+wants merged into the repository. It's not really used when collaborating with your
+own team, but more when you have started with someone else's repository and
+either made a branch or forked it, made some improvements (you hope!), and then
+you request that they pull your improvements into their main repository. So
+fairly advanced. For more details see [here](https://docs.github.com/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).
 
 
 ### Undoing stuff
