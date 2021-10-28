@@ -27,3 +27,5 @@ git-intro/build-pdf.bat
 
 *.html
 *.docx
+
+videos/
