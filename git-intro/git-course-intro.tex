@@ -38,13 +38,10 @@ your computer when you are happy with some changes, and share the files easily o
 \item Creating -- create a new repository on \gh
 \item Cloning -- copying it to your local computer
 \item Committing -- the crux of working with Git
-\item Collaborating -- efficiently work with colleagues
-\item Conflicts -- fixing conflict changes (happens rarely)
-\item Congratulations -- you now know the basics, summarised on a page
-  \en
+\en
   \bigskip
-We will demonstrate the basics in this video lecture, which includes three
-exercises for you (you need a partner for the third one).
+We will demonstrate the basics in this video lecture, which includes two
+exercises for you.
 }
 
 \section{Creating}
@@ -351,10 +348,12 @@ From now on we will use the aliases.
   ~~\lst{git com "Tweaked function."}\\
   {\blue Good}:\\
   ~~\lst{git com "Allow plot.biomass() to use extra colours."}\\
+  ~\\
+  A good rule of thumb is to complete the sentence "This commit will ...".
 }
 
 
-\section{Collaborating}
+\section{Congratulations}
 \frame{\frametitle{Git Workflow}
   You have now learnt the basics of using Git. By creating a public repository
   on \gh\ you can now release your code to the world!
@@ -365,228 +364,8 @@ From now on we will use the aliases.
 
   ~\\
 
-  Now we will show how to collaborate with colleagues, which is where the
+  Next we will show how to collaborate with colleagues, which is where the
   usefulness of Git will become more apparent.
 }
 
-
-\frame{\frametitle{Git Workflow}
-  There are a few different ways to collaborate using Git and \gh. We will focus on the
-  following one since it is the simplest, and is what you need to collaborate
-  with colleagues.
-
-  ~\\
-
- Concept: there is a project where people contribute to a main repository that is
-      considered the `master copy'.
-      \bi
-        \item Everyone clones directly from the creator's repository.
-        \item All collaborators push their commits to the main
-          repository (the creator has to
-          grant them permission once on \gh).
-      \ei
-
-Since the creator has to grant permission, you won't have just anyone
-contributing to (and maybe messing up your work), just your team.
-
-~\\
-But you have to trust your team to not mess things up (more on that later).
-
-}
-
-
-\frame{\frametitle{Demonstration of collaborating}
-  \bi
-    \item Kim creates new repo called \lst{collaborate} (and clones it to her computer).
-    \item Andy clones it also.
-    \item On \gh, Kim gives Andy `push access' to her \lst{collaborate} repo.
-    \item Both do some edits (create some new simple text files).
-    %  keeping an eye on the evolving Network Graphs.
-    \item For Andy to get Kim's updates (and vice versa), it will just be:
-    \bi
-      \item \lst{git fetch} -- this fetches the latest version of the repository from
-        \gh\ onto your computer. Your local files have \emph{not} yet changed
-        (check them),
-        but Git has the changes stored on your computer (!).
-      \item \lst{git rebase}  -- this updates your local
-        repository (the committed files on your computer) with the changes you
-        have just fetched, merging both people's work together.
-      \item \lst{git p} -- this pushes the merged changes back up to \gh\ so
-        that the other person can get them.
-    \ei
-  \ei
-}
-
-\frame{\frametitle{Demonstration of collaborating}
-We will show an example of \lst{git p} \emph{not} being allowed
-  because there are changes on \gh\ (by someone else) that you have not yet merged into your local
-  repository.
-
-  ~\\
-
-  You need to deal with these first by \lst{git f} and then \lst{git
-    rebase}. Here is an example of the error message you get:\\
-
-  \includegraphics[
-  width=0.8\textwidth,
-  keepaspectratio]{figures/unable-to-pull}
-
-  While a bit lengthy, the error message is useful. It forces you to get the
-  other person's work before you push yours.
-}
-
-\frame{\frametitle{Demonstration of collaborating}
-  So to be allowed to push, just fetch and then rebase (which combines the commits):
-  \bi
-\item \lst{git f}
-\item \lst{git rebase}
-\item \lst{git push}
-  \ei
-  See next page for a full screenshot.
-}
-
-\frame{\frametitle{Demonstration of collaborating}
-Here is a full screenshot (`g` is just a shortcut for `git`). The green uparrow
-number 8 tells me I have 8 commits to push to \gh. The yellow arrows I think of
-as just implying I need to do a rebase:
-
-\includegraphics[
-  width=0.55\textwidth,
-  keepaspectratio]{figures/fix-the-pull}
-}
-
-
-
-
-
-\frame{\frametitle{A bit more about \lst{git rebase}}
-\bi
-  \item Andy commits local changes, tries to \lst{git push} but is told to first
-    \lst{git fetch} (to get Kim's changes from \gh).
-  \item Andy does \lst{git fetch} and then \lst{git rebase}.
-  \item What \lst{git rebase} does is basically add Andy's commits to Kim's
-    commits (TODO: check it's not the other way around!).
-  \item Andy then does \lst{git push} to push his commits to \gh\ (from where
-    Kim will \lst{fetch} them when she's ready).
-  \item Providing there are no conflicts, this will work fine.
-\ei
-
-Another option is to do a \lst{git merge}, which basically creates a new commit
-that merges both people's work together.
-
-Our groups used to use \lst{git merge} and now use \lst{git rebase}; some people
-don't like \lst{git merge} because it adds extra commits.
-
-For a more in-depth understanding see
-https://reflectoring.io/git-rebase-merge/ for one of the
-clearer explanations out there concerning \lst{rebase} v \lst{merge}.
-}
-
-\section{Conflicts}
-\frame{\frametitle{Fixing a conflict}
-  \bi
-    \item A {\red conflict} happens when two people have edited {\red the same line(s)
-      of the same file}.
-  \item Conflicts happen relatively rarely and can be generally avoided by
-    co-ordinating with collaborators so that you are working on different
-    files. But, they will happen and you need to know how to resolve them.
-  \item Git \emph{forces} you to explicitly decide whose changes to keep -- this
-    is a {\red good} thing, since you want a human to make such a decision.
-  \ei
-
-We will demonstrate a conflict.
-}
-
-\frame{\frametitle{Fixing a conflict}
-The best approach I have found to fixing a conflict is the following:
-  \bi
-\item Trying \lst{git rebase} will tell you there is a conflict.
-\item \lst{git rebase --abort} -- do this to abort the rebase attempt.
-\item \lst{git merge} -- this will tell you there is a conflict.
-\item Open the file(s) with the conflict and edit the text (next slide).
-\item \lst{git add <filename(s)>} -- you have to then add the files that had the
-  conflict (I am not sure why this is necessary, I just do it).
-\item \lst{git com "<message>"} -- in your commit message you can explain how
-  you fixed the conflict. This is useful so that your collaborators know you have
-  resolved a conflict (they can look at the commit to see if they are happy with
-  it).
-\ei
-}
-
-\begingroup
-\small
-\frame{\frametitle{Fixing a conflict}
-  The merge message will tell you which files are conflicting. Open those
-  files one by one, and you will see the conflicted section bracketed like the
-  following:\\
-  \bigskip
-  \lst{<<<<<<< HEAD}\\
-  ~~Line(s) of text/code which are currently in your file.\\
-  \lst{=======}\\
-  ~~Line(s) of text/code which are trying to merge in, but conflict.\\
-  \lst{>>>>>>> origin/main}\\
-  \bigskip
-  where \lst{origin/main} refers to the version you have fetched from \gh.
-  ~\\
-
-  All you do is remove the line(s) of text that you do not want to keep (or edit
-  the line(s) to be something else entirely), and remove the
-  bracketing lines \lst{<<<...} and \lst{>>>...}, and
-  the \lst{=======} line.
-
-  Save each conflicted file and then (as mentioned previously):\\
-  \lst{git add <filename(s)>}\\
-  \lst{git com "Kept Kim's edits as more consistent with
-  remaining text."}\\
-  \lst{git p}
-}
-\endgroup
-
-
-\frame{\frametitle{Exercise 3: collaborating on a single repository}
-  If you have a colleague available, try what we just did:
-  \bi
-\item Person 1 creates a new repository on \gh\ and clone to their computer.
-\item Give the Person 2 `push access' to the repository (on the repo page on
-  \gh: Settings -- Manage access -- Invite a collaborator)
-\item Person 2 clones to their computer.
-\item Both create a simple text file (use different filenames), add some text
-  and, as usual, \lst{add}, \lst{commit}, and \lst{push} it.
-\item \lst{git fetch} and \lst{git rebase} to get the other person's file.
-\item Continue editing either file, committing, and pushing.
-\item If you get the \lst{push} error (shown earlier), refresh the \gh\ repository site to
-  see recent commits (click on the XX commits link). You can easily
-  spot the other person's recent commits. Click on one (the bold message) to see
-  details.
-\item Purposefully create a conflict (both edit the same line of the same
-  file). Resolve it as described earlier.
-\item In practice you won't commit so frequently, this is good to get the hang of it.
-  \ei
-}
-
-\section{Congratulations}
-\frame{\frametitle{Congratulations}
-  Congratulations, you now know the few basic commands and functionality needed
-  to collaborate with Git and \gh.
-  It takes a bit of practice, but it is very powerful.\\
-
-  {\red 95\% of the time, this is all you are doing:}\\
-  \bigskip
-  Change some code.\\
-  \lst{git com "My commit message"}\\
-  \lst{git p}\\
-  If \gh\ does not allow you to push:\\
-  \lst{git fetch}\\
-  \lst{git rebase}\\
-  If conflicts, then \lst{git rebase --abort}, \lst{git merge}, fix conflicts and:\\
-  \lst{git add CONFLICTED_FILE}\\
-  \lst{git com "Message"}
-  \lst{git p}\\
-  \bigskip
-  Change some code... repeat...
-}
-
-% Andy ending it here, as the rest won't be a recorded lecture. Have moved
-% remaining slides into module-1-git-advanced.Rmd and will just edit/remove them
-% there.
 \end{document}
