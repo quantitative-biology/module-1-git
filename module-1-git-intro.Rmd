@@ -293,14 +293,36 @@ Generally, when you create a new repository you probably want to copy an
 existing _.gitignore_ file over from an existing repository, as you will
 generally want to ignore the same types of files.
 
-**Git Workflow**
+You can also choose the _private repository_ option when creating a repository,
+so that you can control who can see it. On your repository page on GitHub, go to
+`Settings--Manage Access` to add collaborators.
+
+### What to write in commit messages
+
+You don't want to agonise over what you write in your commit messages, when
+doing `git com "Message"`, but it is worthwhile making them useful. Ideally
+
+* You want to describe *what* (and sometimes *why*) you did something.
+* The *how* is not needed since that will be explained by the actual
+    changes in the code. If someone wants to see how something was done, they
+    can see what was changed in detail in the commit.
+* The message should be informative for collaborators (including your future self).
+
+`r colorize("Not useful:")`
+
+`git com "Tweaked function."`
+
+`r colorize("Useful:", "blue")`
+
+`git com "Allow plot.biomass() to use extra colours."`
+
+A good rule of thumb is to just complete the sentence "`r colorize("This commit will ...")`".
+
+This is helpful for your collaborators and your future self.
 
 You have now learnt the basics of using Git. By creating a public repository on
 GitHub you can now release your code to the world!
 
-You can also choose the _private repository_ option when creating a repository,
-so that you can control who can see it. On your repository page on GitHub, go to
-`Settings--Manage Access` to add collaborators.
 
 ## Using Git and GitHub to collaborate with colleagues
 
