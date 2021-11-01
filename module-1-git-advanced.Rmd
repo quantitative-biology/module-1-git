@@ -378,6 +378,59 @@ If you already pushed the commit before realizing that the message needs modific
 
 after making the amendment to the commit message.
 
-### Using R and GitHub within Rstudio
+### Using R and GitHub within RStudio
 
-TODO
+If you use RStudio to work in R, then you
+may want to use RStudio to use Git. Having already learnt the basic Git commands in a
+shell should help you.
+
+One way of using Git in RStudio is just to use the commands we have learnt
+within the 'Terminal':
+
+```{r, echo = FALSE, fig.alt = "Example screenshot of using Git in the RStudio terminal.", width="100%", fig.align = "center"}
+knitr::include_graphics("../module-1-git/images/Rstudio-terminal.png",error = FALSE)
+```
+
+Alternatively, the RStudio interface has buttons with words that you are now familiar with, such as
+'Diff' and 'Commit':
+
+```{r, echo = FALSE, fig.alt = "Screenshot of the Git buttons in RStudio.", width="100%", fig.align = "center"}
+knitr::include_graphics("../module-1-git/images/Rstudio-git.png",error = FALSE)
+```
+The blue arrow has options for fetching from GitHub, while the green arrow
+is for pushing to GitHub.
+
+When you commit, instead of including the message in the Git
+command like we did, with `git com "<Message>"`, RStudio opens a window:
+
+```{r, echo = FALSE, fig.alt = "Screenshot of the Git commit message window in RStudio.", width="100%", fig.align = "center"}
+knitr::include_graphics("../module-1-git/images/Rstudio-commit-message.png",error = FALSE)
+```
+
+As you can see, having learnt what these various Git commands mean, it may be fairly
+intuitive how to proceed.
+
+To delve further, Jenny Bryan's [Happy Git and GitHub for the
+useR](https://happygitwithr.com/index.html) course introduces using Git in
+RStudio. It was originally developed for advanced-level statistics courses and
+is aimed at intermediate to advanced R users. It does include some use of a
+shell (like our module); for details on pre-requisites see
+[here](https://happygitwithr.com/big-picture.html#audience-and-pre-reqs).
+Having worked through our Git and GitHub module, you should
+easily be able to pick up the necessary components that you need.
+
+In this module's videos that had R code, I was using the Emacs text editor. I've
+used it for years for many reasons: it automatically
+highlights code in any language, is extremely versatile, has keyboard shortcuts
+which you can learn once and use forever, and as such it is
+fast to use when programming and
+avoids lots of mouse use (which can help avoid repetitive strain
+injury). I run R in Emacs with Emacs Speaks Statistics, and often use magit which is a
+way of using Git in Emacs. Also, enhancements to Emacs can improve
+[accessibility](https://www.emacswiki.org/emacs/CategoryAccessibility) for those
+that need it; for example, Emacs' customisability can [greatly improve productivity
+for visually impaired programmers](https://emacsconf.org/2019/talks/08/).
+
+Finally, one colleague runs R in RStudio while editing in
+Emacs and using magit for Git -- you will figure out what setup works best for
+you.
