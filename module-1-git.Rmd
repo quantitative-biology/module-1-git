@@ -41,7 +41,7 @@ along.
 ## You just want do download someone else's code from their GitHub repository
 
 Each GitHub repository can be viewed on GitHub. We will take a tour of a GitHub
-repository in the following video, that shows:
+repository in the following video (TODO: add link to video.), that shows:
 
  - the layout of the GitHub website of a repository
  - the most useful parts to know about
@@ -49,12 +49,6 @@ repository in the following video, that shows:
    collaborate (click the green 'Code' button and 'Download Zip'); useful to get
    the code to a supervisor, say.
  - just download one file by clicking on Raw and then save-as.
- - ....
-
-TODO - video: sizeSpectra to show files, README, can save individual files (copy
-raw contents button then save manually - need for .gitconfig) can
-download .zip of whole thing. Then hake-assessment to show multiple
-collaborators and Issues.
 
 To access a private repository, and for the rest of this module, you will need to set
 up a GitHub account:
@@ -340,7 +334,9 @@ For this course we will use a simple git shell to type commands (rather than a p
 ### Git shell, RStudio
 There are many Graphical User Interfaces that are available, as described at https://git-scm.com/downloads/guis.
 
-Many (but not all) biologists use R in RStudio for their analyses. There is Git functionality built in to RStudio that we (TODO: SOMEONE?) will demonstrate later.
+Many (but not all) biologists use R in RStudio for their analyses. There is Git
+functionality built into RStudio that we discuss briefly at the very end of
+this module.
 
 I use [magit](https://magit.vc/){target="_blank"} which works in the text editor Emacs (which for years I have used
 for pretty much everything, such as editing files, running R, Matlab, etc.). But
