@@ -263,7 +263,7 @@ Such a file has names of files (such as _my-secret-notes.txt_) or wildcard names
 (such as `*.pdf` or `*.doc`) that will be completely ignored by Git.
 
 For an example, see
-[https://github.com/pacific-hake/hake-assessment/blob/master/.gitignore](https://github.com/pacific-hake/hake-assessment/blob/master/.gitignore),
+[https://github.com/pacific-hake/hake-assessment/blob/master/.gitignore](https://github.com/pacific-hake/hake-assessment/blob/master/.gitignore){target="_blank"},
 noting that the `#` can be used for comments.
 
 
@@ -348,7 +348,7 @@ contributing to (and maybe messing up your work), just your trusted collaborator
 But you have to trust your team to not mess things up (more on that later!).
 
 Now watch this
-[video](https://drive.google.com/file/d/1rqdFBnVg_zwP6SiW-KSTp6wZzAILDeeC/view?usp=sharing)
+[video](https://drive.google.com/file/d/1rqdFBnVg_zwP6SiW-KSTp6wZzAILDeeC/view?usp=sharing){target="_blank"}
 in which we demonstrate the following:
 
 * Kim creates new repo called `collaborate` (and clones it to her computer).
@@ -408,7 +408,7 @@ Another option you hear about is to do a `git merge`, which basically creates a 
 In our teams we used to use `git merge` and now use `git rebase`; some people don't
 like `git merge` because it adds extra commits.
 
-For a more in-depth understanding see https://reflectoring.io/git-rebase-merge/ for one of the clearer explanations out there concerning rebase v merge.
+For a more in-depth understanding [see here](https://reflectoring.io/git-rebase-merge/){target="_blank"} for one of the clearer explanations out there concerning rebase versus merge.
 
 Note that the error in the above screenshot (when I could not `git push`) told
 me that I might want to do `git pull`. This is basically

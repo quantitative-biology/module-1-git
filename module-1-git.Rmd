@@ -6,7 +6,7 @@ As a biology graduate student or a professional biologist in a university or
 government setting, there are several reasons you might want to use Git and
 GitHub. We'll discuss these shortly, but first give two definitions:
 
-`r colorize("GitHub")` refers to the website [github.com]("http::github.com")
+`r colorize("GitHub")` refers to the website [github.com](http://github.com){target="_blank"}
 where millions of people and companies 'build, ship, and maintain their
 software'. This is organised by users having a unique username. For a particular
 project, a user creates a `r colorize("repository")`, which is basically a collection of code
@@ -59,7 +59,7 @@ collaborators and Issues.
 To access a private repository, and for the rest of this module, you will need to set
 up a GitHub account:
 
-* Sign up for GitHub: http://github.com
+* Sign up for GitHub at [github.com](http://github.com){target="_blank"}
 * If possible, choose a user name that will make sense to colleagues,
   e.g. __andrew-edwards__ or __cgrandin__, not __pink-unicorn__ (such a name may
   make sense to your current colleagues, but you may want something more
@@ -80,7 +80,7 @@ from various reasons:
 * Scientists (including students) are working far more collaboratively than in the past
 * This involves both sharing code and writing up results
 * There is a push towards open science -- including your code as part of a scientific paper
-* We have called this a [TTT approach](https://waves-vagues.dfo-mpo.gc.ca/Library/40750152.pdf):
+* We have called this a [TTT approach](https://waves-vagues.dfo-mpo.gc.ca/Library/40750152.pdf){target="_blank"}:
   + Transparent -- a clear and open way to show data, code, and results, enabling reproducibility
   + Traceable -- a clear link from database queries and code to final results (numbers, tables, and graphs in a document)
   + Transferable -- it should be feasible for another person to reproduce work and build upon it with a minimal learning curve
@@ -113,7 +113,7 @@ turnaround (four to five weeks) between getting the final data, doing the analys
 (model runs can take many hours of computer time), resolving new problems, and submitting the
 assessment document, which is typically >200 pages and contains numerous figures
 and tables [(2021 assessment available
-here)](https://media.fisheries.noaa.gov/2021-03/hake-assessment-post-srg-final_20210303.pdf?null).
+here)](https://media.fisheries.noaa.gov/2021-03/hake-assessment-post-srg-final_20210303.pdf?null){target="_blank"}.
 
 Prior to 2016, the document was assembled in Word, requiring lots of editing
 and amaglamating of files, often late at night. Now we share our code via
@@ -271,7 +271,7 @@ Our target audience is:
 
 This work is extended from lectures and exercises developed by Chris Grandin and
 myself as part of a
-[Fisheries and Oceans Canada workshop](https://github.com/pbs-assess/TTTworkshop). (Luckily Chris
+[Fisheries and Oceans Canada workshop](https://github.com/pbs-assess/TTTworkshop){target="_blank"}. (Luckily Chris
 _does_ have a computer science degree, and so was able to get some of us going
 with Git and GitHub several years ago). These tools are now widely used within
 our organisation.
@@ -342,7 +342,7 @@ There are many Graphical User Interfaces that are available, as described at htt
 
 Many (but not all) biologists use R in RStudio for their analyses. There is Git functionality built in to RStudio that we (TODO: SOMEONE?) will demonstrate later.
 
-I use [magit](https://magit.vc/) which works in the text editor emacs (which for years I have used
+I use [magit](https://magit.vc/){target="_blank"} which works in the text editor Emacs (which for years I have used
 for pretty much everything, such as editing files, running R, Matlab, etc.). But
 I would not have been able to learn magit without first knowing the Git commands
 from using the shell.
@@ -410,7 +410,7 @@ The configuration for directing Git to use Diffmerge will be done below. TODO: c
 * If there is already such a file there maybe save a copy of it under a
   different name so you don't completely overwrite it in the next step.
 * The template file is on GitHub
-  [here](https://raw.githubusercontent.com/quantitative-biology/module-1-git/main/misc/.gitconfig). Do
+  [here](https://raw.githubusercontent.com/quantitative-biology/module-1-git/main/misc/.gitconfig){target="_blank"}. Do
   `Save-As` (right click or from a menu) and save the file as the filename mentioned above.
 * Just a reminder for your understanding: that file on GitHub is
   shown in the normal way on the Github repository for this module:

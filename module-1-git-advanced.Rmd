@@ -32,8 +32,7 @@ You can have multiple stashes, seen by doing:
 ```
 git stash list
 ```
-To deal with these, and other aspects of `stash`, see
-https://www.atlassian.com/git/tutorials/saving-changes/git-stash
+To deal with these, and other aspects of `stash`, see [this tutorial](https://www.atlassian.com/git/tutorials/saving-changes/git-stash){target="_blank"}.
 
 If you are really really sure that you do not want to keep your recent changes,
 see the 'Undoing changes not yet committed' section near the end of this module.
@@ -326,7 +325,7 @@ wants merged into the repository. It's not really used when collaborating with y
 own team, but more when you have started with someone else's repository and
 either made a branch or forked it, made some improvements (you hope!), and then
 you request that they pull your improvements into their main repository. So
-fairly advanced. For more details see [here](https://docs.github.com/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).
+fairly advanced. For more details see [here](https://docs.github.com/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests){target="_blank"}.
 
 
 ### Undoing stuff
@@ -411,11 +410,11 @@ As you can see, having learnt what these various Git commands mean, it may be fa
 intuitive how to proceed.
 
 To delve further, Jenny Bryan's [Happy Git and GitHub for the
-useR](https://happygitwithr.com/index.html) course introduces using Git in
+useR](https://happygitwithr.com/index.html){target="_blank"} course introduces using Git in
 RStudio. It was originally developed for advanced-level statistics courses and
 is aimed at intermediate to advanced R users. It does include some use of a
 shell (like our module); for details on pre-requisites see
-[here](https://happygitwithr.com/big-picture.html#audience-and-pre-reqs).
+[here](https://happygitwithr.com/big-picture.html#audience-and-pre-reqs){target="_blank"}.
 Having worked through our Git and GitHub module, you should
 easily be able to pick up the necessary components that you need.
 
@@ -427,9 +426,9 @@ fast to use when programming and
 avoids lots of mouse use (which can help avoid repetitive strain
 injury). I run R in Emacs with Emacs Speaks Statistics, and often use magit which is a
 way of using Git in Emacs. Also, enhancements to Emacs can improve
-[accessibility](https://www.emacswiki.org/emacs/CategoryAccessibility) for those
+[accessibility](https://www.emacswiki.org/emacs/CategoryAccessibility){target="_blank"} for those
 that need it; for example, Emacs' customisability can [greatly improve productivity
-for visually impaired programmers](https://emacsconf.org/2019/talks/08/).
+for visually impaired programmers](https://emacsconf.org/2019/talks/08/){target="_blank"}.
 
 Finally, one colleague runs R in RStudio while editing in
 Emacs and using magit for Git -- you will figure out what setup works best for
