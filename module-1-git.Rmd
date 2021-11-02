@@ -329,7 +329,7 @@ For this course we will use a simple git shell to type commands (rather than a p
 3. Learning the text commands will give you a good understanding of how Git and GitHub work.
 4. It is easier to Google for help when you get stuck or want to learn about more advanced options.
 5. Commands are quick, and you can usually the up arrow (or ctrl-up-arrow) to
-   retrieve recent commands, or auto-complete commands using <TAB>.
+   retrieve recent commands, or auto-complete commands using `<TAB>`.
 
 ### Git shell, RStudio
 There are many Graphical User Interfaces that are available, as described at https://git-scm.com/downloads/guis.
@@ -362,7 +362,7 @@ some options (I don't!) just pick the simplest, usually the first.
 
 ### One-time authentication
 
-The first time you get set up or start using Git, there will be some one-timeauthentication to connect to your GitHub account. Follow any instructions.
+The first time you get set up or start using Git, there will be some one-time authentication to connect to your GitHub account. Follow any instructions.
 
 ### Configure the Git application
 
@@ -399,7 +399,7 @@ The configuration for directing Git to use Diffmerge will be done below.
 * Git uses a configuration file (called _.gitconfig_) for your account info, name to use when
   committing, aliases (shortcuts) for commands, and other things.
 * We are supplying a template _.gitconfig_ file that you will then edit.
-* For Windows, you will save is as
+* For Windows, you will save it as
   `C:\Users\YOUR-COMPUTER-USER-NAME\.gitconfig`, where YOUR-COMPUTER-USER-NAME
   is your username on your computer.
 * For MAC and Linux (we think), you will save it as `~/.gitconfig`.
