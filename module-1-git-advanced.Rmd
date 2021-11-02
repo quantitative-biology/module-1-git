@@ -430,6 +430,6 @@ way of using Git in Emacs. Also, enhancements to Emacs can improve
 that need it; for example, Emacs' customisability can [greatly improve productivity
 for visually impaired programmers](https://emacsconf.org/2019/talks/08/){target="_blank"}.
 
-Finally, one colleague runs R in RStudio while editing in
-Emacs and using magit for Git -- you will figure out what setup works best for
-you.
+Finally, one colleague use RStudio to run R, Emacs to edit R files, and
+magit (in Emacs) to run Git. You will likely similarly figure out what setup works best
+for you.
