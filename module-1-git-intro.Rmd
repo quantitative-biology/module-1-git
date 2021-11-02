@@ -153,7 +153,9 @@ Look over the changes, commit them, and push them to your GitHub repository:
 
 `git s`
 
-`git d` (or `git diff`) -- this gives a simple look at the differences between the last committed version and your current version (of all files; only one in this case)
+`git d` (or `git diff`) -- this gives a simple look at the differences between
+the last committed version and your current version (of all files; only one in
+this case).
 
 `git com` "Initial edit of Readme.md"
 
