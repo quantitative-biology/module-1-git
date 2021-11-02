@@ -417,7 +417,7 @@ The configuration for directing Git to use Diffmerge will be done below.
 
 ### Edit the _.gitconfig_ file
 
-* Use your text editor to open the new file. Given it has a non-standard
+* Use your text editor to open your saved _.gitconfig_ file. Given it has a non-standard
   extension (i.e. it is not something like *file.txt*) you may have to specify
   to open it with your editor.
 * Change the [user] name and email settings to reflect your information.
@@ -434,12 +434,14 @@ On the MAC, navigate to the `~/github` directory in a shell and run the followin
 
 This will make your git output colored in a similar way to the Windows powershell version.
 
-### Markdown Pad
+### Something to view Markdown files (optional)
 
 Each project has an associated *README.md* file that appears on its GitHub
 homepage. The extension `.md` stands for Markdown and is just an ASCii text file
-that contains simple formatting (such as bold or italics). There are two options
-we have used to readmarkdown files, choose one:
+that contains simple formatting (such as bold or italics). You can edit the file
+in any text editor. There are two options we have used to view the rendered
+versions of markdown files (rendered means it utilises the formatting you have
+coded). Choose one:
 
 * The Markdown Pad 2 editor/viewer which is easy to use: http://markdownpad.com. Just get the free version.
 * The Chrome extension for markdown viewing: https://chrome.google.com/webstore/detail/markdown-viewer/ckkdlimhmcjmikdlpkmbgfkaikojcbjk?hl=en.
@@ -448,8 +450,10 @@ Here is an intuitive short introduction to Markdown, which is worth looking at
 once you start writing more in your *README.md* files:
 https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet.
 
-With one of the above two options installed when you click on a *READMEmd* file
-you can edit the file and also see the rendered (formatted) version.
+With one of the above two options installed when you click on a *README.md* file
+you can edit the file and also see the rendered (formatted) version. I find that
+Markdown Pad 2 doesn't show (render) the *README.md* file exactly the same way as it
+appears on the GitHub website, with the GitHub version being better.
 
 ### Bonus keyboard shortcut
 
