@@ -163,6 +163,18 @@ this case).
 
 Refresh your GitHub web page and you should see your text (the _Readme.md_ file is what is shown on the main page of your repo).
 
+If you got Diffmerge installed okay, then instead of `git diff` you can do `git
+difftool`. This opens up, in turn, each file that changed since your last commit
+and shows you the differences. On the right is the new text (actually the code
+for this paragraph):
+
+```{r, echo = FALSE, fig.alt = "Screenshot of using git difftool.", width="100%", fig.align = "center"}
+knitr::include_graphics("../module-1-git/images/git-difftool.png",error = FALSE)
+```
+
+This is useful for changes that are more complex
+than can be easily see in the quick `git d`.
+
 ### Exercise 1: create, edit and commit _simpleText.txt_
 
 1. Create a text file _simpleText.txt_ in  your local `test` repository. Add a
