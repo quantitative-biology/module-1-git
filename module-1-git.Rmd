@@ -434,6 +434,35 @@ On the MAC, navigate to the `~/github` directory in a shell and run the followin
 
 This will make your git output colored in a similar way to the Windows powershell version.
 
+### Navigating in a shell
+
+You need to know how to change directories in the Git shell. This is like
+clicking on folders or going back in File Explorer (Windows) or Finder
+(Mac). Bascially you use
+
+`cd <dir.name>`
+
+to change directory (move into that directory),
+
+`cd ..`
+
+to go back up again, and
+
+`dir` (on Windows) or
+
+`ls` (on Mac)
+
+to list the contents (either command works for Linux). These are shown in the
+following screenshot, for which I opened up my Git
+shell in Windows and did the above commands,
+moving into the `test` directory, seeing what's there, and then moving back up:
+
+```{r, echo = FALSE, fig.alt = "Screenshot of basic shell commands.", width="100%", fig.align = "center"}
+knitr::include_graphics("../module-1-git/images/shell-commands.png",error = FALSE)
+```
+
+You will create such a `test` directory during the upcoming video.
+
 ### Something to view Markdown files (optional)
 
 Each project has an associated *README.md* file that appears on its GitHub
