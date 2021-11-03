@@ -316,8 +316,13 @@ https://notepad-plus-plus.org
 ### Install the Git application on your machine
 See https://git-scm.com/downloads for downloading instructions for Windows, MAC and Linux/Unix
 
-It seems best to accept the default options, except NOT Notepad or Vim (unless
-you use Vim) as the default editor.
+It seems best to accept the default options, except:
+
+ - , as it says, you probably want to switch from Vim (unless you use Vim) as the default editor.  TODO: though I think this is only for Git
+pop-up windows, not your default editor. So Notepad okay.
+
+ - 'Adjusting the name of the initial branch in new repositories' - click
+ 'Override the default branch name for new repositories' and leave it as `main`.
 
 TODO: Andy re-install as needs later version.
 
@@ -385,11 +390,24 @@ The first time you get set up or start using Git, there will be some one-time au
 ### GitHub authorisation
 
 You will use Git to communicate back and forth with your repository on the
-GitHub website. You don't want to have to enter a password every time.
+GitHub website. You don't want to have to enter a password every time. This
+is currently done by creating something called a Personal Access Token (PAT).
 
-TODO: Andy needs to reinstall a recent version of Git (currently has 2.14.1, but
-`?gitcreds::gitcreds_set` says to get 2.29 at least, though that's only for
-multiple accounts I think. Earlier help it says mine is okay.
+If using R then do:
+```
+install.packages("usethis")    # Unless you already have the usethis pacakge
+install.packages("gitcreds")    # Unless you already have the gitcreds pacakge
+usethis::create_github_token() # This opens up GitHub in your browser to set up
+                               #  a PAT token. Copy and paste the next line into
+							   #  R and then complete the setup on GitHub
+							   #  (stick with defaults), copying the resulting
+							   #  PAT token to your clipboard.
+gitcreds::gitcreds_set()       # Paste the PAT token from the clipboard as
+							   #  requested.
+```
+
+
+
 
 ### Install a difftool (optional)
 
