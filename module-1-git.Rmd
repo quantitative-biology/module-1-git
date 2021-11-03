@@ -321,7 +321,7 @@ you use Vim) as the default editor.
 
 TODO: Andy re-install as needs later version.
 
-### Git shell
+### Git shell, GUIs and RStudio
 For this course we will use a simple git shell to type commands (rather than a point-and-click Graphical User Interface). This is for several reasons:
 
 1. Commands are the same across operating systems.
@@ -331,7 +331,6 @@ For this course we will use a simple git shell to type commands (rather than a p
 5. Commands are quick, and you can usually the up arrow (or ctrl-up-arrow) to
    retrieve recent commands, or auto-complete commands using `<TAB>`.
 
-### Git shell, RStudio
 There are many Graphical User Interfaces that are available, as described at https://git-scm.com/downloads/guis.
 
 Many (but not all) biologists use R in RStudio for their analyses. There is Git
@@ -361,6 +360,8 @@ Do the 'Installation' and 'Using posh-git' sections.  If you don't understand
 some options (I don't!) just pick the simplest, usually the first.
 
 ### One-time authentication
+
+TODO: Andy add to this if necessary.
 
 The first time you get set up or start using Git, there will be some one-time authentication to connect to your GitHub account. Follow any instructions.
 
@@ -399,7 +400,6 @@ many programs that can be used but for consistency we will use Diffmerge.
 It is nice to have but not essential if you have trouble installing it.
 
 Install Diffmerge: https://sourcegear.com/diffmerge/downloads.php
-```
 
 The configuration for directing Git to use Diffmerge will be done below.
 
