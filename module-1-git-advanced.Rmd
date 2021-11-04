@@ -82,7 +82,7 @@ Consequently, your workflow is less cluttered and more tractable than having
   as this nightmare:
 
 ```{r, echo = FALSE, fig.alt = "Example showing multiple saved versions of the same file, to show what you can avoid by using Git.", width="100%", fig.align = "center"}
-knitr::include_graphics("../module-1-git/images/EAversions.png",error = FALSE)
+knitr::include_graphics("EAversions.png")
 ```
 
 **Retrieving older work in practice**
@@ -168,7 +168,7 @@ An example of why you should not commit binary files:
 on a branch yet to be born`:
 
 ```{r, echo = FALSE, fig.alt = "Example of why you shouldn't mess with the .git directory, as you get confusing error messages and have to start again.", width="100%", fig.align = "center"}
-knitr::include_graphics("../module-1-git/images/notGood.png",error = FALSE)
+knitr::include_graphics("notGood.png")
 ```
 
 I just had to start again from scratch (`clone` again I think). Take-home message:
@@ -245,7 +245,7 @@ Check the GitHub webpage to see that your branch was pushed. You repository
   you click on the _main_ drop-down menu:
 
 ```{r, echo = FALSE, fig.alt = "Example of clicking on main drop-down menu on GitHub to view other branches.", width="100%", fig.align = "center"}
-knitr::include_graphics("../module-1-git/images/main-branch.png",error = FALSE)
+knitr::include_graphics("main-branch.png")
 ```
 
 it should give you the option to look at your new _temp_ branch. (The '1 branch'
@@ -387,14 +387,14 @@ One way of using Git in RStudio is just to use the commands we have learnt
 within the 'Terminal':
 
 ```{r, echo = FALSE, fig.alt = "Example screenshot of using Git in the RStudio terminal.", width="100%", fig.align = "center"}
-knitr::include_graphics("../module-1-git/images/Rstudio-terminal.png",error = FALSE)
+knitr::include_graphics("Rstudio-terminal.png")
 ```
 
 Alternatively, the RStudio interface has buttons with words that you are now familiar with, such as
 'Diff' and 'Commit':
 
 ```{r, echo = FALSE, fig.alt = "Screenshot of the Git buttons in RStudio.", width="100%", fig.align = "center"}
-knitr::include_graphics("../module-1-git/images/Rstudio-git.png",error = FALSE)
+knitr::include_graphics("Rstudio-git.png")
 ```
 The blue arrow has options for fetching from GitHub, while the green arrow
 is for pushing to GitHub.
@@ -403,7 +403,7 @@ When you commit, instead of including the message in the Git
 command like we did, with `git com "<Message>"`, RStudio opens a window:
 
 ```{r, echo = FALSE, fig.alt = "Screenshot of the Git commit message window in RStudio.", width="100%", fig.align = "center"}
-knitr::include_graphics("../module-1-git/images/Rstudio-commit-message.png",error = FALSE)
+knitr::include_graphics("Rstudio-commit-message.png")
 ```
 
 As you can see, having learnt what these various Git commands mean, it may be fairly
