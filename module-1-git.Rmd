@@ -286,7 +286,7 @@ will be able to easily create new projects or join others in collaboration.
 
 We have tested the installations as much as feasible. If you have an issue then
 search the internet, as it may be due to some configuration on your particular
-computer, and also programs do get updated.
+computer, and installation approaches do get updated.
 
 This module is for any operating system: Windows, MacOS, Linux or Unix.
 
@@ -318,13 +318,14 @@ See https://git-scm.com/downloads for downloading instructions for Windows, MAC 
 
 It seems best to accept the default options, except:
 
- - , as it says, you probably want to switch from Vim (unless you use Vim) as the default editor.  TODO: though I think this is only for Git
-pop-up windows, not your default editor. So Notepad okay.
+* default editor: as it says, you probably want to switch from Vim (unless you
+use Vim) as the default editor. This seems to be for the editor that will be
+used if Git needs to open a text window for you to edit (which will be rare),
+not for editing your own files (and Notepad seems fine if you like).
 
- - 'Adjusting the name of the initial branch in new repositories' - click
- 'Override the default branch name for new repositories' and leave it as `main`.
-
-TODO: Andy re-install as needs later version.
+* 'Adjusting the name of the initial branch in new repositories' - click
+ 'Override the default branch name for new repositories' and leave it as
+ `main`.
 
 ### Git shell, GUIs and RStudio
 For this course we will use a simple git shell to type commands (rather than a point-and-click Graphical User Interface). This is for several reasons:
@@ -354,72 +355,38 @@ can use Git for any files, not just R code.
 ### Powershell and posh-git
 
 Download a Powershell (a shell window in which you can type commands, presumably
-the 'power' part means it's more powerful than a basic version), Git, and then
+the 'power' part means it's more powerful than a basic version) and then
 posh-git (which adds some extra features). Do this by following the instructions at
 https://github.com/dahlbyk/posh-git .
+
 Note that that is a GitHub site -- it is storing the code for `posh-git' (so
 anyone can see the code), but when you scroll down you see instructions (like in
 the repository example in the first video).
 
-Do the 'Installation' and 'Using posh-git' sections.  If you don't understand
+Do the 'Installation' and 'Using posh-git' sections. If you don't understand
 some options (I don't!) just pick the simplest, usually the first.
 
-### One-time authentication
+### Create a directory to keep all your Git-tracked work
 
-TODO: Andy add to this if necessary.
+It is handy, but not essential, to keep directories that you are tracking
+with Git and GitHub all under a single directory; it's a helpful way of
+reminding you that you are tracking such directories with Git.
 
-The first time you get set up or start using Git, there will be some one-time authentication to connect to your GitHub account. Follow any instructions.
+You can use something like `C:\github` (Windows) or `~/github` (Mac) or whatever
+you like, but make sure there are no spaces or special characters anywhere in
+the full path.
 
-### Configure the Git application
+So create such a directory. You will navigate to it later when using Git. TODO
 
-* Windows
+### Install Diffmerge (optional)
 
-  1. Create a local GitHub directory, such as `C:\github`.  It is fine to put it
-     in a different path, but make sure there are no spaces or special
-     characters anywhere in the full path. This is where you want to be saving
-     your work that you are tracking with Git. You don't have to save Git
-     repostitories in this folder, but, especially at first, it can be helpful
-     so you remember that you are tracking a folder with Git.
-
-  2. TODO: Andy has to reinstall anyway and will write something here. Think it's just following instructions.
-
-* MAC
-  1. Create the directory `~/github` for putting everything you're going to track
-     with Git (see 1. above).
-
-### GitHub authorisation
-
-You will use Git to communicate back and forth with your repository on the
-GitHub website. You don't want to have to enter a password every time. This
-is currently done by creating something called a Personal Access Token (PAT).
-
-If using R then do:
-```
-install.packages("usethis")    # Unless you already have the usethis pacakge
-install.packages("gitcreds")    # Unless you already have the gitcreds pacakge
-usethis::create_github_token() # This opens up GitHub in your browser to set up
-                               #  a PAT token. Copy and paste the next line into
-							   #  R and then complete the setup on GitHub
-							   #  (stick with defaults), copying the resulting
-							   #  PAT token to your clipboard.
-gitcreds::gitcreds_set()       # Paste the PAT token from the clipboard as
-							   #  requested.
-```
-
-
-
-
-### Install a difftool (optional)
-
-A difftool will be used to examine differences between different versions of
-files and also to simplify merging of branches and collaborator's code. There are
+A differing tool can be used to examine differences between different versions of
+files. There are
 many programs that can be used but for consistency we will use Diffmerge.
 
 It is nice to have but not essential if you have trouble installing it.
 
 Install Diffmerge: https://sourcegear.com/diffmerge/downloads.php
-
-The configuration for directing Git to use Diffmerge will be done below.
 
 ### Save our template _.gitconfig_ file
 
@@ -452,7 +419,48 @@ The configuration for directing Git to use Diffmerge will be done below.
   location where you have DiffMerge (if it installed okay).
   * For Windows the location should be: `C:\Program Files\SourceGear\Common\DiffMerge\sgdm.exe`
   * For MAC the location should be: `/usr/local/bin/diffmerge`
-* If you did not install [difftool] or [diffmerge] then delete those lines in your _.gitconfig_ file.
+* If you did not install Diffmerge then delete the nine lines from `[diff]` down
+  to `   trustExitCode = true` in your _.gitconfig_ file.
+
+### GitHub authorisation
+
+You will use Git to communicate back and forth with your repository on the
+GitHub website. You don't want to have to enter a password every time. This
+is currently done by creating something called a Personal Access Token (PAT).
+
+If using R then do:
+```
+install.packages("usethis")    # Unless you already have the usethis pacakge
+install.packages("gitcreds")    # Unless you already have the gitcreds pacakge
+usethis::create_github_token() # This opens up GitHub in your browser to set up
+                               #  a PAT token. Copy and paste the next line into
+							   #  R and then complete the setup on GitHub
+							   #  (stick with defaults), copying the resulting
+							   #  PAT token to your clipboard.
+gitcreds::gitcreds_set()       # Paste the PAT token from the clipboard as
+							   #  requested.
+```
+
+This seems to be the simplest method. If you don't use R then either
+
+1. Install R [from here](https://www.r-project.org/) and just copy the above
+lines into an R window. It obviously may seem overkill to install R just to set
+up something else, but the PAT stuff is fairly new, and the R route is fairly
+straightforward.
+
+2. Else, try [these
+instructions](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token). They
+mention that you may be asked for your PAT the first time you use
+Git (with the `git clone` command you will see soon), and that your PAT may get
+cached (meaning you don't have to keep entering it every time you interact with
+GitHub). If you repeatedly get asked for your PAT then see the instructions at
+the bottom of that page regarding caching your credentials.
+
+
+### One-time authentication
+
+The first time you get set up or start using Git, there might be some one-time
+authentication to connect to your GitHub account. Follow any instructions.
 
 ### MAC only: make your output pretty
 On the MAC, navigate to the `~/github` directory in a shell and run the following command:
@@ -511,7 +519,7 @@ you can edit the file and also see the rendered (formatted) version. I find that
 Markdown Pad 2 doesn't show (render) the *README.md* file exactly the same way as it
 appears on the GitHub website, with the GitHub version being better.
 
-### Bonus keyboard shortcut
+### Bonus keyboard shortcut (optional)
 
 In the upcoming video, I may type `g` instead of `git` as I have that shortcut
 set up. To enable this shortcut for yourself (this is not essential), create a
