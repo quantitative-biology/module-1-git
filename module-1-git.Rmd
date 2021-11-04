@@ -319,16 +319,16 @@ See https://git-scm.com/downloads for downloading instructions for Windows, MAC 
 It seems best to accept the default options, except:
 
 * default editor: as it says, you probably want to switch from Vim (unless you
-use Vim) as the default editor. This seems to be for the editor that will be
+use Vim) as the default editor. This option seems to be for the editor that will be
 used if Git needs to open a text window for you to edit (which will be rare),
-not for editing your own files (and Notepad seems fine if you like).
+not for editing your own files. Notepad seems fine here if you like.
 
 * 'Adjusting the name of the initial branch in new repositories' - click
  'Override the default branch name for new repositories' and leave it as
  `main`.
 
 ### Git shell, GUIs and RStudio
-For this course we will use a simple git shell to type commands (rather than a point-and-click Graphical User Interface). This is for several reasons:
+For this course we will use a simple Git shell to type commands (rather than a point-and-click Graphical User Interface). This is for several reasons:
 
 1. Commands are the same across operating systems.
 2. It is easier to demonstrate (and remember) a few simple commands, rather than follow a cursor moving across a screen.
@@ -431,7 +431,7 @@ is currently done by creating something called a Personal Access Token (PAT).
 If using R then do:
 ```
 install.packages("usethis")    # Unless you already have the usethis pacakge
-install.packages("gitcreds")    # Unless you already have the gitcreds pacakge
+install.packages("gitcreds")   # Unless you already have the gitcreds pacakge
 usethis::create_github_token() # This opens up GitHub in your browser to set up
                                #  a PAT token. Copy and paste the next line into
 							   #  R and then complete the setup on GitHub
@@ -455,19 +455,6 @@ Git (with the `git clone` command you will see soon), and that your PAT may get
 cached (meaning you don't have to keep entering it every time you interact with
 GitHub). If you repeatedly get asked for your PAT then see the instructions at
 the bottom of that page regarding caching your credentials.
-
-
-### One-time authentication
-
-The first time you get set up or start using Git, there might be some one-time
-authentication to connect to your GitHub account. Follow any instructions.
-
-### MAC only: make your output pretty
-On the MAC, navigate to the `~/github` directory in a shell and run the following command:
-
-`git config --global color.ui.auto`
-
-This will make your git output colored in a similar way to the Windows powershell version.
 
 ### Navigating in a shell
 
@@ -497,6 +484,24 @@ knitr::include_graphics("shell-commands.png")
 ```
 
 You will create such a `test` directory during the upcoming video.
+
+### One-time authentication
+
+The first time you get set up or start using Git, there might be some one-time
+authentication to connect to your GitHub account. For
+example, in Windows you might be asked to type
+
+`git config --global credential.helper wincred`
+
+in the Git shell. So just follow any instructions if they come up.
+
+### MAC only: make your output pretty
+On the MAC, navigate to the `~/github` directory in a shell and run the following command:
+
+`git config --global color.ui.auto`
+
+This will make your git output colored in a similar way to the Windows powershell version.
+
 
 ### Something to view Markdown files (optional)
 
