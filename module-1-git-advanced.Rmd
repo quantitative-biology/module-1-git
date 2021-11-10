@@ -330,7 +330,19 @@ fairly advanced. For more details see [here](https://docs.github.com/en/github/c
 
 ### Undoing stuff
 
-If you make a commit followed by other commits, then realize you want to undo the earlier commit, you use _revert_:
+**Undoing committed changes**
+
+If you want to undo your previous commit, then use _revert_:
+
+`git revert HEAD`
+
+This actually creates a new commit with the automatic message
+
+`Revert "<previous commit message>"`.
+
+(So you can always revert your revert if you have to! Nothing committed  is lost).
+
+If you make a commit followed by other commits, then realize you want to undo the earlier commit, you use:
 
 `git revert HASH`
 
@@ -338,12 +350,13 @@ where `HASH` is the hash for the commit you want to undo. Remember that Git shel
 
 `git revert 1ef1d`
 
-This actually creates a new commit with the automatic message
-
-`Revert "<previous commit message>"`.
-
 Obviously, you have to be careful with this if you're changing something that
 was a few commits back, as you might mess up your code.
+
+Note that the word
+_revert_ is slightly confusing here -- to me it's really an _undo_ of your
+earlier commit. It is _not_ reverting back to the earlier state of everything at
+that commit, for that you use `git checkout` as discussed above.
 
 **Undoing changes not yet committed**
 
