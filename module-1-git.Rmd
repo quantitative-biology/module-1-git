@@ -355,7 +355,8 @@ this module.
 I use [magit](https://magit.vc/){target="_blank"} which works in the text editor Emacs (which for years I have used
 for pretty much everything, such as editing files, running R, Matlab, etc.). But
 I would not have been able to learn magit without first knowing the Git commands
-from using the shell.
+from using the shell, and occasionally need to use the shell to do something
+more advanced.
 
 For now we will stick with the Git shell for the aforementioned reasons. It will
 also give you a better understanding of Git and GitHub, and emphasise that you
@@ -385,7 +386,7 @@ You can use something like `C:\github` (Windows) or `~/github` (Mac) or whatever
 you like, but make sure there are no spaces or special characters anywhere in
 the full path.
 
-So create such a directory. You will navigate to it later when using Git. TODO
+So create such a directory. You will navigate to it later when using Git.
 
 ### Install Diffmerge (optional)
 

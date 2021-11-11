@@ -50,7 +50,10 @@ You now have a new repository on the GitHub website. Next we will clone it onto 
 ### Cloning your new repository
 
 * Copy the full URL (web address) of your test repository.
-* Open the Git shell and navigate to your `C:/github` directory (or whatever you called it when you created it in the setup instructions -- it's the place you are going to save all your Git repositories).
+* Open the Git shell and navigate to your `C:/github` directory (or whatever you
+  called it when you created it in the setup instructions -- it's the place you
+  are going to save all your Git repositories). See the 'Navigating in a shell'
+  section earlier.
 * Run the following command to _clone_ your repository:
 
 `git clone URL`
