@@ -40,8 +40,8 @@ along.
 
 ## You just want do download someone else's code from their GitHub repository
 
-Each GitHub repository can be viewed on GitHub. We will take a tour of a GitHub
-repository in the following video (TODO: add link to video.), that shows:
+Each GitHub repository can be viewed on GitHub. We will first take a five-minute
+video tour of a GitHub repository, showing:
 
  - the layout of the GitHub website of a repository
  - the most useful parts to know about
@@ -49,6 +49,10 @@ repository in the following video (TODO: add link to video.), that shows:
    collaborate (click the green 'Code' button and 'Download Zip'); useful to get
    the code to a supervisor, say.
  - just download one file by clicking on Raw and then save-as.
+
+So grab some popcorn and watch the video:
+
+[![](https://img.youtube.com/vi/IgwSOxANT08/hqdefault.jpg)](https://www.youtube.com/watch?v=IgwSOxANT08){target="_blank"}
 
 To access a private repository, and for the rest of this module, you will need to set
 up a GitHub account:
