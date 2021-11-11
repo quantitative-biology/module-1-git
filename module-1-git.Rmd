@@ -1,5 +1,9 @@
 # Introduction to Git and GitHub
 
+This module consists of introductory text, four videos, and thre exercises to
+get you started using Git and GitHub.
+
+
 ## What are Git and GitHub and how might they be useful?
 
 As a biology graduate student or a professional biologist in a university or
@@ -50,7 +54,7 @@ video tour of a GitHub repository, showing:
    the code to a supervisor, say.
  - just download one file by clicking on Raw and then save-as.
 
-So grab some popcorn and watch the video:
+So grab some popcorn and watch Video 1:
 
 [![](https://img.youtube.com/vi/IgwSOxANT08/hqdefault.jpg)](https://www.youtube.com/watch?v=IgwSOxANT08){target="_blank"}
 
@@ -365,7 +369,7 @@ https://github.com/dahlbyk/posh-git .
 
 Note that that is a GitHub site -- it is storing the code for `posh-git' (so
 anyone can see the code), but when you scroll down you see instructions (like in
-the repository example in the first video).
+the repository example in Video 1).
 
 Do the 'Installation' and 'Using posh-git' sections. If you don't understand
 some options (I don't!) just pick the simplest, usually the first.
@@ -410,8 +414,7 @@ Install Diffmerge: https://sourcegear.com/diffmerge/downloads.php
   shown in the normal way on the Github repository for this module:
   https://github.com/quantitative-biology/module-1-git/blob/main/misc/.gitconfig
   and the link we gave you is from clicking `Raw', which just gives you the raw
-  code for the file -- this works for any file on GitHub, as mentioned in the
-  opening video.
+  code for the file -- this works for any file on GitHub, as mentioned in Video 1.
 
 ### Edit the _.gitconfig_ file
 
@@ -487,7 +490,7 @@ moving into the `test` directory, seeing what's there, and then moving back up:
 knitr::include_graphics("shell-commands.png")
 ```
 
-You will create such a `test` directory during the upcoming video.
+You will create such a `test` directory during Video 2.
 
 ### One-time authentication
 
@@ -530,7 +533,7 @@ appears on the GitHub website, with the GitHub version being better.
 
 ### Bonus keyboard shortcut (optional)
 
-In the upcoming video, I may type `g` instead of `git` as I have that shortcut
+In the upcoming Video 2, I may occasionally type `g` instead of `git` as I have that shortcut
 set up. To enable this shortcut for yourself (this is not essential), create a
 file (on Windows at least) called *g.bat*
 somewhere on your PATH, and have it contain just the line `git %*`.

@@ -1,14 +1,17 @@
 ## Using Git and GitHub to share your own code
 
-CHECK: This section also has two (TODO: may split first one up) recorded videos to
-demonstrate the main concepts and ideas. We suggest watching a video and then
-attempting the corresponding exercise. The notes here also give the details you
-need, so you can easily refer to them after first watching the corresponding
-video.
+This section shows how to use Git to efficiently save ongoing versions of your files and
+GitHub to share them. This is the crux of this module. It consists of Video 2
+where I demonstrate how to use Git and GitHub. You can pause the video at the
+suggested moments to repeat what was demonstrated. Two exercises are included.
 
-The first video is available [here](https://drive.google.com/drive/u/0/folders/1wLNNNn1e2zTKTjh8QAfTcS7L22990RRO)
-and the slides from the talk are [to be added](TODO)TODO, though the notes below mostly
-replicate the slides.
+The notes below repeat the details from the video, so you can easily refer to
+them later (without having to search within the video). The slides that I show
+are also available [here](TODO)TODO (though the notes below mostly replicate the slides).
+
+Okay, now for Video 2:
+
+[![](https://img.youtube.com/vi/2UYnVIg-Dws/hqdefault.jpg)](https://www.youtube.com/watch?v=2UYnVIg-Dws){target="_blank"}
 
 ### Definitions
 
@@ -338,7 +341,7 @@ GitHub you can now release your code to the world!
 ### Demonstration of collaborating
 
 Now we will show how to collaborate with colleagues, which is where the
-usefulness of Git will become more apparent.
+usefulness of GitHub will become more apparent.
 
 There are a few different ways to collaborate using Git and GitHub. We will
 focus on the following one since it is the simplest, and is what you need to
@@ -356,9 +359,12 @@ contributing to (and maybe messing up your work), just your trusted collaborator
 
 But you have to trust your team to not mess things up (more on that later!).
 
+In Video 3 we demonstrate the following:
+
+
 Now watch this
 [video](https://drive.google.com/file/d/1rqdFBnVg_zwP6SiW-KSTp6wZzAILDeeC/view?usp=sharing){target="_blank"}
-in which we demonstrate the following:
+in which we
 
 * Kim creates new repo called `collaborate` (and clones it to her computer).
 * Andy clones it also.
