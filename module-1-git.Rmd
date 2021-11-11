@@ -1,7 +1,8 @@
 # Introduction to Git and GitHub
 
-This module consists of introductory text, four videos, and thre exercises to
-get you started using Git and GitHub.
+This module consists of text, graphics, four videos, and three exercises to
+get you started using Git and GitHub. Note that the final exercise requires a
+colleague to practice collaborating with.
 
 
 ## What are Git and GitHub and how might they be useful?

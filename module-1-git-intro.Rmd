@@ -357,14 +357,10 @@ considered the 'master copy'.
 Since the creator has to grant permission, you won't have just anyone
 contributing to (and maybe messing up your work), just your trusted collaborators.
 
-But you have to trust your team to not mess things up (more on that later!).
+But you have to trust your team to not mess things up (more on that later).
 
-In Video 3 we demonstrate the following:
-
-
-Now watch this
-[video](https://drive.google.com/file/d/1rqdFBnVg_zwP6SiW-KSTp6wZzAILDeeC/view?usp=sharing){target="_blank"}
-in which we
+In Video 3 we demonstrate the following (skip these bullet points if you don't
+like spoilers!):
 
 * Kim creates new repo called `collaborate` (and clones it to her computer).
 * Andy clones it also.
@@ -376,7 +372,9 @@ in which we
   + `git rebase` -- updates your local repository (the committed files on your computer) with the changes you have just fetched, merging both people's work together.
   + `git p` -- pushes the merged changes back up to GitHub so that the other person can get them.
 
-That is the basic workflow.
+That is the basic workflow. Here is Video 3:
+
+[![](https://img.youtube.com/vi/v4DHTEP5ifQ/hqdefault.jpg)](https://www.youtube.com/watch?v=v4DHTEP5ifQ){target="_blank"}
 
 In the video you saw that we also showed an example of `git p` _not_ being allowed for Person A  because
 there are recent commits on GitHub (by Person B) that Person A has not yet
@@ -400,9 +398,11 @@ and then `rebase` to combine the commits into your local version. Then you can
 `git push`.
 
 Here is a full screenshot ('g' is just a shortcut for 'git'). The green up arrow
-number 8 tells me I have 8 commits to push to GitHub. The yellow arrows I think
-of as just implying I need to do a rebase (before doing that I might browse
-through the other person's commits on GitHub):
+number 8 tells me I have 8 commits to push to GitHub. It's generally good to
+skim the white output text to check that Git did not give an error. The yellow
+arrows I think
+of as just implying I need to do a rebase (before doing that I would usually browse
+through the other person's commits on GitHub to check what they did):
 
 ```{r, echo = FALSE, fig.alt = "Example of output when having 8 commits to push but then having to fetch and then rebase.", width="100%", fig.align = "center"}
 knitr::include_graphics("fix-the-pull.png")
@@ -448,43 +448,35 @@ in one command, but it seems preferable to do
 * Git _forces_ you to explicitly decide whose changes to keep -- this is a `r colorize("good")`
   thing, since you want a human to make such a decision.
 
-In the video we demonstrated a conflict.
-
-The best approach I have found to fixing a conflict is the following:
+In Video 4 we demonstrate a conflict, and fix it using the following (which is
+the best approach we have found):
 
 * Trying `git rebase` will tell you there is a conflict.
 * `git rebase --abort` -- do this to abort the rebase attempt.
-* `git merge` -- this will tell you there is a conflict.
-* Open the file(s) with the conflict and edit the text (see below).
-* `git add <filename(s)>` -- you have to then add the files that had the conflict (I am not sure why this is necessary, I just do it).
-* `git com "<message>"` -- in your commit message you can explain how you fixed
-  the conflict. This is useful so that your collaborators know you have resolved
-  a conflict (they can look at the commit to see if they are happy with it).
-
-The merge message will tell you which files are conflicting. Open those files
-one by one, and you will see the conflicted section bracketed like the
-following:
-
+* `git merge` -- this will tell you there is a conflict and which files are
+  conflicting.
+* Open the file(s) with the conflict and edit the text. You will see the conflicted section bracketed like this:
 ```
 <<<<<<< HEAD
 Line(s) of text/code which are currently in your file.
- =======
+=======
 Line(s) of text/code which are trying to merge in, but conflict.
 >>>>>> origin/main
 ```
-
-where `origin/main` refers to the version you have fetched from GitHub.
-All you do is remove the line(s) of text that you do not want to keep (or edit
+* Note that `origin/main` refers to the version you have fetched from GitHub.
+* Remove the line(s) of text that you do not want to keep (or edit
 the line(s) to be something else entirely), and remove the bracketing lines
-`<<<...` and `>>>...`, and the ` ======` line.
+`<<<...` and `>>>...`, and the ` ======` line (this is all shown in the
+video). Save the file(s).
+* `git add <filename(s)>` -- you have to then add the file(s) that had the conflict (I am not sure why this is necessary, I just do it).
+* `git com "<message>"` -- in your commit message you can explain why you fixed
+  the conflict. For example: `git com "Kept Kim's edits as more consistent with
+  remaining text."`  This is useful so that your collaborators know you have resolved
+  a conflict (they can look at the commit to see if they are happy with it).
 
-Save each conflicted file and then (as mentioned previously):
+Here is Video 4:
 
-```
-git add <filename(s)>
-git com "Kept Kim's edits as more consistent with remaining text."
-git p
-```
+[![](https://img.youtube.com/vi/wA4SP6ekiC0/hqdefault.jpg)](https://www.youtube.com/watch?v=wA4SP6ekiC0){target="_blank"}
 
 ### Exercise 3: collaborating on a single repository
 
@@ -618,11 +610,11 @@ decide not to pursue, but at least you have made a decision.
 bouncing ideas around -- Issues are better for stuff that you want to come back
 to at some point).
 
-You may receive emails regarding Issues, but if you use GitHub a lot you will
-see Notifications (the blue dot on the bell in the top-right corner when signed
-in on GitHub) and that
+You may receive emails regarding Issues. If you use GitHub a lot you will
+spot Notifications (the blue dot on the bell in the top-right corner when signed
+in on GitHub) that
 will show you new Issues of repositories you are involved with, or if anyone has
-updated an Issue.
+updated an Issue. You can then turn off the email notifications.
 
 
 **GitHub organizations**
