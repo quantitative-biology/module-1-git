@@ -7,7 +7,7 @@ suggested moments to repeat what was demonstrated. Two exercises are included.
 
 The notes below repeat the details from the video, so you can easily refer to
 them later (without having to search within the video). The slides that I show
-are also available [here](TODO)TODO (though the notes below mostly replicate the slides).
+are also available [here](https://github.com/quantitative-biology/module-1-git/blob/main/git-intro/git-course-intro.pdf){target="_blank"} (though the notes below mostly replicate the slides).
 
 Okay, now for Video 2:
 

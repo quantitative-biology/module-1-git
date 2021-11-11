@@ -451,13 +451,13 @@ gitcreds::gitcreds_set()       # Paste the PAT token from the clipboard as
 
 This seems to be the simplest method. If you don't use R then either
 
-1. Install R [from here](https://www.r-project.org/) and just copy the above
+1. Install R [from here](https://www.r-project.org/){target="_blank"} and just copy the above
 lines into an R window. It obviously may seem overkill to install R just to set
 up something else, but the PAT stuff is fairly new, and the R route is fairly
 straightforward.
 
 2. Else, try [these
-instructions](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token). They
+instructions](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token){target="_blank"}. They
 mention that you may be asked for your PAT the first time you use
 Git (with the `git clone` command you will see soon), and that your PAT may get
 cached (meaning you don't have to keep entering it every time you interact with
