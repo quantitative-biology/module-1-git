@@ -446,3 +446,7 @@ for visually impaired programmers](https://emacsconf.org/2019/talks/08/){target=
 Finally, one colleague use RStudio to run R, Emacs to edit R files, and
 magit (in Emacs) to run Git. You will likely similarly figure out what setup works best
 for you.
+
+### Feedback
+
+We value your input! Please take the time to let us know how we might improve these materials. [Survey](https://forms.gle/vLkcZq7NxPb2ajTQ6)
