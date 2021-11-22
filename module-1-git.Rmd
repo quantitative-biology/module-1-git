@@ -119,7 +119,7 @@ here)](https://media.fisheries.noaa.gov/2021-03/hake-assessment-post-srg-final_2
 
 Prior to 2016, the document was assembled in Word, requiring lots of editing
 and amaglamating of files, often late at night. Now we share our code via
-GitHub, automate a lot of the document production using knitr (similar to
+GitHub and automate a lot of the document production using knitr (similar to
 Rmarkdown which is covered in Module 2).
 
 So with four people constantly working on the same large document, we need to
