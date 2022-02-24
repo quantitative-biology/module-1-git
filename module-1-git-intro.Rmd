@@ -327,7 +327,7 @@ doing `git com "Message"`, but it is worthwhile making them useful. Ideally
 
 `git com "Tweaked function."`
 
-`r colorize("Useful:", "blue")`
+`r colorize("Useful:")`
 
 `git com "Allow plot.biomass() to use extra colours."`
 
