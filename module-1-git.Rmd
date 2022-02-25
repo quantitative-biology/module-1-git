@@ -106,7 +106,7 @@ annual stock assessment for Pacific Hake (_Merluccius productus_) off the west
 coast of Canada and the US. The assessment is used to manage the stock, which is of important
 ecological and economic value ($100 million export value in Canada).
 
-```{r, echo = FALSE, fig.alt = "Artist rendition of a Pacific Hake.", width="50%", fig.align = "center"}
+```{r, echo = FALSE, fig.alt = "Artist rendition of a Pacific Hake.", width="50%", fig.align = "center", fig.cap="Artist rendition of a Pacific Hake"}
 knitr::include_graphics("hake-picture.png")
 ```
 
@@ -115,8 +115,8 @@ health of the stock under different levels of catch. There is an extremely short
 turnaround (four to five weeks) between getting the final data, doing the analyses
 (model runs can take many hours of computer time), resolving new problems, and submitting the
 assessment document, which is typically >200 pages and contains numerous figures
-and tables [(2021 assessment available
-here)](https://media.fisheries.noaa.gov/2021-03/hake-assessment-post-srg-final_20210303.pdf?null){target="_blank"}.
+and tables [(2022 assessment available
+here)](https://media.fisheries.noaa.gov/2022-02/2022-hake-assessment-post-srg.pdf){target="_blank"}.
 
 Prior to 2016, the document was assembled in Word, requiring lots of editing
 and amaglamating of files, often late at night. Now we share our code via
@@ -140,7 +140,7 @@ can *avoid* when using GitHub.
 1. Using GitHub it is easy to see what text/code collaborators have changed, avoiding
 things like the following example of Track Changes in Word, for which it hard to see where to get started:
 
-```{r, echo = FALSE, fig.alt = "Example of Track Changes smorgasbord in Word.", out.width="80%", fig.align = "center"}
+```{r, echo = FALSE, fig.alt = "Example screenshot of Track Changes in Word showing numerous crossings out and edits, which leave the reader where to start editing.", out.width="80%", fig.align = "center", fig.cap = "Example of numerous Track Changes in Word, leaving the reader unsure of how to proceed."}
 knitr::include_graphics("interim.png")
 ```
 
@@ -148,7 +148,7 @@ knitr::include_graphics("interim.png")
 without GitHub we can end up with a veritable gong show, with multiple saved
 versions of the same file:
 
-```{r, echo = FALSE, fig.alt = "Example of having multiple saved versions of a file.", out.width="80%", fig.align = "center"}
+```{r, echo = FALSE, fig.alt = "Screenshot of a directory containing multiple saved versions of a file, with names that include dates and initials, which can create confusion and edits getting missed.", out.width="80%", fig.align = "center", fig.cap = "Having multiple versions of the same file can easily lead to not all edits being considered."}
 knitr::include_graphics("EAversions.png")
 ```
 
@@ -156,13 +156,13 @@ knitr::include_graphics("EAversions.png")
 version of a document. So we don't get things like this example, which tells me
 I shouldn't really do anything now and should wait until others are done merging edits:
 
-```{r, echo = FALSE, fig.alt = "Example of having to wait for colleagues to merge edits.", out.width="90%", fig.align = "center"}
+```{r, echo = FALSE, fig.cap = "Example of having to wait for colleagues to merge edits.", out.width="90%", fig.align = "center", fig.alt = "Example email exchange: I'm going to merge my draft bits to Carrie by 7:30pm, and she will merge my edits into hers. And then recirculate when she's ready."}
 knitr::include_graphics("proposalEmail.png")
 ```
 
 4. We can avoid having multiple versions of a file that then have to be carefully merged:
 
-```{r, echo = FALSE, fig.alt = "Example of having to manually manage multiple version of the same document.", out.width="90%", fig.align = "center"}
+```{r, echo = FALSE, fig.alt = "Example email: Hi Andy, I'm not sure how Lesley is handling this. Paul and I had sent edits to her yesterday and I guess she will have to merge our edits with yours. I can just hear you saying something about GitHub...", fig.cap = "Example of having to manually manage multiple version of the same document.", out.width="90%", fig.align = "center"}
 knitr::include_graphics("dogsBreakfast.png")
 ```
 
@@ -205,8 +205,7 @@ as you can check it yourself.
 2. By having code shared publicly, it is easy to answer questions, such as
    this one I once received:
 
-```{r, echo = FALSE, fig.alt = "Question someone once had about some code.", out.width="90%", fig.align = "center"}
-knitr::include_graphics("MEEcodeQuest.png")
+```{r, echo = FALSE, fig.cap = "Part of an email someone once had about some code.", fig.alt = "Screenshot of part of an email from someone asking about some code I had written. They helpfully provided a directly link to the file on GitHub plus referred to explicit line numbers." out.width="90%", fig.align = "center"} knitr::include_graphics("MEEcodeQuest.png")
 ```
 
    Rather than go searching on my laptop for the code that I hadn't looked at
@@ -214,7 +213,7 @@ knitr::include_graphics("MEEcodeQuest.png")
    link the questioner sent. I could answer very
    quickly, with a simple link to the file I am referring to (there is no ambiguity):
 
-```{r, echo = FALSE, fig.alt = "Reply showing link to code on GitHub.", out.width="70%", fig.align = "center"}
+```{r, echo = FALSE, fig.cap = "Reply showing link to code on GitHub.", fig.alt = "Screenshot of my reply, giving the GitHub link to another file containing the function definition that answered the question.", out.width="70%", fig.align = "center"}
 knitr::include_graphics("MEEcodeAnswer.png")
 ```
 
@@ -222,13 +221,13 @@ knitr::include_graphics("MEEcodeAnswer.png")
 3. You can even work out who last edited a particular line of code/text (GitHub
    amusingly calls it 'Blame'). Just open a file on GitHub and click Blame:
 
-```{r, echo = FALSE, fig.alt = "Example of GitHub showing who wrote each last line of a file.", width="130%", fig.align = "center"}
+```{r, echo = FALSE, fig.cap = "Example of GitHub showing who wrote each last line of a file.", fig.alt = "Screenshot of GitHub blame page, identifying the last person who edited each line of code.", width="130%", fig.align = "center"}
 knitr::include_graphics("blame.png")
 ```
 
    Though you'll often find that it was you all along:
 
-```{r, echo = FALSE, fig.alt = "Very amusing cartoon based on the storyline in every Scooby Doo episode. ", width="100%", fig.align = "center"}
+```{r, echo = FALSE, fig.cap = "Amusing cartoon based on the storyline in every Scooby Doo episode. ", fig.alt = "Cartoon showing that often you'll look up who wrote a piece of code and realise it was you all along; based on the popular Scooby Doo cartoon series.", width="100%", fig.align = "center"}
 knitr::include_graphics("scooby-blame.png")
 ```
 
@@ -236,7 +235,7 @@ knitr::include_graphics("scooby-blame.png")
 4. You can properly keep track of 'Issues' on GitHub (discussed later) to be
    thought about or  fixed, rather than having things in emails that get forgotten:
 
-```{r, echo = FALSE, fig.alt = "Example of GitHub Issues.", width="100%", fig.align = "center"}
+```{r, echo = FALSE, fig.cap = "Example of GitHub Issues.", fig.alt = "Screenshot of example GitHub Issues; click on the Issues tab in any repository to see them.", width="100%", fig.align = "center"}
 knitr::include_graphics("hakeIssues21.png")
 ```
 
@@ -489,7 +488,7 @@ following screenshot, for which I opened up my Git
 shell in Windows and did the above commands,
 moving into the `test` directory, seeing what's there, and then moving back up:
 
-```{r, echo = FALSE, fig.alt = "Screenshot of basic shell commands.", width="100%", fig.align = "center"}
+```{r, echo = FALSE, fig.cap = "Screenshot of basic shell commands.", fig.alt = "Screenshot of showing that dir command lists the directory contents, and cd.. moves back up.", width="100%", fig.align = "center"}
 knitr::include_graphics("shell-commands.png")
 ```
 
@@ -717,7 +716,7 @@ difftool`. This opens up, in turn, each file that changed since your last commit
 and shows you the differences. On the right is the new text (actually the code
 for this paragraph):
 
-```{r, echo = FALSE, fig.alt = "Screenshot of using git difftool.", width="100%", fig.align = "center"}
+```{r, echo = FALSE, fig.cap = "Screenshot of using git difftool.", fig.alt = "Screenshot showing changed text on the right-hand side.", width="100%", fig.align = "center"}
 knitr::include_graphics("git-difftool.png")
 ```
 
@@ -928,7 +927,7 @@ merged into their local version of the repository.
 
 Here is an example of the error message you get:
 
-```{r, echo = FALSE, fig.alt = "Example of a lengthy error message when trying to push; essentially its just telling you to pull before trying to push.", width="100%", fig.align = "center"}
+```{r, echo = FALSE, fig.cap = "Example of a lengthy error message when trying to push; essentially it's just telling you to fetch before trying to push.", fig.alt="Screenshot of an error message when trying to push, saying that the problem is usually due to someone else having pushed commits that you have not yet fetched, and that you should next fetch those commits.", width="100%", fig.align = "center"}
 knitr::include_graphics("unable-to-pull.png")
 ```
 
@@ -950,7 +949,8 @@ arrows I think
 of as just implying I need to do a rebase (before doing that I would usually browse
 through the other person's commits on GitHub to check what they did):
 
-```{r, echo = FALSE, fig.alt = "Example of output when having 8 commits to push but then having to fetch and then rebase.", width="100%", fig.align = "center"}
+```{r, echo = FALSE, fig.cap = "Example of output when having 8 commits to push but then having to fetch and then rebase.", fig.alt = "Screenshot showing yellow
+ text with up and down arrows, which I think of as meaning I have fetched commits and just need to rebase.", width="100%", fig.align = "center"}
 knitr::include_graphics("fix-the-pull.png")
 ```
 
@@ -1121,7 +1121,7 @@ When collaborating:
 GitHub _Issues_ are very useful for discussing issues with your repo. For our
 annual Pacific Hake assessment we have used them extensively over the years:
 
-```{r, echo = FALSE, fig.alt = "Example screenshot of GitHub Issues, click on Issues in any repository in GitHub to see more.", width="100%", fig.align = "center"}
+```{r, echo = FALSE, fig.cap = "Example of GitHub Issues.", fig.alt = "Screenshot of example GitHub Issues; click on the Issues tab in any repository to see them.", width="100%", fig.align = "center"}
 knitr::include_graphics("hakeIssues21.png")
 ```
 
@@ -1218,7 +1218,7 @@ see the 'Undoing changes not yet committed' section near the end of this module.
 
 ### The power to go back
 
-With Git you can revert back to any previous state of your repository.
+With Git you can go back to any previous state of your repository.
 This is `r colorize("very powerful")`, though slightly
 `r colorize("scary")` at first.
 
@@ -1248,7 +1248,7 @@ Now, to get your files back to the most recent version you had committed:
 * `git checkout main`   (it used to be `git checkout master`, the names have recently changed).
 
 That's it! Check that your files are back. All this means that you can
-`r colorize("revert to any previous commit in your repository")`.
+`r colorize("go back to any previous commit in your repository")`.
 
 This is very reassuring. For example you have some complex code that you realise
   is now a complete mess and you want to go back to yesterday's version of everything.
@@ -1258,9 +1258,9 @@ In practice you rarely actually do this, but it's very comforting to know
 
 Consequently, your workflow is less cluttered and more tractable than having
   to save multiple versions of the same files with dates in the filename, such
-  as this nightmare:
+  as this nightmare shown earlier:
 
-```{r, echo = FALSE, fig.alt = "Example showing multiple saved versions of the same file, to show what you can avoid by using Git.", width="100%", fig.align = "center"}
+```{r, echo = FALSE, fig.alt = "Screenshot of a directory containing multiple saved versions of a file, with names that include dates and initials, which can create confusion and edits getting missed.", out.width="80%", fig.align = "center", fig.cap = "Having multiple versions of the same file can be confusing and easily lead to not all edits being considered."}
 knitr::include_graphics("EAversions.png")
 ```
 
@@ -1346,7 +1346,7 @@ An example of why you should not commit binary files:
 'fatal' errors with scary messages like `bad object HEAD` and the awesomely titled `You are
 on a branch yet to be born`:
 
-```{r, echo = FALSE, fig.alt = "Example of why you shouldn't mess with the .git directory, as you get confusing error messages and have to start again.", width="100%", fig.align = "center"}
+```{r, echo = FALSE, fig.cap = "Example of why you shouldn't mess with the .git directory, as you get scary error messages and have to start again.", fig.alt = "Screenshot of error messages you can get if you mess with the .git directory, as just described.", width="100%", fig.align = "center"}
 knitr::include_graphics("notGood.png")
 ```
 
@@ -1578,14 +1578,14 @@ shell should help you.
 One way of using Git in RStudio is just to use the commands we have learnt
 within the 'Terminal':
 
-```{r, echo = FALSE, fig.alt = "Example screenshot of using Git in the RStudio terminal.", width="100%", fig.align = "center"}
+```{r, echo = FALSE, fig.cap = "Example screenshot of using Git in the RStudio terminal.", fig.alt = "Screenshot showing you can just type the Git commands in the Terminal of RStudio.", width="100%", fig.align = "center"}
 knitr::include_graphics("Rstudio-terminal.png")
 ```
 
 Alternatively, the RStudio interface has buttons with words that you are now familiar with, such as
 'Diff' and 'Commit':
 
-```{r, echo = FALSE, fig.alt = "Screenshot of the Git buttons in RStudio.", width="100%", fig.align = "center"}
+```{r, echo = FALSE, fig.cap = "Screenshot of the Git buttons in RStudio.", fig.alt = "Screenshot of the Git RStudio interface.", width="100%", fig.align = "center"}
 knitr::include_graphics("Rstudio-git.png")
 ```
 The blue arrow has options for fetching from GitHub, while the green arrow
@@ -1594,7 +1594,7 @@ is for pushing to GitHub.
 When you commit, instead of including the message in the Git
 command like we did, with `git com "<Message>"`, RStudio opens a window:
 
-```{r, echo = FALSE, fig.alt = "Screenshot of the Git commit message window in RStudio.", width="100%", fig.align = "center"}
+```{r, echo = FALSE, fig.cap = "Screenshot of the Git commit message window in RStudio.", fig.alt = "Screenshot of the window that pops open to write a commit message in RStudio.", width="100%", fig.align = "center"}
 knitr::include_graphics("Rstudio-commit-message.png")
 ```
 
